@@ -30,9 +30,8 @@ server.set('views', path.join(__dirname, '/views'));
 
 server.get('/', async (req, res) => {
     res.render('index.html');
-
-
 })
+
 server.get('/:pagina', (request, reply) => {
     let pagina = request.params.pagina;
     reply.render(`${pagina}`);
