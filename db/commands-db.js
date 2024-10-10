@@ -1,4 +1,4 @@
-import { sql } from '../db/conn.js';
+import { sql } from './conn.js';
 import shortUUID from 'short-uuid';
 
 export class DatabasePostgres {
