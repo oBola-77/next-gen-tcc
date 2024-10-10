@@ -2,7 +2,6 @@ import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 // import cors from 'cors';
-import { neon } from '@neondatabase/serverless';
 import { DatabasePostgres } from './db/commands-db.js';
 
 import ejs from 'ejs';
@@ -29,15 +28,15 @@ server.use('/src', express.static(path.join(__dirname, '/src')));
 server.use('/db', express.static(path.join(__dirname, '/db')));
 server.set('views', path.join(__dirname, '/views'));
 
+server.get('/', async (req, res) => {
+    res.render('index.html');
 
+
+})
 server.get('/:pagina', (request, reply) => {
     let pagina = request.params.pagina;
     reply.render(`${pagina}`);
     console.log(pagina)
-})
-
-server.get('/', async (req, res) => {
-    res.render('index.html');
 })
 
 server.get('/su', async (req, res) => {
