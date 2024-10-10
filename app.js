@@ -37,10 +37,6 @@ server.get('/:pagina', (request, reply) => {
 })
 
 server.get('/', async (req, res) => {
-    const sql = neon(`${process.env.DATABASE_URL}`);
-    const response = await sql`SELECT version()`;
-    const { version } = response[0];
-    console.log(version);
     res.render('index.html');
 })
 
