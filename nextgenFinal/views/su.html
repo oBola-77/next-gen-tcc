@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Pessoal</title>
+    <link rel="stylesheet" href="./src/css/su.css">
+</head>
+
+<body>
+    <div class="profile-header">
+        <div class="profile-picture">
+            <img src="default-profile.png" alt="Imagem de Perfil" id="profile-img">
+            <button id="change-img-btn">Mudar Imagem</button>
+            <input type="file" id="upload-img" accept="image/*" style="display: none;">
+        </div>
+        <div class="welcome-message">
+            <h1>Seja bem-vindo, <span id="user-name">Nome do Usuário</span>!</h1>
+        </div>
+    </div>
+
+    <div class="info-cards">
+        <div class="card">
+            <h3>Consultoria Estratégica</h3>
+            <p>Desenvolva estratégias personalizadas para alcançar suas metas de negócios com eficiência e eficácia.</p>
+        </div>
+        <div class="card">
+            <h3>Análise de Mercado</h3>
+            <p>Obtenha insights detalhados sobre seu mercado-alvo para melhorar sua posição competitiva e tomada de decisões.</p>
+        </div>
+        <div class="card">
+            <h3>Gestão de Campanhas</h3>
+            <p>Otimize suas campanhas de marketing para maximizar o retorno sobre o investimento e atingir seu público-alvo com precisão.</p>
+        </div>
+    </div>
+    <div class="projects-section">
+        <h2>Projetos Atuais</h2>
+        <div class="project">
+            <h3>Nome do Projeto</h3>
+            <p>Status: Em andamento</p>
+            <p>Detalhes: Descrição breve do projeto.</p>
+            <p>Data de Vencimento: 15/09/2024</p>
+        </div>
+        <!-- Adicione mais projetos conforme necessário -->
+    </div>
+    
+    <div class="contato-container">
+        <section class="contato">
+            <h2>Informações Pessoais</h2>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="contato@empresa.com">
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" placeholder="(00) 1234-5678">
+
+            <label for="endereco">Endereço:</label>
+            <textarea id="endereco" placeholder="Rua Exemplo, 123, Cidade, Estado"></textarea>
+
+            <label for="redes-sociais">Redes Sociais:</label>
+            <input type="url" id="redes-sociais" placeholder="https://www.redesocial.com/empresa">
+            </br> </br>
+            <center>
+                <button id="save-contact">
+                    <div class="svg-wrapper-1">
+                        <div class="svg-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" class="icon">
+                                <path d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Salvar</span>
+                </button>
+            </center>
+        </section>
+    </div>
+
+    <script src="./src/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+/* padrao */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+body {
+    background-size: cover;
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    width: 100%;
+}
+
+/* NAV */
+
+nav {
+    font-family: cursive;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    backdrop-filter: blur(25px);
+    position: fixed;
+    width: 100%;
+    height: 120px;
+    z-index: 1;
+}
+
+.logo img {
+    width: 250px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navigation {
+    display: flex;
+    gap: 1rem;
+}
+
+.navigation li {
+    list-style-type: none;
+    margin-top: 15px;
+}
+
+.navigation li a {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 99px;
+    transition: 150ms;
+    color: #ffffff;
+}
+
+.navigation li a:hover {
+    background-color: #007DFC;
+}
+
+/* NAV */
+
+
+
+/* foot */
+
+.custom-shape-divider-bottom-1683068753 {
+
+    float: left;
+    width: 100%;
+    margin-bottom: -2px;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1683068753 svg {
+
+    float: left;
+    display: block;
+    width: calc(148% + 1.3px);
+    height: 178px;
+    background: white;
+    margin-bottom: -2px;
+
+
+}
+
+.custom-shape-divider-bottom-1683068753 .shape-fill {
+    fill: #007DFC;
+}
+
+.main_footer {
+    background-color: #007DFC;
+    color: #202020;
+    font-size: 1em;
+}
+
+.main_footer .content {
+    float: left;
+    width: 80%;
+    padding: 5em 0;
+}
+
+.container-footer {
+    float: left;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+}
+
+.colfooter {
+
+    width: 100%;
+    height: auto;
+    float: left;
+    margin-bottom: 2em;
+
+}
+
+.colfooter ul {
+    width: 100%;
+    float: left;
+}
+
+.colfooter ul li {
+    padding: 0.2em 0em;
+}
+
+.colfooter ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1em;
+    transition: 0.2s;
+}
+
+.colfooter ul li a i {
+    font-size: 0.5em;
+}
+
+.colfooter ul li a:hover {
+    color: #313131;
+}
+
+.colfooter .titleFooter {
+
+    font-family: 'Lato', sans-serif;
+    font-size: 1.3em;
+    color: #ffffff;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px #ffffff solid;
+
+}
+
+.colfooter p {
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    font-size: 1em;
+    height: 25px;
+}
+
+
+
+
+.socials-container {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 40px;
+}
+
+.social {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgb(194, 194, 194);
+}
+
+.social svg {
+    fill: white;
+    height: 20px;
+}
+
+.facebook:hover {
+    background: linear-gradient(45deg, #134ac0, #316ff6, #78a3ff);
+}
+
+.google-plus:hover {
+    background: linear-gradient(45deg, #872419, #db4a39, #ff7061);
+}
+
+.instagram:hover {
+    background: #f09433;
+    background: -moz-linear-gradient(45deg,
+            #f09433 0%,
+            #e6683c 25%,
+            #dc2743 50%,
+            #cc2366 75%,
+            #bc1888 100%);
+    background: -webkit-linear-gradient(45deg,
+            #f09433 0%,
+            #e6683c 25%,
+            #dc2743 50%,
+            #cc2366 75%,
+            #bc1888 100%);
+    background: linear-gradient(45deg,
+            #f09433 0%,
+            #e6683c 25%,
+            #dc2743 50%,
+            #cc2366 75%,
+            #bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+}
+
+@media (min-width:48em) {
+
+    .colfooter {
+        width: 30%;
+        margin-right: 5%;
+        margin-bottom: 0;
+    }
+
+    .colfooter:nth-of-type(3n+0) {
+        margin-right: 0;
+        border-right: 0;
+    }
+
+}
+
+/* foote */

@@ -1,0 +1,35 @@
+{
+  "name": "nextgenfinal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app.js",
+    "cdb": "node create-table.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oBardo01/next-gen-tcc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oBardo01/next-gen-tcc/issues"
+  },
+  "homepage": "https://github.com/oBardo01/next-gen-tcc#readme",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-session": "^1.18.0",
+    "nodemon": "^3.1.6",
+    "pg": "^8.13.0",
+    "postgres": "^3.4.4",
+    "short-uuid": "^5.2.0"
+  }
+}

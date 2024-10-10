@@ -1,0 +1,215 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+.profile-header {
+    margin-left: 35px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: black;
+  
+}
+
+.profile-picture {
+    position: relative;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.profile-picture img {
+    width: 120px; /* Tamanho fixo da imagem */
+    height: 120px; /* Tamanho fixo da imagem */
+    border-radius: 50%; /* Forma circular */
+    object-fit: cover; /* Ajusta a imagem para cobrir a área sem distorcer */
+
+    transition: transform 0.3s ease;
+}
+
+.profile-picture img:hover {
+    transform: scale(1.05);
+}
+
+#change-img-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#change-img-btn:hover {
+    background-color: #0056b3;
+}
+
+.welcome-message {
+    flex: 1;
+}
+
+.welcome-message h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #007bff;
+    margin-left: 20px;
+}
+
+.info-cards {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: black;
+}
+
+.card {
+    background-color: black;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 15px;
+    width: 30%;
+    margin-left: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.contato-container {
+    padding: 20px;
+    background-color: black;
+    margin-top: 20px;
+}
+
+.contato h2 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.contato label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.contato input, .contato textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #2c2c2c;
+    color: #fff;
+}
+
+.contato textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.center {
+    text-align: center;
+}
+
+.projects-section, .feedback-section {
+    padding: 20px;
+    background-color: black;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.projects-section h2, .feedback-section h2 {
+    color: #007bff;
+}
+
+.project {
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+
+
+/* From Uiverse.io by Peary74 */ 
+button {
+  font-family: inherit;
+  font-size: 20px;
+  background: #212121;
+  color: white;
+  fill: rgb(155, 153, 153);
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  font-weight: 1000;
+}
+
+button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #000;
+}
+
+button:hover .svg-wrapper {
+  transform: scale(1.25);
+  transition: 0.5s linear;
+}
+
+button:hover svg {
+  transform: translateX(1.2em) scale(1.1);
+  fill: #fff;
+}
+
+button:hover span {
+  opacity: 0;
+  transition: 0.5s linear;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+#save-contact {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#save-contact:hover {
+    background-color: #0056b3;
+}
