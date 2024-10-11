@@ -14,8 +14,8 @@ const requestHandler = async (req, res) => {
   const result = await sql`SELECT version()`;
   const { version } = result[0];
   res.render('index.html')
-  // res.writeHead(200, { "Content-Type": "text/plain" });
-  // res.end(`${version} é aqui`);
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end(`${version} é aqui`);
 };
 
 http.createServer(requestHandler).listen(3000, () => {
