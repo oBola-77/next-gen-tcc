@@ -1,88 +1,59 @@
-.container {
+
+.card-container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
 }
 
-.list-and-description {
-    display: flex;
-    flex-direction: column;
-    width: 40%; 
-    text-align: center;
-    font-size: 16px;
-}
-.list-group2 {
-    list-style: none;
-    padding: 0;
-    width: 100%; 
-   margin-left: -20%;
-    
-}
-.list-group1 {
-    list-style: none;
-    padding: 0;
-    width: 100%; 
-    margin-left: 20%;
-}
-
-
-.list-group-item {
-    cursor: pointer;
-    padding: 10px;
-    border: 2px solid hsl(210, 100%, 49%);
-    margin: 5px 0;
-    border-radius: 4px;
-}
-
-.pro {
-    text-align: center;
-    font-size: 25px;
-    padding: 10px;
-}
-
-.description-container {
-    margin-top: 10px;
-    margin-left: -20%;
-    width: 100%;
-}
-.description-container1 {
-    margin-top: 10px;
-    margin-left: 20%;
-    width: 100%;
-}
-
-.description {
-    display: none;
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid;
-    border-radius: 4px;
-    background-color: white;
-    color: black;
-    border: 4px solid hsl(210, 100%, 49%);
-    text-align: justify;
-}
-.custom-shape-divider-bottom-1683068753 {
-
-    float: left;
-    width: 100%;
-    margin-bottom: -2px;
+.card {
+    margin-top: 15%;
+    gap: 16px; 
+    width: 300px; 
+    height: 430px; 
+    background-image: linear-gradient(163deg, #00ff75 0%, #2a00c2 100%); 
+    border-radius: 20px; 
+    transition: all .3s; 
+    box-shadow: 0px 0px 15px rgba(0, 255, 117, 0.15); 
     overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
+    margin-bottom: 5%;
 }
 
-.custom-shape-divider-bottom-1683068753 svg {
-
-    float: left;
-    display: block;
-    width: calc(148% + 1.3px);
-    height: 178px;
-    background:black;
-    margin-bottom: -2px;
-
-
+.card:hover {
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30); 
 }
 
-h4{
-    text-align: justify;
+.image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0; 
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.content {
+    padding: 1.2rem; 
+}
+
+.title {
+    color: #fff;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+}
+
+.desc {
+    margin-top: 0.5rem;
+    color: #f1f1f1;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.card:hover .content {
+    opacity: 0.9; 
 }
