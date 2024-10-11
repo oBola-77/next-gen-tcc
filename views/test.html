@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Pessoal</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="shortcut icon" href="./src/imagem/logo.jpg" type="image/x-icon">
+
+    <title>Página de Rede Social</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #007dfc;
+            color: black;
+        }
+
+        .menu-drop button {
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 600;
+            border-radius: 99px;
+            padding: 10px 20px;
+            transition: 150ms;
+            position: relative;
+            margin-top: 5px;
+        }
+
+        .drop-content {
+            transition: 150ms;
+            display: none;
+            background-color: #004d9f;
+            position: absolute;
+            border-radius: 17px;
+        }    
+
+        .menu-drop{
+            position: relative;
+        }
+
+        .drop-content a{
+            padding: 8px 10px;
+            border-radius: 17px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            display: block;
+        }
+
+        .menu-drop:hover .drop-content{
+            display: block;
+        }
+
+        .menu-drop:hover button {
+            background-color: #007dfc
+        }
+
+        .drop-content a:hover{
+            background-color: #004d9f;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start;
+            max-width: 1400px;
+            margin: auto;
+            background: rgb(255, 255, 255);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            padding-top: 7%;
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+            background-color: #000000;
+            border-color: white;
+            border-style: double;
+            border-width: 6px;
+            border-radius: 20px;
+            padding: 10px;
+            padding-bottom: 37px;
+            width: 25%;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .profile h1 {
+            margin-top: 180px;
+        }
+        
+        .file-label {
+            display: block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .file-label:hover {
+            background-color: #0056b3;
+        }
+
+        .profile img {
+            position: relative;
+            margin-top: 20px;
+            margin-right: 4px;
+            text-align: center;
+            align-items: center;
+            
+        }
+
+        .profile img {
+            width: 150px; /* Tamanho fixo da imagem */
+            height: 150px; /* Tamanho fixo da imagem */
+            border-radius: 50%; /* Forma circular */
+            object-fit: cover; /* Ajusta a imagem para cobrir a área sem distorcer */
+
+            transition: transform 0.3s ease;
+        }
+
+        .profile img:hover {
+            transform: scale(1.05);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .projects {
+            margin-top: 20px;
+            background: #000000;
+            max-width: 1400px;
+            margin: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            
+        }
+
+        .projects h3 {
+            color: #007dfc;
+        }
+
+        .project {
+            background: #000000;
+            padding: 10px;
+            border-color: white;
+            border-width: 2px;
+            border-style: solid;
+            border-radius: 20px;
+            margin-top: 12px;
+            margin-bottom: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project p2 {
+            font-size: 24px;
+            align-items: center;
+    
+        }
+
+
+        .contato {
+            margin-left: 20px;
+            background-color: #000000;
+            border-color: white;
+            border-style: double;
+            border-width: 6px;
+            border-radius: 20px;
+            padding: 30px;
+            width: 80%;
+        }
+
+        .contato-container {
+            padding: 20px;
+            background-color: black;
+            margin-top: 20px;
+        }
+
+        .contato h2 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        .contato label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .contato input,
+        .contato textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+
+        .contato textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button:hover {
+            background: #007dfc;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 20px;
+            background: #212121;
+            color: white;
+            fill: rgb(155, 153, 153);
+            padding: 0.7em 1em;
+            padding-left: 0.9em;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+            border-radius: 15px;
+            font-weight: 1000;
+        }
+
+        button span {
+            display: block;
+            margin-left: 0.3em;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button svg {
+            display: block;
+            transform-origin: center center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: #000;
+        }
+
+        button:hover .svg-wrapper {
+            transform: scale(1.25);
+            transition: 0.5s linear;
+        }
+
+        button:hover svg {
+            transform: translateX(1.2em) scale(1.1);
+            fill: #fff;
+        }
+
+        button:hover span {
+            opacity: 0;
+            transition: 0.5s linear;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .add-project {
+            display: absolute;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 1%;
+
+        }
+
+        .add-project:hover {
+            background-color: #007bff;
+        }
+
+        .delete-project {
+            display: flex;
+        }
+
+        #save-contact {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        #save-contact:hover {
+            background-color: #0056b3;
+        }
+
+        .project button {
+            color: white; /* Cor do texto */
+            font-family: inherit;
+            font-size: 10px;
+            fill: rgb(155, 153, 153);
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+            border-radius: 15px;
+            font-weight: 1000;
+        }
+
+        .project button:hover {
+            background-color: #0056b3; /* Cor ao passar o mouse */
+        }
+
+        .projects h4 {
+            font-size: 20px;
+            font-style: bold;
+        }
+
+        .projects h2 {
+            margin-top: 10px;
+            margin-left: 22px;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="./src/imagem/Pme.png" alt="logo"></a>
+            </div>
+            <ul class="navigation">
+                <li><a href="index.html">PME</a></li>
+                <li><a href="parceiros.html">Parceiros</a></li>
+                <li><a href="sobrenos.html">Sobre nós</a></li>
+                <div class="menu-drop">
+                    <button type="buttonpage" name="drop">Usuário </button>
+                    <div class="drop-content">
+                      <a href="#">Minha Conta</a>
+                      <a href="#">Projetos</a>
+                      <a href="#">Contato</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Seção de Perfil -->
+        <div class="profile">
+            <img id="profilePic" src="https://via.placeholder.com/100" alt="Foto de Perfil">
+            <label for="fileInput" class="file-label">Alterar Foto</label>
+            <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
+            <div class="welc"><h1>Seja bem-vindo, <span id="user-name">Usuário</span>!</h1></div>
+        </div>
+
+        <section class="contato">
+            <h2>Informações Pessoais</h2>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="contato@empresa.com">
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" placeholder="(00) 1234-5678">
+
+            <label for="endereco">Endereço:</label>
+            <textarea id="endereco" placeholder="Rua Exemplo, 123, Cidade, Estado"></textarea>
+
+            <label for="redes-sociais">Redes Sociais:</label>
+            <input type="url" id="redes-sociais" placeholder="https://www.redesocial.com/empresa">
+            </br> </br>
+            <center>
+                <button id="save-contact">
+                    <div class="svg-wrapper-1">
+                        <div class="svg-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30"
+                                class="icon">
+                                <path
+                                    d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Salvar</span>
+                </button>
+            </center>
+        </section>
+    </div>
+
+    <!-- Seção de Projetos e Atividades -->
+    <div class="projects">
+        <h2>Projetos e Atividades</h2>
+        <div class="projects">
+            <div class="project">
+                <h4>Campanha Marketing de Conteúdo</h4>
+                <p>Criação de Postagens nas Redes Sociais</p>
+                <p>Consultor: Pedro Abreu</p>
+                <p>Status: Concluído</p>
+                <p>Data de Conclusão: 03/10/2024</p>            
+                <button class="add-project">Adicionar</button>
+                <button class="delete-project">Excluir</button>
+            </div>
+            <div class="project">
+                <h4>Criação de Site</h4>
+                <p>Desenvolvimento de Sistema de E-commerce</p>
+                <p>Consultora: Yasmin Martins</p>
+                <p>Status: Em Andamento</p>
+                <p>Data de Vencimento: 30/10/2024</p>
+                <button class="add-project">Adicionar</button>
+                <button class="delete-project">Excluir</button>
+            </div>
+            <div class="project">
+                <button class="add-project">
+                    <p2>Adicionar Projeto</p>
+                </button>
+            </div>
+        </div>
+
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById('profilePic').src = e.target.result;
+            }
+
+            reader.readAsDataURL(file);
+        }
+
+        function saveInfo() {
+            alert("Informações salvas com sucesso!");
+        }
+    </script>
+
+</body>
+
+</html>
