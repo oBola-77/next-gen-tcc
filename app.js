@@ -33,7 +33,7 @@ server.get('/', async (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 })
 
-app.get('/api/version', async (req, res) => {
+server.get('/api/version', async (req, res) => {
     try {
       const result = await sql`SELECT version()`;
       const { version } = result[0];
