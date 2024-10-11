@@ -3,6 +3,7 @@ import session from 'express-session';
 import bodyParser from 'body-parser';
 // import cors from 'cors';
 import { DatabasePostgres } from './db/commands-db.js';
+import { sql } from './db/conn.js';
 
 import ejs from 'ejs';
 
@@ -29,8 +30,18 @@ server.use('/db', express.static(path.join(__dirname, '/db')));
 server.set('views', path.join(__dirname, '/views'));
 
 server.get('/', async (req, res) => {
-    res.render('index.html');
+    res.sendFile(__dirname + '/views/index.html');
 })
+
+app.get('/api/version', async (req, res) => {
+    try {
+      const result = await sql`SELECT version()`;
+      const { version } = result[0];
+      res.send(`PostgreSQL Version: ${version}`);
+    } catch (err) {
+      res.status(500).send('Erro ao consultar a versão do banco de dados.');
+    }
+  });
 
 server.get('/:pagina', (request, reply) => {
     let pagina = request.params.pagina;
