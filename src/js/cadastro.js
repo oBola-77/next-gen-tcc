@@ -66,7 +66,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
         });
         
         if (response.ok) {
-            window.location.href = '/test.html';  // Redireciona para a página /su
+            window.location.href = 'test.html';  // Redireciona para a página /su
         } else {
             const result = await response.json();
             alert(result.message);
