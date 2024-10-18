@@ -72,7 +72,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
             alert(result.message);
         }
     } catch (error) {
-        console.log('Erro ao logar:', error);
+        console.log(error);
         alert("Ocorreu um erro ao logar o usuário.");
     }
 })
