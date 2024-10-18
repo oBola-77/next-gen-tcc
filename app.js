@@ -49,8 +49,8 @@ server.get('/:pagina', (request, reply) => {
     console.log(pagina)
 })
 
-server.get('/su', async (req, res) => {
-    res.render('su.html');
+server.get('/test', async (req, res) => {
+    res.render('test.html');
 })
 
 server.post('/registrar', async (req, res) => {
@@ -75,7 +75,7 @@ server.post('/validarUsuario', async (req, res) => {
         if (busca.length > 0) {
             // res.status(200).json({ message: "Logado com sucesso." });
             console.log("Logado com sucesso.")
-            return res.redirect('/su');
+            return res.redirect('/test');
         }
 
     } catch (error) {
