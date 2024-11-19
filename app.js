@@ -12,11 +12,25 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const database = new DatabasePostgres;
 const porta = 8080;
 const server = express();
+const firebaseConfig = {
+    apiKey: "AIzaSyCDOqafNG9IItWc3_HY1Oak4jf1c1v8clU",
+    authDomain: "next-gen-tcc.firebaseapp.com",
+    projectId: "next-gen-tcc",
+    storageBucket: "next-gen-tcc.firebasestorage.app",
+    messagingSenderId: "688643974899",
+    appId: "1:688643974899:web:3aab81fd1b412ca89ef986"
+  };
+
+const firebase = initializeApp(firebaseConfig)
+const auth = getAuth(firebase)
 
 server.engine('html', ejs.renderFile);
 server.set('view engine', 'html');
