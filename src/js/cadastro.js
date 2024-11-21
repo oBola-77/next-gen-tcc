@@ -57,7 +57,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
     } 
     
     try {
-        const response = await fetch('/validarUsuario', {
+        const response = await fetch('/logar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
