@@ -7,21 +7,22 @@ export class DatabasePostgres {
     async registrar(dadosRegistro) {
         const idUsuario = shortUUID.generate();
         const { nomeCompleto, nomeEmpresa, email, telefone, senha, genero } = dadosRegistro;
-        console.log(idUsuario, dadosRegistro);
 
-        await sql`INSERT INTO usuarios(id_usuario, nomeCompleto, nomeEmpresa, email, telefone, senha, genero) VALUES(${idUsuario}, ${nomeCompleto}, ${nomeEmpresa}, ${email}, ${telefone}, ${senha}, ${genero})`;
-        console.log("Banco de dados criado");
+        console.log("Iniciando registro no banco e Firebase...", idUsuario, dadosRegistro);
 
-        createUserWithEmailAndPassword(auth, email, senha)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log("Usuário criado:", user)
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.error("Erro ao criar usuário:", errorCode, errorMessage);
-            });
+        try {
+            // Insere os dados no banco de dados
+            await sql`INSERT INTO usuarios(id_usuario, nomeCompleto, nomeEmpresa, email, telefone, senha, genero)
+                      VALUES(${idUsuario}, ${nomeCompleto}, ${nomeEmpresa}, ${email}, ${telefone}, ${senha}, ${genero})`;
+            console.log("Usuário salvo no banco de dados.");
+
+            // Cria o usuário no Firebase Authentication
+            const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+            console.log("Usuário criado no Firebase:", userCredential.user);
+        } catch (error) {
+            console.error("Erro durante o registro:", error);
+            throw error; // Repassa o erro para o método chamador
+        }
     }
 
     async validar(dadosLogin) {
