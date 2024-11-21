@@ -78,7 +78,6 @@ server.post('/logar', async (req, res) => {
             console.log("Logado com sucesso.")
             return res.redirect('/test');
         }
-
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Erro ao logar" })
