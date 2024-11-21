@@ -57,7 +57,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
     } 
     
     try {
-        const response = await fetch('/logar', {
+        const response = await fetch('/logar', { //aqui tava o erro
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
