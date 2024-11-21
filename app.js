@@ -65,7 +65,7 @@ server.post('/registrar', async (req, res) => {
     }
 })
 
-server.post('/validarUsuario', async (req, res) => {
+server.post('/logar', async (req, res) => {
     const dadosLogin = req.body;
 
     try {

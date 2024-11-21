@@ -1,7 +1,7 @@
 import { sql } from './conn.js';
 import shortUUID from 'short-uuid';
 import { auth } from './firebase.js'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 
 export class DatabasePostgres {
     async registrar(dadosRegistro) {
@@ -27,14 +27,25 @@ export class DatabasePostgres {
 
     async validar(dadosLogin) {
         const { emailLogin, senhaLogin } = dadosLogin;
-        console.log(dadosLogin);
-        console.log("retorno do req.body")
 
-        const busca = await sql`SELECT * FROM usuarios WHERE email ilike ${emailLogin} AND senha ilike ${senhaLogin}`
+        try {
+            console.log("Iniciando validação de login...");
 
-        console.log(busca);
-        console.log("busca sql")
+            const userCredential = await signInWithEmailAndPassword(auth, emailLogin, senhaLogin);
+            const user = userCredential.user;
+            console.log("Usuário autenticado no Firebase:", user);
 
-        return busca;
+            const busca = await sql`SELECT * FROM usuarios WHERE email ilike ${emailLogin}`;
+            if (busca.length === 0) {
+                throw new Error("Usuário não encontrado no banco de dados.");
+            }
+
+            console.log("Dados do usuário buscados no banco:", busca);
+
+            return busca[0];
+        } catch (error) {
+            console.error("Erro durante o login:", error.message);
+            throw error; // Repassa o erro para o método chamador
+        }
     }
 }
