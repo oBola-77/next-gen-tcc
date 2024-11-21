@@ -64,12 +64,12 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
             },
             body: JSON.stringify(dadosLogin)
         });
-        
+
+        const data = await response.json()
         if (response.ok) {
             window.location.href = 'test.html';  // Redireciona para a página /su
         } else {
-            const result = await response.json();
-            alert(result.message);
+            console.error('Erro no login: ', data.message)
         }
     } catch (error) {
         console.log('Erro ao logar:', error);
