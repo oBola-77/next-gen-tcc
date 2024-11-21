@@ -24,7 +24,7 @@ export class DatabasePostgres {
         await sql`INSERT INTO usuarios(id_usuario, nomeCompleto, nomeEmpresa, email, telefone, senha, genero) VALUES(${idUsuario}, ${nomeCompleto}, ${nomeEmpresa}, ${email}, ${telefone}, ${senha}, ${genero})`;
         console.log("Banco de dados criado");
 
-        await createUserWithEmailAndPassword(auth, email, senha)
+        createUserWithEmailAndPassword(auth, email, senha)
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log("Usuário criado:", user)
