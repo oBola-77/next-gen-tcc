@@ -33,6 +33,9 @@ export class DatabasePostgres {
 
             const userCredential = await signInWithEmailAndPassword(auth, emailLogin, senhaLogin);
             const user = userCredential.user;
+            console.log('Email:', emailLogin);
+            console.log('Senha:', senhaLogin);
+
             console.log("Usuário autenticado no Firebase:", user);
 
             const busca = await sql`SELECT * FROM usuarios WHERE email ilike ${emailLogin}`;
