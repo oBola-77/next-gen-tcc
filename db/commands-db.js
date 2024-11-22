@@ -30,11 +30,11 @@ export class DatabasePostgres {
 
         try {
             console.log("Iniciando validação de login...");
+            console.log('Email:', emailLogin);
+            console.log('Senha:', senhaLogin);
 
             const userCredential = await signInWithEmailAndPassword(auth, emailLogin, senhaLogin);
             const user = userCredential.user;
-            console.log('Email:', emailLogin);
-            console.log('Senha:', senhaLogin);
 
             console.log("Usuário autenticado no Firebase:", user);
 
