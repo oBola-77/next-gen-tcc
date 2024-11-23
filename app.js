@@ -66,9 +66,9 @@ server.post('/registrar', async (req, res) => {
 })
 
 server.post('/logar', async (req, res) => {
+    const dadosLogin = req.body;
     
     try {
-        const dadosLogin = req.body;
         
         const busca = await database.validar(dadosLogin);
         console.log(busca);
@@ -78,11 +78,16 @@ server.post('/logar', async (req, res) => {
             console.log("Logado com sucesso.")
             return res.redirect('/test');
         }
+
+        res.status(200).json({
+            message: "Login Realizado",
+            uid: busca.uid,
+            email: busca.email
+        })
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Erro ao logar" })
     }
-
 })
 
 server.listen(porta, () => {

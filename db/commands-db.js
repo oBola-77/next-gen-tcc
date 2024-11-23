@@ -38,12 +38,15 @@ export class DatabasePostgres {
 
             console.log("Usuário autenticado no Firebase:", user);
 
-            return res.status(200).json({
-                message: "Login bem-sucedido",
-                uid: user.uid,
-                email: user.email,
-                token: user.stsTokenManager.accessToken, // Opcional
-            });
+            return { uid: user.uid, email: user.email };
+
+            const busca = await sql`SELECT * FROM usuarios WHERE email ilike ${emailLogin}`;
+            if (busca.length === 0) {
+                throw new Error("Usuário não encontrado no banco de dados.");
+            }
+
+            console.log("Dados do usuário buscados no banco:", busca);
+            return busca[0];
         } catch (error) {
             console.error("Erro durante o login:", error.message);
             throw error; // Repassa o erro para o método chamador
