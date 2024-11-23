@@ -93,3 +93,4 @@ server.post('/logar', async (req, res) => {
 server.listen(porta, () => {
     console.log(`server subiu em ${porta}`)
 })
+//neste ponto rodou o login e o cadastro com firebase, só resta a sessão
