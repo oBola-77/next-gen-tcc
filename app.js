@@ -66,15 +66,15 @@ server.post('/registrar', async (req, res) => {
 })
 
 server.post('/logar', async (req, res) => {
-    const dadosLogin = req.body;
-
+    
     try {
+        const dadosLogin = req.body;
+        
         const busca = await database.validar(dadosLogin);
         console.log(busca);
         console.log("return do app.js")
 
         if (busca.length > 0) {
-            // res.status(200).json({ message: "Logado com sucesso." });
             console.log("Logado com sucesso.")
             return res.redirect('/test');
         }

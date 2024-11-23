@@ -67,6 +67,8 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
 
         const data = await response.json()
         if (response.ok) {
+            console.log("Login bem-sucedido", data);
+            alert("Bem-vindo, " + data.email);
             window.location.href = 'test.html';  // Redireciona para a página /su
         } else {
             console.error('Erro no login: ', data.message)
