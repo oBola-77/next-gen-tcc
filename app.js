@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
@@ -31,7 +32,7 @@ server.use('/src', express.static(path.join(__dirname, '/src')));
 server.use('/db', express.static(path.join(__dirname, '/db')));
 server.use(
     session({
-        secret: "",
+        secret: process.env.SESSION_SECRET,
         resave: false,
         saveUninitialized: false,
         cookie: { secure: false, httpOnly: true }
