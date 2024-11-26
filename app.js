@@ -66,8 +66,8 @@ server.get('/:pagina', (request, reply) => {
 })
 
 server.get('/test', authMiddleware, async (req, res) => {
-    res.json({ message: "Acesso autorizado!", user: req.user });
-    res.render('test.html');
+    res.status(200).json({ message: "Acesso autorizado!", user: req.user });
+    // res.render('test.html');
 })
 
 server.post('/registrar', async (req, res) => {
