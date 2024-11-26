@@ -1,6 +1,35 @@
 let formRegistro = document.getElementById('formRegistro');
 let formLogin = document.getElementById('formLogin')
 
+function fetchTest() {
+    const token = localStorage.getItem('authToken'); 
+
+    if (!token) {
+        console.log('Token não encontrado');
+        return;
+    }
+
+    fetch('/test', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`, 
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Acesso não autorizado');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Resposta:', data);
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
+}
+
 formRegistro.addEventListener('submit', async function registrarUsuario(event) {
     event.preventDefault();
 
@@ -69,7 +98,12 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
             const data = await response.json()
             console.log("Login bem-sucedido", data);
             alert("Bem-vindo, " + data.email);
-            window.location.href = 'test.html';  // Redireciona para a página /su
+
+            localStorage.setItem('authToken', data.token)
+
+            window.location.href = 'test.html';
+
+            fetchTest();
         } else {
             console.error('Erro no login: ', data.message)
         }
