@@ -102,7 +102,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
 
             localStorage.setItem('authToken', data.token)
 
-            window.location.href = 'test.html';
+            // window.location.href = 'test.html';
 
             fetchTest();
         } else {
