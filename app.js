@@ -123,7 +123,6 @@ server.post('/logar', async (req, res) => {
 server.post('/logout', (req, res) => {
     res.clearCookie("authToken");
     res.status(200).json({ message: "Logout realizado com sucesso" });
-    res.redirect('/cadastro');
 });
 
 server.listen(porta, () => {
