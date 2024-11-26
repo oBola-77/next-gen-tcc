@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import session from 'express-session';
+import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 // import cors from 'cors';
 import { DatabasePostgres } from './db/commands-db.js';
@@ -30,6 +31,7 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use('/src', express.static(path.join(__dirname, '/src')));
 server.use('/db', express.static(path.join(__dirname, '/db')));
+server.use(cookieParser());
 server.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -85,7 +87,9 @@ server.post('/logar', async (req, res) => {
         console.log("return do app.js")
 
         if (busca) {
-            const token = gerarToken(busca);
+            const payload = { uid: busca[0].uid, email: busca[1].email}
+            const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
+            console.log('token gerado', token);
 
             res.cookie("authToken", token, {
                 httpOnly: true,
@@ -99,7 +103,7 @@ server.post('/logar', async (req, res) => {
             });
 
             console.log("Logado com sucesso.")
-            return res.redirect('/test');
+            return res.status(200).json({ message: "Logado com sucesso"});
         }
 
         res.status(401).json({ message: "Dados inválidos" });

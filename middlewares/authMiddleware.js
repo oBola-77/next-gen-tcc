@@ -1,5 +1,7 @@
 import dotenv from 'dotenv';
+dotenv.config();
 import jwt from 'jsonwebtoken';
+const JWT_SECRET = process.env.JWT_SECRET
 
 export function verificarToken(req, res, next) {
   const token = req.cookies?.authToken; 
@@ -8,14 +10,10 @@ export function verificarToken(req, res, next) {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, JWT_SECRET);
     req.user = decoded; 
     next();
   } catch (err) {
     res.status(403).json({ message: "Token inválido" });
   }
-}
-
-export function gerarToken(busca) {
-  jwt.sign({ uid: busca.uid, email: busca.email }, process.env.JWT_SECRET, { expiresIn: "1h" });
 }
