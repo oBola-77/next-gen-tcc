@@ -6,8 +6,8 @@ function fetchTest() {
     const token = localStorage.getItem('authToken'); 
 
     if (!token) {
-        console.log('Token não encontrado');
-        return;
+        console.log('Token não encontrado');        
+        return res.status(401).json("Acesso não autorizado, token não fornecido");
     }
 
     fetch('/test', {
