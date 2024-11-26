@@ -65,6 +65,7 @@ server.get('/:pagina', (request, reply) => {
 })
 
 server.get('/test', verificarToken, async (req, res) => {
+    console(verificarToken);
     res.render('test.html');
 })
 
