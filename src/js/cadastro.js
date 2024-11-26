@@ -101,8 +101,6 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
             alert("Bem-vindo, " + data.email);
             alert("data", data);
 
-            localStorage.setItem('authToken', data.token)
-
             // window.location.href = 'test.html';
 
             fetchTest();

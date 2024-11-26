@@ -104,6 +104,8 @@ server.post('/logar', async (req, res) => {
                 }
             });
 
+            localStorage.setItem('authToken', data.token)
+
             console.log("Logado com sucesso.")
             return res.status(200).json({ message: "Logado com sucesso"});
         }
