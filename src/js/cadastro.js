@@ -99,6 +99,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
             const data = await response.json()
             console.log("Login bem-sucedido", data);
             alert("Bem-vindo, " + data.email);
+            alert("data", data);
 
             localStorage.setItem('authToken', data.token)
 
