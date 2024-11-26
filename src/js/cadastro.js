@@ -96,16 +96,21 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
 
         if (response.ok) {
             console.log("ta aqui");
-            const data = await response.json()
-            console.log("Login bem-sucedido", data);
-            alert("Bem-vindo, " + data.email);
-            alert("data", data);
+            const data = await response.json();
 
-            // window.location.href = 'test.html';
+            if(data.token) {
+                alert("Bem vindo, " + data.email + "!");
 
-            fetchTest();
+                localStorage.setItem("authToken", data.token);
+
+                window.location.href = 'test.html';  
+                
+                fetchTest();
+            } else {
+                console.log("cade o token?");
+            }
         } else {
-            console.error('Erro no login: ', data.message)
+            console.error('Erro no login: ', data.message);
         }
     } catch (error) {
         console.log('Erro ao logar:', error);
