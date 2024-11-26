@@ -8,7 +8,7 @@ function fetchTest() {
 
     if (!token) {
         console.log('Token não encontrado');        
-        window.location.href = 'cadastro.html'; // Redireciona para a página de login
+        window.location.href = 'cadastro'; // Redireciona para a página de login
         return;
     }
 
