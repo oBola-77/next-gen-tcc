@@ -13,7 +13,7 @@ import path from 'path';
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { verificarToken, gerarToken } from './middlewares/authMiddleware.js'
+import { verificarToken } from './middlewares/authMiddleware.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
