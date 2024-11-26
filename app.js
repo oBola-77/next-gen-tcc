@@ -1,6 +1,6 @@
 import express from 'express';
 import session from 'express-session';
-import bodyParser from 'body-prser';
+import bodyParser from 'body-parser';
 // import cors from 'cors';
 import { DatabasePostgres } from './db/commands-db.js';
 import { sql } from './db/conn.js';
