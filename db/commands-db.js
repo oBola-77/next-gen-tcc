@@ -51,4 +51,5 @@ export class DatabasePostgres {
             throw error; // Repassa o erro para o método chamador
         }
     }
-}
+} //FOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOI
+
