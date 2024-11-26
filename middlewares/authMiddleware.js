@@ -16,6 +16,6 @@ export function verificarToken(req, res, next) {
   }
 }
 
-export function gerarToken(uid) {
+export function gerarToken(busca) {
   jwt.sign({ uid: busca.uid, email: busca.email }, process.env.JWT_SECRET, { expiresIn: "1h" });
 }
