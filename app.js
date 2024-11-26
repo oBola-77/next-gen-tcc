@@ -88,8 +88,8 @@ server.post('/logar', async (req, res) => {
 
             res.cookie("authToken", token, {
                 httpOnly: true,
-                secure: false, // Altere para true em produção com HTTPS
-                maxAge: 3600000, // 1 hora
+                secure: false,
+                maxAge: 3600000, 
                 userData: {
                     message: "Login Realizado",
                     uid: busca.uid,
