@@ -1,6 +1,5 @@
 let formRegistro = document.getElementById('formRegistro');
 let formLogin = document.getElementById('formLogin')
-let fetchTest = document.getElementById('btnFetchTest')
 
 function fetchTest() {
     const token = localStorage.getItem('authToken'); 
@@ -119,5 +118,3 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
         alert("Ocorreu um erro ao logar o usuário.");
     }
 })
-
-fetchTest.addEventListener('click', fetchTest);
