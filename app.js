@@ -15,7 +15,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 // import jwt from 'jsonwebtoken';
 import { gerarToken } from './middlewares/authMiddleware.js';
-import authMiddleware from './middlewares/authMiddleware.js'
+import authMiddleware from './middlewares/authMiddleware'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
