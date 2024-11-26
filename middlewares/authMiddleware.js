@@ -4,13 +4,15 @@ import jwt from 'jsonwebtoken';
 const JWT_SECRET = process.env.JWT_SECRET
 
 const authMiddleware = (req, res, next) => {
+  console.log("iniciando a prr da verificação");
   const autHeader = req.headers.authorization;
+  console.log(autHeader);
   if (!autHeader) { return res.status(401).json("Acesso não autorizado, token não fornecido"); }
 
   const token = autHeader.split(' ')[1];
   if (!token) {
     return res.status(401).json("Token não encontrado");
-  }
+  } else { console.log("o toke ta aq"); }
 
   jwt.verify(token, JWT_SECRET, (err, decoded) => {
     if (err) { return res.status(403).json("Token inválido"); }
