@@ -11,6 +11,25 @@
     background-color: black;
     max-width: 100%;
 }
+.privacy-policy-checkbox {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 23%;
+}
+
+.privacy-policy-checkbox label {
+    margin-left: 5px;
+}
+
+.privacy-policy-checkbox a {
+    color: #007DFC; 
+    text-decoration: none; 
+}
+
+.privacy-policy-checkbox a:hover {
+    text-decoration: underline;
+}
 
 nav {
     font-family: cursive;
@@ -168,6 +187,7 @@ html, body {
     width: 100%;
     background: #17181d;
     border-radius: 10px;
+    
 }
 
 .container .form-content {

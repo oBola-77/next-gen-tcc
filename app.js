@@ -45,7 +45,6 @@ server.use(
 );
 server.set('views', path.join(__dirname, '/views'));
 
-
 server.get('/', async (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 })
