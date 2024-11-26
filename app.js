@@ -85,7 +85,7 @@ server.post('/logar', async (req, res) => {
         console.log("return do app.js")
 
         if (busca) {
-            const token = jwt.sign({ uid: busca.uid, email: busca.email }, JWT_SECRET, { expiresIn: "1h" });
+            const token = jwt.sign({ uid: busca.uid, email: busca.email }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
             res.cookie("authToken", token, {
                 httpOnly: true,
