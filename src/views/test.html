@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Pessoal</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/testeusu.css">
+    <link rel="shortcut icon" href="./src/imagem/logo.jpg" type="image/x-icon">
+
+    <title>Página de Rede Social</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="./src/imagem/Pme.png" alt="logo"></a>
+            </div>
+            <ul class="navigation">
+                <li><a href="index.html">PME</a></li>
+                <li><a href="parceiros.html">Avaliações</a></li>
+                <li><a href="sobrenos.html">Sobre nós</a></li>
+                <li><a href="testecadastro.html">Login</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="profile">
+            <img id="profilePic" src="src/imagem/victor.jpg" alt="Foto de Perfil">
+            <label for="fileInput" class="file-label"><span class="text">Alterar Foto</span></label>
+            <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
+            <div class="welc">
+                <h1>Seja bem-vindo, <span id="user-name"> Victor</span>!</h1>
+            </div>
+        </div>
+
+        <section class="contato">
+            <h2>Informações Pessoais</h2>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="contato@empresa.com">
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" placeholder="(00) 1234-5678">
+
+            <label for="endereco">Endereço:</label>
+            <textarea id="endereco" placeholder="Rua Exemplo, 123, Cidade, Estado"></textarea>
+
+            <label for="redes-sociais">Redes Sociais:</label>
+            <input type="url" id="redes-sociais" placeholder="https://www.redesocial.com/empresa">
+            </br> </br>
+            <center>
+                <button id="save-contact">
+                    <div class="svg-wrapper-1">
+                        <div class="svg-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30"
+                                class="icon">
+                                <path
+                                    d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Salvar</span>
+                </button>
+            </center>
+        </section>
+    </div>
+
+    <div class="container2">
+        <div class="card-wrapper">
+            <section class="custom-jumbotron">
+                <div class="custom-container">
+                    <h1 class="custom-heading">Abaixo estão os projetos disponíveis:</h1>
+                    <p class="custom-lead">Aqui você pode visualizar os projetos em que estamos trabalhando ou que já
+                        foram finalizados. Cada card representa um projeto.</p>
+                </div>
+            </section>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./src/imagem/camp.jfif" alt="" srcset="">
+                </div>
+                <div class="project-info">
+                    <span class="project-title">Campanha Marketing de Conteúdo</span>
+                    <p class="project-description">Criação de Postagens nas Redes Sociais.</p>
+                    <p class="project-description">Consultor: Pedro Abreu</p>
+                    <p class="project-description">Status: Concluído</p>
+                    <p class="project-description">Data de Conclusão: 03/10/2024</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./src/imagem/Crias.jpg" alt="" srcset="">
+                </div>
+                <div class="project-info">
+                    <span class="project-title">Criação de Site</span>
+                    <p class="project-description">Desenvolvimento de Sistema de E-commerce</p>
+                    <p class="project-description">Consultora: Yasmin Martins</p>
+                    <p class="project-description">Status: Em Andamento</p>
+                    <p class="project-description">Data de Vencimento: 30/10/2024</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./src/imagem/Redes.jpg" alt="" srcset="">
+                </div>
+                <div class="project-info">
+                    <span class="project-title">Treinamento e Gestão</span>
+                    <p class="project-description">Implementação: Instagram, Facebook e Whatsapp Business.</p>
+                    <p class="project-description">Consultor: Gabriela Eugman</p>
+                    <p class="project-description">Status: Em andamento</p>
+                    <p class="project-description">Data de Conclusão: 23/11/2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <section class="custom-jumbotron">
+        <div class="custom-container">
+            <h1 class="custom-heading">Evolução do Engajamento no Instagram</h1>
+            <p class="custom-lead">Abaixo você pode acompanhar a evolução dos principais indicadores do seu Instagram:
+                Likes, Comentários e Views. Esses gráficos ajudam a analisar o engajamento e o alcance do seu conteúdo,
+                facilitando ajustes na sua estratégia.</p>
+        </div>
+    </section>
+    <div class="dados">
+        <div class="card2">
+            <div class="header">
+                <div class="left">
+                    <span class="title">Likes</span>
+                    <span class="number" id="likeCount">259</span>
+                </div>
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+            <div class="chart">
+                <svg id="likesChart" viewBox="0 0 370 200">
+                    <g class="grid-lines">
+                        <line x1="50" y1="50" x2="50" y2="180" class="grid-line"></line>
+                        <line x1="100" y1="50" x2="100" y2="180" class="grid-line"></line>
+                        <line x1="150" y1="50" x2="150" y2="180" class="grid-line"></line>
+                        <line x1="200" y1="50" x2="200" y2="180" class="grid-line"></line>
+                        <line x1="250" y1="50" x2="250" y2="180" class="grid-line"></line>
+                        <line x1="300" y1="50" x2="300" y2="180" class="grid-line"></line>
+                    </g>
+                    <path id="likesGraph" class="path"
+                        d="M50 170 Q 100 120, 150 100 Q 200 80, 250 120 Q 300 140, 350 110" />
+                </svg>
+            </div>
+            <div class="footer">Evolução de Likes do Instagram</div>
+        </div>
+
+        <div class="card2">
+            <div class="header">
+                <div class="left">
+                    <span class="title">Comentários</span>
+                    <span class="number" id="commentCount">459</span>
+                </div>
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+            <div class="chart">
+                <svg id="commentsChart" viewBox="0 0 370 200">
+                    <g class="grid-lines">
+                        <line x1="50" y1="50" x2="50" y2="180" class="grid-line"></line>
+                        <line x1="100" y1="50" x2="100" y2="180" class="grid-line"></line>
+                        <line x1="150" y1="50" x2="150" y2="180" class="grid-line"></line>
+                        <line x1="200" y1="50" x2="200" y2="180" class="grid-line"></line>
+                        <line x1="250" y1="50" x2="250" y2="180" class="grid-line"></line>
+                        <line x1="300" y1="50" x2="300" y2="180" class="grid-line"></line>
+                    </g>
+                    <path id="commentsGraph" class="path"
+                        d="M50 170 Q 100 100, 150 90 Q 200 60, 250 140 Q 300 150, 350 120" />
+                </svg>
+            </div>
+            <div class="footer">Evolução de Comentários do Instagram</div>
+        </div>
+
+        <div class="card2">
+            <div class="header">
+                <div class="left">
+                    <span class="title">Views</span>
+                    <span class="number" id="viewCount">1234</span>
+                </div>
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+            <div class="chart">
+                <svg id="viewsChart" viewBox="0 0 370 200">
+                    <g class="grid-lines">
+                        <line x1="50" y1="50" x2="50" y2="180" class="grid-line"></line>
+                        <line x1="100" y1="50" x2="100" y2="180" class="grid-line"></line>
+                        <line x1="150" y1="50" x2="150" y2="180" class="grid-line"></line>
+                        <line x1="200" y1="50" x2="200" y2="180" class="grid-line"></line>
+                        <line x1="250" y1="50" x2="250" y2="180" class="grid-line"></line>
+                        <line x1="300" y1="50" x2="300" y2="180" class="grid-line"></line>
+                    </g>
+                    <path id="viewsGraph" class="path"
+                        d="M50 170 Q 100 140, 150 130 Q 200 100, 250 160 Q 300 180, 350 140" />
+                </svg>
+            </div>
+            <div class="footer">Evolução de Views do Instagram</div>
+        </div>
+    </div>
+    </br> </br>
+    </br>
+    <div class="container-textocurso">
+        <section class="custom-jumbotron">
+            <div class="custom-container">
+                <h1 class="custom-heading">Cursos Gratuitos para o Desenvolvimento Pessoal</h1>
+                <p class="custom-lead">
+                    Os cards abaixo apresentam cursos gratuitos indicados para o desenvolvimento pessoal. São opções
+                    para quem busca aprimorar habilidades e expandir conhecimentos em diversas áreas, contribuindo para
+                    o crescimento pessoal e profissional. Aproveite a oportunidade de aprender de forma acessível e sem
+                    custos!</p>
+            </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="course-card">
+            <img src="./src/imagem/cursobradesco.png" alt="Curso 1">
+            <div class="course-heading">Fundação Bradesco</div>
+            <div class="course-details">Plataforma gratuita com cursos de alta qualidade em diversas áreas, ideal para
+                quem busca conhecimento acessível e prático.</div>
+            <a href="https://www.ev.org.br/" class="course-link">Acesse o Curso</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="course-card">
+            <img src="./src/imagem/udemy.png" alt="Curso 2">
+            <div class="course-heading">Udemy</div>
+            <div class="course-details">Oferece uma ampla variedade de cursos pagos e gratuitos, ministrados por
+                especialistas em diversas áreas, com certificação e suporte ao aluno.</div>
+            <a href="https://www.udemy.com/" class="course-link">Acesse o Curso</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="course-card">
+            <img src="./src/imagem/aprenda.png" alt="Curso 3">
+            <div class="course-heading">Aprenda Mais</div>
+            <div class="course-details">Focada em habilidades práticas, essa plataforma oferece cursos online em
+                diversas áreas, combinando flexibilidade e conteúdo de qualidade para o aprendizado contínuo.</div>
+            <a href="https://aprendamais.mec.gov.br/" class="course-link">Acesse o Curso</a>
+        </div>
+    </div>
+
+</body>
+<script src="./src/js/dadospessoal.js"></script>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navigation = document.querySelector('.navigation');
+
+    menuToggle.addEventListener('click', () => {
+        navigation.classList.toggle('open');
+    });
+
+</script>
+
+</html>
