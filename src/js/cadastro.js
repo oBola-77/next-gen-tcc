@@ -1,5 +1,6 @@
 let formRegistro = document.getElementById('formRegistro');
 let formLogin = document.getElementById('formLogin')
+let fetchTest = document.getElementById('btnFetchTest')
 
 function fetchTest() {
     const token = localStorage.getItem('authToken'); 
@@ -106,6 +107,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
                 window.location.href = 'test.html';  
                 
                 fetchTest();
+                console.log("fetchTest Executado")
             } else {
                 console.log("cade o token?");
             }
@@ -118,3 +120,4 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
     }
 })
 
+document.getElementById('btnFetchTest').addEventListener('click', fetchTest);
