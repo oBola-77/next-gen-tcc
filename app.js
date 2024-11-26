@@ -87,7 +87,7 @@ server.post('/logar', async (req, res) => {
         console.log("return do app.js")
 
         if (busca) {
-            const payload = { uid: busca[0].uid, email: busca[1].email}
+            const payload = { uid: busca.uid, email: busca.email}
             const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
             console.log('token gerado', token);
 
