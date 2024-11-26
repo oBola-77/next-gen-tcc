@@ -1,6 +1,7 @@
-let botaoPenis = document.getElementById('btnFetchTest');
-
-document.getElementById('btnFetchTest').addEventListener('click', fetchTest());
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Exe..fetchTest");
+    fetchTest();
+});
 
 function fetchTest() {
     const token = localStorage.getItem('authToken'); 
