@@ -15,3 +15,7 @@ export function verificarToken(req, res, next) {
     res.status(403).json({ message: "Token inválido" });
   }
 }
+
+export function gerarToken(uid) {
+  jwt.sign({ uid: busca.uid, email: busca.email }, process.env.JWT_SECRET, { expiresIn: "1h" });
+}

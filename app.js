@@ -12,7 +12,7 @@ import path from 'path';
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { verificarToken } from './middlewares/authMiddleware.js'
+import { verificarToken, gerarToken } from './middlewares/authMiddleware.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -85,7 +85,7 @@ server.post('/logar', async (req, res) => {
         console.log("return do app.js")
 
         if (busca) {
-            const token = jwt.sign({ uid: busca.uid, email: busca.email }, process.env.JWT_SECRET, { expiresIn: "1h" });
+            const token = gerarTokenoken(busca);
 
             res.cookie("authToken", token, {
                 httpOnly: true,
