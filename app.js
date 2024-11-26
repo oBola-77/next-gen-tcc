@@ -31,6 +31,7 @@ server.set('view engine', 'html');
 // }));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+server.use(cors());
 server.use('/src', express.static(path.join(__dirname, '/src')));
 server.use('/db', express.static(path.join(__dirname, '/db')));
 server.use(cookieParser());
