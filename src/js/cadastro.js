@@ -65,8 +65,8 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
             body: JSON.stringify(dadosLogin)
         });
 
-        const data = await response.json()
         if (response.ok) {
+            const data = await response.json()
             console.log("Login bem-sucedido", data);
             alert("Bem-vindo, " + data.email);
             window.location.href = 'test.html';  // Redireciona para a página /su

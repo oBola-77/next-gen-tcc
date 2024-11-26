@@ -11,17 +11,16 @@ export class DatabasePostgres {
         console.log("Iniciando registro no banco e Firebase...", idUsuario, dadosRegistro);
 
         try {
-            // Insere os dados no banco de dados
+            
             await sql`INSERT INTO usuarios(id_usuario, nomeCompleto, nomeEmpresa, email, telefone, senha, genero)
                       VALUES(${idUsuario}, ${nomeCompleto}, ${nomeEmpresa}, ${email}, ${telefone}, ${senha}, ${genero})`;
             console.log("Usuário salvo no banco de dados.");
 
-            // Cria o usuário no Firebase Authentication
             const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
             console.log("Usuário criado no Firebase:", userCredential.user);
         } catch (error) {
             console.error("Erro durante o registro:", error);
-            throw error; // Repassa o erro para o método chamador
+            throw error; 
         }
     }
 
