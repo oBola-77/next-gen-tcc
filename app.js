@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+
 import express from 'express';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
@@ -13,7 +13,8 @@ import path from 'path';
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import jwt from 'jsonwebtoken';
+// import jwt from 'jsonwebtoken';
+import { gerarToken } from './authMiddleware.js';
 import authMiddleware from './middlewares/authMiddleware.js'
 
 const __filename = fileURLToPath(import.meta.url);
@@ -89,8 +90,7 @@ server.post('/logar', async (req, res) => {
         console.log("return do app.js")
 
         if (busca) {
-            const payload = { uid: busca.uid, email: busca.email}
-            const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
+            const token = gerarToken(busca)
             console.log('token gerado', token);
 
             res.cookie("authToken", token, {

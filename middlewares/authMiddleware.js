@@ -20,6 +20,11 @@ const authMiddleware = (req, res, next) => {
   })
 }
 
+export function gerarToken(busca) {
+  const payload = { uid: busca.uid, email: busca.email}
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
+}
+
 export default authMiddleware;
 
 // export function verificarToken(req, res, next) {
