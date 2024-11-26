@@ -85,7 +85,7 @@ server.post('/logar', async (req, res) => {
         console.log("return do app.js")
 
         if (busca) {
-            const token = gerarTokenoken(busca);
+            const token = gerarToken(busca);
 
             res.cookie("authToken", token, {
                 httpOnly: true,
