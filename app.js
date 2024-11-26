@@ -3,7 +3,7 @@ import express from 'express';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-// import cors from 'cors';
+import cors from 'cors';
 import { DatabasePostgres } from './db/commands-db.js';
 import { sql } from './db/conn.js';
 
