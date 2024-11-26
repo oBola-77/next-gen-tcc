@@ -120,4 +120,4 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
     }
 })
 
-document.getElementById('btnFetchTest').addEventListener('click', fetchTest);
+fetchTest.addEventListener('click', fetchTest);
