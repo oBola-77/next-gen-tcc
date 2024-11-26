@@ -14,7 +14,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import jwt from 'jsonwebtoken';
-import { verificarToken } from './middlewares/authMiddleware.js'
+import authMiddleware from './middlewares/authMiddleware.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -64,8 +64,8 @@ server.get('/:pagina', (request, reply) => {
     console.log(pagina)
 })
 
-server.get('/test', verificarToken, async (req, res) => {
-    console.log(verificarToken);
+server.get('/test', authMiddleware, async (req, res) => {
+    res.json({ message: "Acesso autorizado!", user: req.user });
     res.render('test.html');
 })
 
