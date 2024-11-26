@@ -3,7 +3,7 @@ dotenv.config();
 import jwt from 'jsonwebtoken';
 const JWT_SECRET = process.env.JWT_SECRET
 
-export const authMiddleware = (req, res, next) => {
+const authMiddleware = (req, res, next) => {
   console.log("iniciando a prr da verificação");
 
   const autHeader = req.headers.authorization;
@@ -37,6 +37,7 @@ export function gerarToken(busca) {
   return jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
 }
 
+export default authMiddleware;
 
 // export function verificarToken(req, res, next) {
 //   const token = req.cookies?.authToken;
