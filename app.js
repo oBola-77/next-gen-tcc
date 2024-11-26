@@ -95,7 +95,7 @@ server.post('/logar', async (req, res) => {
 
             res.cookie("authToken", token, {
                 httpOnly: true,
-                secure: false,
+                secure: true,
                 maxAge: 3600000, 
                 userData: {
                     message: "Login Realizado",
