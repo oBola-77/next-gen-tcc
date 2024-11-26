@@ -7,7 +7,8 @@ function fetchTest() {
 
     if (!token) {
         console.log('Token não encontrado');        
-        return res.status(401).json("Acesso não autorizado, token não fornecido");
+        window.location.href = 'login.html'; // Redireciona para a página de login
+        return;
     }
 
     fetch('/test', {
