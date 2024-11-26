@@ -95,6 +95,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
         });
 
         if (response.ok) {
+            console.log("ta aqui");
             const data = await response.json()
             console.log("Login bem-sucedido", data);
             alert("Bem-vindo, " + data.email);
