@@ -423,7 +423,7 @@ details[open] summary {
     }
 
     .card-image {
-        height: 180px; /* Menor altura das imagens nos cards */
+        height: 5%; /* Menor altura das imagens nos cards */
     }
 
     .slider-container {
