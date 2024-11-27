@@ -20,7 +20,7 @@ body.light-mode .custom-shape-divider-bottom-1683068753 {
 
 body.light-mode .custom-shape-divider-bottom-1683068753 svg {
     fill: #eaeaea; /* Preenchimento no light mode */
-    background-color: #ffffff;
+    background-color: #f1f1f1;
 }
 
 body.light-mode .album {
@@ -45,7 +45,7 @@ body.light-mode .descricao-container {
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 5%;
-    background-color: rgb(255, 255, 255);
+    background-color: #f1f1f1;
 }
 
 body.light-mode .descricao {
