@@ -275,8 +275,10 @@ body.light-mode .descricao p {
   }
   
 @media (max-width: 768px) {
+
     .descricao-container {
         flex-direction: column;
+        margin-left: 5%;
         align-items: center;
     }
 
