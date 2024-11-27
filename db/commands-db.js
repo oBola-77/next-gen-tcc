@@ -14,7 +14,7 @@ export class DatabasePostgres {
             console.log("Usuário criado no Firebase:", userCredential.user);
             
             await sql`INSERT INTO usuarios(id_usuario, nomeCompleto, nomeEmpresa, telefone, genero)
-                      VALUES(${idUsuario}, ${nomeCompleto}, ${nomeEmpresa}, ${telefone}, ${genero})`;
+                      VALUES(${idUsuario}, ${nomeCompleto}, ${nomeEmpresa}, ${email}, ${telefone}, ${genero})`;
             console.log("Usuário salvo no banco de dados.");
         } catch (error) {
             console.error("Erro durante o registro:", error);
