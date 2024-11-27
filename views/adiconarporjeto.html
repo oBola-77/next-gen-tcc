@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Pessoal</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../src/css/adicionarprojeto.css">
+    <link rel="shortcut icon" href="../src/imagem/logo.jpg" type="image/x-icon">
+
+    <title>Página para adicionar projeto</title>
+</head>
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="../src/imagem/Pme.png" alt="logo"></a>
+        </div>
+        <ul class="navigation">
+            <li><a href="index.html">PME</a></li>
+            <li><a href="parceiros.html">Avaliações</a></li>
+            <li><a href="sobrenos.html">Sobre nós</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+        <div class="menu-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div class="card">
+        <div class="card2">
+          <form class="form">
+            <p id="heading">Cadastro de Projeto de E-commerce</p>
+      
+            <div class="field">
+              <label for="image-upload" class="upload-label">Escolher Imagem do Projeto:</label>
+              <input type="file" id="image-upload" class="input-field" accept="image/*">
+            </div>
+      
+            <div class="field">
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Título: Desenvolvimento de Sistema de E-commerce"
+                autocomplete="off"
+                id="project-title"
+              />
+            </div>
+      
+            <div class="field">
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Consultora: Yasmin Martins"
+                autocomplete="off"
+                id="consultant-name"
+              />
+            </div>
+      
+            <div class="field">
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Status: Em Andamento"
+                autocomplete="off"
+                id="project-status"
+              />
+            </div>
+      
+            <div class="field">
+              <input
+                type="date"
+                class="input-field"
+                placeholder="Data de Vencimento: 30/10/2024"
+                id="due-date"
+              />
+            </div>
+      
+            <div class="btn">
+              <button class="button1">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Salvar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </button>
+              <button class="button2">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+</body>
+<script src="./src/js/dadospessoal.js"></script>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navigation = document.querySelector('.navigation');
+
+    menuToggle.addEventListener('click', () => {
+        navigation.classList.toggle('open');
+    });
+
+</script>
+<script type="module" src="../src/js/test.js"></script>
+
+
+</html>

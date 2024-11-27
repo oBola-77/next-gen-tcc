@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Pessoal</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="./src/css/style.css">
-    <link rel="stylesheet" href="./src/css/testeusu.css">
-    <link rel="shortcut icon" href="./src/imagem/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../src/css/testeusu.css">
+    <link rel="shortcut icon" href="../src/imagem/logo.jpg" type="image/x-icon">
 
     <title>Página de Rede Social</title>
 </head>
@@ -17,7 +17,7 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="index.html"><img src="./src/imagem/Pme.png" alt="logo"></a>
+                <a href="index.html"><img src="../src/imagem/Pme.png" alt="logo"></a>
             </div>
             <ul class="navigation">
                 <li><a href="index.html">PME</a></li>
@@ -35,7 +35,7 @@
 
     <div class="container">
         <div class="profile">
-            <img id="profilePic" src="src/imagem/victor.jpg" alt="Foto de Perfil">
+            <img id="profilePic" src="..src/imagem/victor.jpg" alt="Foto de Perfil">
             <label for="fileInput" class="file-label"><span class="text">Alterar Foto</span></label>
             <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
             <div class="welc">
@@ -86,7 +86,7 @@
             </section>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="./src/imagem/camp.jfif" alt="" srcset="">
+                    <img src="../src/imagem/camp.jfif" alt="" srcset="">
                 </div>
                 <div class="project-info">
                     <span class="project-title">Campanha Marketing de Conteúdo</span>
@@ -98,7 +98,7 @@
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="./src/imagem/Crias.jpg" alt="" srcset="">
+                    <img src="../src/imagem/Crias.jpg" alt="" srcset="">
                 </div>
                 <div class="project-info">
                     <span class="project-title">Criação de Site</span>
@@ -110,7 +110,7 @@
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="./src/imagem/Redes.jpg" alt="" srcset="">
+                    <img src="../src/imagem/Redes.jpg" alt="" srcset="">
                 </div>
                 <div class="project-info">
                     <span class="project-title">Treinamento e Gestão</span>
@@ -124,110 +124,6 @@
     </div>
 
     </div>
-    <section class="custom-jumbotron">
-        <div class="custom-container">
-            <h1 class="custom-heading">Evolução do Engajamento no Instagram</h1>
-            <p class="custom-lead">Abaixo você pode acompanhar a evolução dos principais indicadores do seu Instagram:
-                Likes, Comentários e Views. Esses gráficos ajudam a analisar o engajamento e o alcance do seu conteúdo,
-                facilitando ajustes na sua estratégia.</p>
-        </div>
-    </section>
-    <div class="dados">
-        <div class="card2">
-            <div class="header">
-                <div class="left">
-                    <span class="title">Likes</span>
-                    <span class="number" id="likeCount">259</span>
-                </div>
-                <span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
-                        </path>
-                    </svg>
-                </span>
-            </div>
-            <div class="chart">
-                <svg id="likesChart" viewBox="0 0 370 200">
-                    <g class="grid-lines">
-                        <line x1="50" y1="50" x2="50" y2="180" class="grid-line"></line>
-                        <line x1="100" y1="50" x2="100" y2="180" class="grid-line"></line>
-                        <line x1="150" y1="50" x2="150" y2="180" class="grid-line"></line>
-                        <line x1="200" y1="50" x2="200" y2="180" class="grid-line"></line>
-                        <line x1="250" y1="50" x2="250" y2="180" class="grid-line"></line>
-                        <line x1="300" y1="50" x2="300" y2="180" class="grid-line"></line>
-                    </g>
-                    <path id="likesGraph" class="path"
-                        d="M50 170 Q 100 120, 150 100 Q 200 80, 250 120 Q 300 140, 350 110" />
-                </svg>
-            </div>
-            <div class="footer">Evolução de Likes do Instagram</div>
-        </div>
-
-        <div class="card2">
-            <div class="header">
-                <div class="left">
-                    <span class="title">Comentários</span>
-                    <span class="number" id="commentCount">459</span>
-                </div>
-                <span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
-                        </path>
-                    </svg>
-                </span>
-            </div>
-            <div class="chart">
-                <svg id="commentsChart" viewBox="0 0 370 200">
-                    <g class="grid-lines">
-                        <line x1="50" y1="50" x2="50" y2="180" class="grid-line"></line>
-                        <line x1="100" y1="50" x2="100" y2="180" class="grid-line"></line>
-                        <line x1="150" y1="50" x2="150" y2="180" class="grid-line"></line>
-                        <line x1="200" y1="50" x2="200" y2="180" class="grid-line"></line>
-                        <line x1="250" y1="50" x2="250" y2="180" class="grid-line"></line>
-                        <line x1="300" y1="50" x2="300" y2="180" class="grid-line"></line>
-                    </g>
-                    <path id="commentsGraph" class="path"
-                        d="M50 170 Q 100 100, 150 90 Q 200 60, 250 140 Q 300 150, 350 120" />
-                </svg>
-            </div>
-            <div class="footer">Evolução de Comentários do Instagram</div>
-        </div>
-
-        <div class="card2">
-            <div class="header">
-                <div class="left">
-                    <span class="title">Views</span>
-                    <span class="number" id="viewCount">1234</span>
-                </div>
-                <span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
-                        </path>
-                    </svg>
-                </span>
-            </div>
-            <div class="chart">
-                <svg id="viewsChart" viewBox="0 0 370 200">
-                    <g class="grid-lines">
-                        <line x1="50" y1="50" x2="50" y2="180" class="grid-line"></line>
-                        <line x1="100" y1="50" x2="100" y2="180" class="grid-line"></line>
-                        <line x1="150" y1="50" x2="150" y2="180" class="grid-line"></line>
-                        <line x1="200" y1="50" x2="200" y2="180" class="grid-line"></line>
-                        <line x1="250" y1="50" x2="250" y2="180" class="grid-line"></line>
-                        <line x1="300" y1="50" x2="300" y2="180" class="grid-line"></line>
-                    </g>
-                    <path id="viewsGraph" class="path"
-                        d="M50 170 Q 100 140, 150 130 Q 200 100, 250 160 Q 300 180, 350 140" />
-                </svg>
-            </div>
-            <div class="footer">Evolução de Views do Instagram</div>
-        </div>
-    </div>
-    </br> </br>
-    </br>
     <div class="container-textocurso">
         <section class="custom-jumbotron">
             <div class="custom-container">
@@ -241,25 +137,23 @@
     </div>
     <div class="content-wrapper">
         <div class="course-card">
-            <img src="./src/imagem/cursobradesco.png" alt="Curso 1">
+            <img src="../src/imagem/cursobradesco.png" alt="Curso 1">
             <div class="course-heading">Fundação Bradesco</div>
             <div class="course-details">Plataforma gratuita com cursos de alta qualidade em diversas áreas, ideal para
                 quem busca conhecimento acessível e prático.</div>
             <a href="https://www.ev.org.br/" class="course-link">Acesse o Curso</a>
         </div>
 
-        <!-- Card 2 -->
         <div class="course-card">
-            <img src="./src/imagem/udemy.png" alt="Curso 2">
+            <img src="../src/imagem/udemy.png" alt="Curso 2">
             <div class="course-heading">Udemy</div>
             <div class="course-details">Oferece uma ampla variedade de cursos pagos e gratuitos, ministrados por
                 especialistas em diversas áreas, com certificação e suporte ao aluno.</div>
             <a href="https://www.udemy.com/" class="course-link">Acesse o Curso</a>
         </div>
 
-        <!-- Card 3 -->
         <div class="course-card">
-            <img src="./src/imagem/aprenda.png" alt="Curso 3">
+            <img src="../src/imagem/aprenda.png" alt="Curso 3">
             <div class="course-heading">Aprenda Mais</div>
             <div class="course-details">Focada em habilidades práticas, essa plataforma oferece cursos online em
                 diversas áreas, combinando flexibilidade e conteúdo de qualidade para o aprendizado contínuo.</div>
