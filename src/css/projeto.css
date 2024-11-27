@@ -195,7 +195,7 @@ body.light-mode .descricao p {
 @media (min-width: 768px) {
     .descricao-container {
         display: flex;
-        justify-content: space-between; 
+        justify-content: center; 
     }
 
     .descricao {
