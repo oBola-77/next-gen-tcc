@@ -66,8 +66,12 @@ server.get('/:pagina', (request, reply) => {
 })
 
 server.get('/test', authMiddleware, async (req, res) => {
-    res.status(200).json({ message: "Acesso autorizado!", user: req.user });
-    // res.render('test.html');
+    try {
+        const { uid } = req.uid;
+        const projetos = await database.listarProjetos(uid);
+    } catch (error) {
+        
+    }
 })
 
 server.post('/registrar', async (req, res) => {
@@ -108,7 +112,8 @@ server.post('/logar', async (req, res) => {
             return res.status(200).json({ 
                 message: "Logado com sucesso",
                 token: token,
-                email: busca.email
+                email: busca.email,
+                uid: busca.uid
             });
         }
 
