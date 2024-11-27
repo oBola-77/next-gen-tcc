@@ -100,12 +100,12 @@ server.post('/logar', async (req, res) => {
     const dadosLogin = req.body;
 
     try {
-        const busca = await database.validar(dadosLogin);
-        console.log(busca);
+        const user = await database.validar(dadosLogin);
+        console.log(user);
         console.log("return do app.js")
 
-        if (busca) {
-            const token = gerarToken(busca)
+        if (user) {
+            const token = gerarToken(user)
             console.log('token gerado', token);
 
             res.cookie("authToken", token, {
@@ -114,8 +114,8 @@ server.post('/logar', async (req, res) => {
                 maxAge: 3600000, 
                 userData: {
                     message: "Login Realizado",
-                    uid: busca.uid,
-                    email: busca.email
+                    uid: user.uid,
+                    email: user.email
                 }
             });
 
@@ -123,8 +123,8 @@ server.post('/logar', async (req, res) => {
             return res.status(200).json({ 
                 message: "Logado com sucesso",
                 token: token,
-                email: busca.email,
-                uid: busca.uid
+                email: user.email,
+                uid: user.uid
             });
         }
 
