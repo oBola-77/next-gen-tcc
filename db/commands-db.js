@@ -10,6 +10,7 @@ export class DatabasePostgres {
 
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+            idUsuario = userCredential.user.reloadUserInfo.localId;
             console.log("Usuário criado no Firebase:", userCredential.user);
             
             await sql`INSERT INTO usuarios(id_usuario, nomeCompleto, nomeEmpresa, telefone, genero)
