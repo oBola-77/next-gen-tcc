@@ -1,28 +1,29 @@
-.body {
+
+  .container{
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center;     /* Centraliza verticalmente */
-    height: 100vh;           /* Ocupa 100% da altura da tela */
-    margin: 0;               /* Remove qualquer margem padrão */
-    background-color: #121212; /* Definindo fundo escuro, como no seu exemplo */
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
   }
-  
   .card {
     border-radius: 22px;
     transition: all 0.3s;
     display: flex;
-    justify-content: center; /* Garante que o conteúdo da card esteja centralizado */
+
+    justify-content: center; 
   }
   
   .card2 {
     border-radius: 0;
     transition: all 0.2s;
     display: flex;
-    justify-content: center; /* Garante que o conteúdo da card2 esteja centralizado */
+    justify-content: center;
   }
   
   .form {
     display: flex;
+    
     flex-direction: column;
     gap: 10px;
     padding-left: 2em;
