@@ -1,5 +1,4 @@
 let formRegistro = document.getElementById('formRegistro');
-let formLogin = document.getElementById('formLogin')
 
 function fetchTest() {
     const token = localStorage.getItem('authToken'); 
