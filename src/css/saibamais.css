@@ -82,17 +82,17 @@
     margin-bottom: 1.5rem;
 }
 
-/* Media Queries para Responsividade */
 @media (max-width: 1024px) {
     .card {
-        width: 48%; /* 2 cards por linha */
+        width: 48%;
         height: auto;
     }
 }
 
+
 @media (max-width: 768px) {
     .card {
-        width: 100%; /* 1 card por linha */
+        width: 100%; 
         height: auto;
     }
     .custom-heading {
@@ -102,12 +102,20 @@
     .custom-lead {
         font-size: 1.1rem;
     }
+    .card-container{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 @media (max-width: 480px) {
     .card {
-        width: 100%; /* 1 card por linha */
+        width: 100%; 
         height: auto;
+    }
+    .card-container{
+        margin-left: 10px;
+        margin-right: 10px;
     }
     .custom-heading {
         font-size: 1.75rem;
