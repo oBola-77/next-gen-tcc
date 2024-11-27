@@ -51,12 +51,13 @@ export class DatabasePostgres {
     }
 
     async criarProjeto(dadosProjeto) {
-        const { tipoProjeto, dataInicio, idUsuario } = dadosProjeto;
-
+        const { tipoProjeto, dataInicio, consultor, idUsuario } = dadosProjeto;
         console.log("Iniciando registro no banco de um projeto novo", idUsuario, dadosRegistro);
 
         try {
-            await sql`INSERT INTO projetos(tipoprojeto, dataprojeto, idUsuario) VALUES (${tipoProjeto}, ${dataInicio}, ${idUsuario})`;
+            await sql`
+            INSERT INTO projetos(tipoprojeto, dataprojeto, consultor, idUsuario) 
+            VALUES (${tipoProjeto}, ${dataInicio}, ${consultor}, ${idUsuario})`;
             console.log("Projeto criado");
         } catch (error) {
             console.log("Erro durante a criação do projeto", error);
