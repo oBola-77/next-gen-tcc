@@ -65,6 +65,17 @@ server.get('/:pagina', (request, reply) => {
     console.log(pagina)
 })
 
+// server.get('/consultor', authMiddleware, async (req, res) => {
+//     try {
+//         const { uid } = req.uid;
+//         const projetos = await database.listarProjetos(uid);
+//     } catch (error) {
+        
+//     }
+// })
+
+// server.post('/criarPro')
+
 server.get('/test', authMiddleware, async (req, res) => {
     try {
         const { uid } = req.uid;

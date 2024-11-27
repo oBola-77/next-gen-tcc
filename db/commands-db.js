@@ -5,9 +5,8 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'fire
 
 export class DatabasePostgres {
     async registrar(dadosRegistro) {
-        const idUsuario = shortUUID.generate();
         const { nomeCompleto, nomeEmpresa, email, telefone, senha, genero } = dadosRegistro;
-        console.log("Iniciando registro no banco e Firebase...", idUsuario, dadosRegistro);
+        console.log("Iniciando registro no banco e Firebase...", dadosRegistro);
 
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
@@ -61,7 +60,6 @@ export class DatabasePostgres {
         } catch (error) {
             console.log("Erro durante a criação do projeto", error);
         }
-
     }
 
     async listarProjetos(uid) {
