@@ -13,7 +13,7 @@ export class DatabasePostgres {
             const idUsuario = userCredential.user.reloadUserInfo.localId;
             console.log("Usuário criado no Firebase:", userCredential.user);
             
-            await sql`INSERT INTO usuarios(id_usuario, nomeCompleto, nomeEmpresa, telefone, genero)
+            await sql`INSERT INTO usuarios(id_usuario, nomeCompleto, nomeEmpresa, email, telefone, genero)
                       VALUES(${idUsuario}, ${nomeCompleto}, ${nomeEmpresa}, ${email}, ${telefone}, ${genero})`;
             console.log("Usuário salvo no banco de dados.");
         } catch (error) {
