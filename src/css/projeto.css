@@ -213,6 +213,7 @@ body.light-mode .descricao p {
     border-radius: 0.5em;
     background: #e8e8e8;
     border: 1px solid #e8e8e8;
+    z-index: 0;
 
 }
 
