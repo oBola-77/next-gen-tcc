@@ -114,16 +114,17 @@ body.light-mode .descricao p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 400px;
     padding: 20px;
     margin: 10px;
+    margin-bottom: 5%;
     text-align: center;
     position: relative;
     background-color: #04051dea;
     box-shadow: 0 10px 15px -3px rgba(33,150,243,0.4), 0 4px 6px -4px rgba(33,150,243,0.4);
     border-radius: 10px;
     background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
-    color: white;
+    color: black;
   }
   
   .card-title {
@@ -273,7 +274,6 @@ body.light-mode .descricao p {
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
   
-/* Responsividade */
 @media (max-width: 768px) {
     .descricao-container {
         flex-direction: column;
