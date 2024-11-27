@@ -1,0 +1,176 @@
+h1, h2, h3 {
+    color: #007DFC;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1900px;
+    margin: auto;
+    background: black;
+    padding: 35px;
+    letter-spacing:1px;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  
+}
+
+.contact-info {
+    margin-top: 20px;
+    border-radius: 5px;
+    
+}
+
+.custom-shape-divider-bottom-1683068753 svg {
+    float: left;
+    display: block;
+    width: calc(148% + 1.3px);
+    height: 178px;
+    background: black;
+    margin-bottom: -2px;
+
+
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    p, ul {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    .contact-info {
+        margin-top: 20px;
+    }
+
+    .contact-info p {
+        font-size: 1em;
+    }
+
+    a {
+        color: #007DFC;
+    }
+
+    .custom-shape-divider-bottom-1683068753 svg {
+        width: 100%;
+        height: auto;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    p, ul {
+        font-size: 0.9em;
+    }
+
+    .contact-info p {
+        font-size: 0.9em;
+    }
+
+    .contact-info {
+        margin-top: 10px;
+    }
+}
+@media screen and (min-width: 1920px) {
+    .container {
+        max-width: 85%; /* Reduz o tamanho para não ocupar toda a largura */
+        padding: 50px; /* Ajusta o espaçamento interno */
+        margin-top: 2em; /* Dá mais espaço no topo */
+    }
+
+    h1 {
+        font-size: 2.5em; /* Aumenta o tamanho do título para telas grandes */
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    p, ul {
+        font-size: 1.2em; /* Aumenta o texto para melhor legibilidade */
+        line-height: 1.6; /* Melhora o espaçamento entre linhas */
+    }
+
+    .contact-info p {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 1920px) and (min-width: 1200px) {
+    .container {
+        max-width: 90%; /* Mantém boa largura */
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    p, ul {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    p, ul {
+        font-size: 1em;
+        line-height: 1.5;
+    }
+
+    .contact-info p {
+        font-size: 0.9em;
+    }
+}

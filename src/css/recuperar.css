@@ -1,0 +1,189 @@
+/* From Uiverse.io by Praashoo7 */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 0.4em;
+    background-color: #171717;
+    border-radius: 25px;
+    transition: .4s ease-in-out;
+    width: 500px;
+    margin-top: 10%;
+    margin-left: 40%;
+    margin-bottom: 100px;
+}
+
+#heading {
+    text-align: center;
+    margin: 2em;
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 25px;
+    padding: 0.6em;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.input-icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: white;
+}
+
+.input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+}
+
+.form .btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 2.5em;
+}
+
+a{
+    text-decoration: none;
+  }
+.button3 {
+    margin-bottom: 3em;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 26%;
+
+}
+
+.button3:hover {
+    background-color: red;
+    color: white;
+}
+@media (max-width: 768px) {
+    .form {
+        width: 90%;
+        padding: 20px;
+        margin-left: 5%;
+        margin-top: 10%;
+    }
+
+    #heading {
+        font-size: 1.5em;
+        margin: 1.5em 0;
+    }
+
+    .field {
+        padding: 0.8em;
+    }
+
+    .input-field {
+        font-size: 1em;
+    }
+
+    .input-icon {
+        height: 1.1em;
+        width: 1.1em;
+    }
+
+    .button3 {
+        width: 100%;
+        margin-left: 0;
+        padding: 0.7em;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .form {
+        width: 95%;
+        padding: 15px;
+        margin-left: 2.5%;
+        margin-top: 12%;
+    }
+
+    #heading {
+        font-size: 1.3em;
+        margin: 1em 0;
+    }
+
+    .field {
+        padding: 0.6em;
+    }
+
+    .input-field {
+        font-size: 0.9em;
+    }
+
+    .button3 {
+        width: 100%;
+        margin-left: 0;
+        padding: 0.8em;
+        font-size: 1em;
+    }
+}
+/* Responsividade para telas grandes (acima de 1200px, como TVs e monitores grandes) */
+@media screen and (min-width: 1200px) {
+    .form {
+        width: 40%; /* O formulário vai ocupar 40% da largura da tela */
+        margin-top: 5%; /* Ajusta o topo para centralizar melhor em telas grandes */
+        margin-left: 30%; /* Centraliza o formulário horizontalmente */
+        padding-left: 3em; /* Aumenta o padding interno à esquerda */
+        padding-right: 3em; /* Aumenta o padding interno à direita */
+    }
+
+    #heading {
+        font-size: 1.5em; /* Aumenta o tamanho da fonte do título */
+        margin: 2em; /* Adiciona margem extra para separar o título do conteúdo */
+    }
+
+    .field {
+        padding: 1em; /* Aumenta o padding dos campos de entrada */
+    }
+
+    .input-icon {
+        height: 1.5em; /* Aumenta o tamanho do ícone */
+        width: 1.5em; /* Aumenta a largura do ícone */
+    }
+
+    .input-field {
+        font-size: 1.1em; /* Aumenta o tamanho da fonte dos campos */
+    }
+
+    .form .btn {
+        flex-direction: row; /* Organiza os botões em linha */
+        justify-content: center; /* Centraliza os botões */
+        margin-top: 3em; /* Aumenta o espaçamento acima dos botões */
+    }
+
+    .button3 {
+        width: 250px; /* Aumenta a largura do botão */
+        margin-left: 35%; /* Ajusta o posicionamento horizontal do botão */
+        font-size: 1.2em; /* Aumenta o tamanho da fonte do botão */
+    }
+
+    .button3:hover {
+        background-color: red; /* Cor de fundo do botão ao passar o mouse */
+        color: white;
+    }
+}
