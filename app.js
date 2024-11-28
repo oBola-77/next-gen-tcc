@@ -133,6 +133,24 @@ server.get('/test', authMiddleware, async (req, res) => {
     }
 })
 
+server.get('/projetos', authMiddleware, async (req, res) => {
+    const userId = req.user.uid;
+    console.log("userID: ", userId);
+
+    try {
+        const dados = await database.listarProjetos(userId);
+        console.log(dados);
+
+        if (!dados) {
+            console.log("aq fudeu");
+            
+        }
+        res.status(200).json({ message: "Acesso autorizado!", user: req.user });
+    } catch (error) {
+        res.json({ message: "deu bosta" });
+    }
+})
+
 server.post('/logout', (req, res) => {
     res.clearCookie("authToken");
     res.status(200).json({ message: "Logout realizado com sucesso" });
