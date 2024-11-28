@@ -339,6 +339,7 @@ body.light-mode .descricao p {
     .card {
       width: 100%; 
       margin: 5px 0; 
+      margin-top: 10%;
     }
   
     .butao2 button {
