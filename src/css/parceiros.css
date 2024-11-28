@@ -24,7 +24,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* Container principal */
 .container {
   padding: 15%;
   width: 90%;
@@ -55,7 +54,6 @@
   display: block;
 }
 
-/* Campos de input e textarea */
 #rating, #comment {
   width: 100%;
   margin-bottom: 10px;
@@ -135,7 +133,6 @@ button::before {
   }
 }
 
-/* Estilo das avaliações */
 .reviews {
   margin-top: 30px;
 }
@@ -158,7 +155,6 @@ button::before {
   color: #ff9800;
 }
 
-/* Modo Claro */
 
 body.light-mode .container h1,
 body.light-mode .container h2 {
@@ -176,35 +172,33 @@ body.light-mode .review-form label {
 }
 
 body.light-mode {
-  background-color: #f1f1f1; /* Cor de fundo clara */
-  color: rgb(183, 183, 183); /* Cor do texto escuro */
+  background-color: #f1f1f1; 
+  color: rgb(183, 183, 183); 
 }
 
 body.light-mode .custom-heading {
-  color: #000000; /* Cor mais escura para o light mode */
+  color: #000000;
 }
 
-/* Modo Claro: ajusta as cores para o light mode */
 body.light-mode .custom-lead {
-  color: #000000; /* Cor mais escura para o light mode */
+  color: #000000; 
 }
 
-/* Ajuste nas divs para o modo claro */
 body.light-mode .custom-jumbotron {
-  background-color: #f1f1f1; /* Fundo mais claro para o jumbotron */
-  color: #000000; /* Texto escuro */
+  background-color: #f1f1f1; 
+  color: #000000; 
 }
 
 body.light-mode .container {
-  background-color: #f1f1f1; /* Fundo branco para o contêiner */
+  background-color: #f1f1f1; 
 }
 
 body.light-mode .reviews li {
-  border: 1px solid #bebebe; /* Borda clara nas avaliações */
+  border: 1px solid #bebebe; 
 }
 
 body.light-mode button {
-  color: #000000; /* Texto do botão branco */
+  color: #000000; 
 }
 
 body.light-mode #rating, 
@@ -216,7 +210,6 @@ body.light-mode #comment {
 
 
 
-/* Telas pequenas (mobile) */
 @media (max-width: 576px) {
   .container {
     width: 90%;
@@ -296,56 +289,49 @@ body.light-mode #comment {
     padding: 12px 20px;
   }
 }
-/* Estilos para telas grandes (ex.: TVs, monitores grandes) */
 @media (min-width: 1200px) {
-  /* Estilo da seção principal (custom-jumbotron) */
   .custom-jumbotron {
-    padding: 5% 15%; /* Reduz o espaçamento lateral para telas grandes */
-    margin-top: 5%; /* Ajusta a margem superior */
+    padding: 5% 15%; 
+    margin-top: 5%; 
   }
   .custom-container {
-    max-width: 1200px; /* Aumenta a largura máxima */
-    margin: 0 auto; /* Centraliza o conteúdo */
+    max-width: 1200px; 
+    margin: 0 auto; 
   }
   .custom-heading {
-    font-size: 3rem; /* Amplia o tamanho da fonte */
+    font-size: 3rem;
     margin-bottom: 2rem;
   }
   .custom-lead {
-    font-size: 1.5rem; /* Amplia o texto descritivo */
-    line-height: 1.8; /* Ajusta o espaçamento entre linhas para legibilidade */
+    font-size: 1.5rem; 
+    line-height: 1.8; 
     margin-bottom: 2rem;
   }
 
-  /* Estilo do contêiner principal */
   .container {
-    padding: 5%; /* Ajusta o espaçamento interno */
-    width: 80%; /* Reduz a largura relativa */
-    max-width: 1200px; /* Garante que o conteúdo não ultrapasse limites */
-    margin: 0 auto; /* Centraliza o contêiner */
-    border-radius: 12px; /* Suaviza as bordas */
+    padding: 5%; 
+    width: 80%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    border-radius: 12px; 
   }
   .container h1, .container h2 {
-    font-size: 2.5rem; /* Aumenta o tamanho dos títulos */
+    font-size: 2.5rem; 
     margin: 2% 0 1% 0;
   }
-
-  /* Formulário de avaliações */
   .review-form label {
-    font-size: 18px; /* Amplia o texto dos rótulos */
+    font-size: 18px; 
   }
   #rating, #comment {
-    font-size: 16px; /* Ajusta o tamanho dos inputs */
-    padding: 12px; /* Adiciona mais espaço interno */
+    font-size: 16px; 
+    padding: 12px; 
   }
   button {
-    font-size: 18px; /* Amplia o texto do botão */
-    padding: 15px 30px; /* Aumenta o tamanho do botão */
+    font-size: 18px; 
+    padding: 15px 30px;
   }
-
-  /* Estilo das avaliações */
   .reviews {
-    margin-top: 40px; /* Maior espaçamento superior */
+    margin-top: 40px; 
   }
   .reviews ul {
     padding-left: 0;
@@ -353,14 +339,14 @@ body.light-mode #comment {
   .reviews li {
     background-color: #2c2c2c;
     margin: 10px 0;
-    padding: 20px; /* Aumenta o preenchimento interno */
+    padding: 20px; 
     border: 1px solid #444;
-    border-radius: 8px; /* Suaviza mais as bordas */
-    font-size: 1.1rem; /* Amplia o tamanho da fonte das avaliações */
-    line-height: 1.6; /* Adiciona espaço entre linhas */
+    border-radius: 8px; 
+    font-size: 1.1rem; 
+    line-height: 1.6; 
   }
   .reviews .rating {
-    font-weight: bold; /* Garante que a classificação fique mais evidente */
-    color: #ff9800; /* Destaque da cor */
+    font-weight: bold; 
+    color: #ff9800; 
   }
 }
