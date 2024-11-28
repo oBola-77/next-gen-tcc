@@ -527,7 +527,8 @@ svg {
         flex: 1 1 32%; 
     }
     .card-wrapper{
-        margin-top: 0px;
+        margin-top: -10%;
+        background-color:rgba(0, 0, 0, 0.1);
     }
     
     .course-card {
