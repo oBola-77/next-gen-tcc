@@ -65,29 +65,27 @@ server.get('/:pagina', (request, reply) => {
     console.log(pagina)
 })
 
-// server.get('/consultor', authMiddleware, async (req, res) => {
-//     try {
-//         const { uid } = req.uid;
-//         const projetos = await database.listarProjetos(uid);
-//     } catch (error) {
-        
-//     }
-// })
-
-// server.post('/criarPro')
-
 server.get('/test', authMiddleware, async (req, res) => {
-    try {
-        const uid = req.uid;
-        const projetos = await database.listarProjetos(uid);
-
-        res.status(200).json({ projetos });
-        console.log({ projetos })
-    } catch (error) {
-        console.error("Erro ao buscar projetos:", error);
-        res.status(500).json({ message: "Erro ao buscar os projetos." });
-    }
+    const user = req.user; // Informações do token JWT
+    res.status(200).json({
+        message: "Acesso autorizado",
+        uid: user.uid,
+        email: user.email,
+        nome: user.nome,
+    });
 })
+
+server.get('/listarProjetos', authMiddleware, async (req, res) => {
+    const userId = req.user.uid; // UID do Firebase do token JWT
+    try {
+        const projetos = await database.listarProjetos(userId)
+        res.status(200).json(projetos);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Erro ao buscar projetos" });
+    }
+});
+
 
 server.post('/registrar', async (req, res) => {
     const dadosRegistro = req.body;

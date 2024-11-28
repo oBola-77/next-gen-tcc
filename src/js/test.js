@@ -1,41 +1,48 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("Exe..fetchTest");
-    fetchTest();
-    console.log("Exe..fetchProjetos");
-    fetchProjetos();
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = await fetchTest();
+    if (user) {
+        const projetos = await fetchProjetos();
+        if (projetos) {
+            renderizarProjetos(projetos);
+        }
+    }
 });
 
-function fetchTest() {
-    const token = localStorage.getItem('authToken'); 
+function renderizarProjetos(projetos) {
+    console.log("a paga dos projetos estão aq: ", projetos);
+}
+
+async function fetchTest() {
+    const token = localStorage.getItem('authToken');
 
     if (!token) {
-        console.log('Token não encontrado');        
-        window.location.href = 'login.html'; 
+        console.log('Token não encontrado');
+        window.location.href = 'login.html';
         return;
     }
 
-    fetch('/test', {
+    await fetch('/test', {
         method: 'GET',
         headers: {
-            'Authorization': `Bearer ${token}`, 
+            'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         }
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Acesso não autorizado');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Resposta:', data);
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Acesso não autorizado');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Resposta:', data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
 }
 
-function fetchProjetos() {
+async function fetchProjetos() {
     const token = localStorage.getItem('authToken');
 
     if (!token) {
@@ -44,7 +51,7 @@ function fetchProjetos() {
     }
 
     try {
-        const response = fetch('/test', {
+        const response = await fetch('/test', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -54,10 +61,13 @@ function fetchProjetos() {
 
         if (!response.ok) {
             throw new Error('Erro ao buscar projetos.');
+        } else {
+            const projetos = await response.json();
+            console.log(projetos);
+            return projetos;
         }
 
-        const data = response.json();
-        renderizarProjetos(data.projetos);
+
     } catch (error) {
         console.error('Erro ao buscar projetos:', error);
     }
