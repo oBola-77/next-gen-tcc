@@ -82,6 +82,7 @@ server.get('/test', authMiddleware, async (req, res) => {
         const projetos = await database.listarProjetos(uid);
 
         res.status(200).json({ projetos });
+        console.log({ projetos })
     } catch (error) {
         console.error("Erro ao buscar projetos:", error);
         res.status(500).json({ message: "Erro ao buscar os projetos." });
