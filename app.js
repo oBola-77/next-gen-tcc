@@ -61,7 +61,7 @@ server.get('/api/version', async (req, res) => {
 
 server.get('/:pagina', (request, reply) => {
     let pagina = request.params.pagina;
-    // reply.render(`${pagina}`);
+    reply.render(`${pagina}`);
     console.log(pagina)
 })
 
