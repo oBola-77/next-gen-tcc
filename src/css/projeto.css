@@ -203,7 +203,7 @@ body.light-mode .button2 {
     position: relative;
     background-color: #000000ea;
     color: black;
-    transition: transform 0.5s ease; /* Transição suave para o efeito de zoom */
+    transition: transform 0.4s ease; /* Transição suave para o efeito de zoom */
 }
 
 .card:hover {
