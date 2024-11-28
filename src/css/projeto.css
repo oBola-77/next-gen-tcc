@@ -297,7 +297,6 @@ body.light-mode .descricao p {
 
     .cardmb-4shadow-sm {
         margin: 10px;
-        background-color: #000000;
     }
 
     .card-body {
@@ -324,8 +323,6 @@ body.light-mode .descricao p {
 
     .cardmb-4shadow-sm {
         margin-bottom: 30px;
-        background-color: #000000;
-
     }
 
     .album .row {
@@ -376,7 +373,6 @@ body.light-mode .descricao p {
     .cardmb-4shadow-sm {
       margin-bottom: 10px; 
       border-radius: 10px; 
-      background-color: #000000;
     }
   
     .custom-heading {
