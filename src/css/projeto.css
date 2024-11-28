@@ -334,12 +334,13 @@ body.light-mode .descricao p {
     .descricao-container {
       flex-direction: column; 
       gap: 5px; 
+      margin-top: 20%;
     }
   
     .card {
       width: 100%; 
       margin: 5px 0; 
-      margin-top: 20%;
+   
     }
   
     .butao2 button {
