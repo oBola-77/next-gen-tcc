@@ -141,13 +141,14 @@ server.get('/projetos', authMiddleware, async (req, res) => {
         const dados = await database.listarProjetos(userId);
         console.log(dados);
 
-        if (!dados) {
-            console.log("aq fudeu");
-            
+        if (!dados || dados.length === 0) {
+            return res.status(404).json({ message: "Nenhum projeto encontrado para este usuário." });
         }
-        res.status(200).json({ message: "Acesso autorizado!", user: req.user });
+
+        res.status(200).json({ message: "Acesso autorizado!", user: req.user, projetos: dados });
     } catch (error) {
-        res.json({ message: "deu bosta" });
+        console.error("Erro ao buscar projetos:", error);
+        res.status(500).json({ message: "Erro interno ao buscar projetos." });
     }
 })
 
