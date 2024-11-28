@@ -334,7 +334,7 @@ body.light-mode .descricao p {
     .descricao-container {
       flex-direction: column; 
       gap: 5px; 
-      margin-top: 30%;
+      margin-top: 20%;
     }
   
     .card {
@@ -362,6 +362,7 @@ body.light-mode .descricao p {
       width: 100%; 
       padding-top: 0.5rem; 
       margin: 0 auto; 
+      margin-top: 10%;
     }
   
     .row {
