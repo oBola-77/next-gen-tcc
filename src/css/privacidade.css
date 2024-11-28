@@ -35,6 +35,35 @@ h1 {
 
 }
 
+body.light-mode {
+    background-color: #f1f1f1;
+}
+
+body.light-mode .container {
+    background-color: #f1f1f1;
+    box-shadow: none;
+}
+
+body.light-mode .container p {
+    color: black;
+}
+
+body.light-mode .container ul li {
+    color: black;
+}
+
+body.light-mode .container ul li strong{
+    color: black;
+}
+
+body.light-mode .container p strong{
+    color: black;
+}
+
+body.light-mode .container p a {
+    color: black;
+}
+
 .contact-info p {
     margin: 5px 0;
 }

@@ -27,8 +27,10 @@
     text-align: center; 
 }
 .custom-col p{
-    font-size: 20px;
+    font-size: 1.5rem;
     margin-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 .custom-col h1{
     color: #007DFC;
@@ -36,13 +38,12 @@
 
 .custom-rounded-circle {
     border-radius: 50%; 
-    width: 140px; 
-    height: 140px; 
+    width: 200px; 
+    height: 200px; 
 }
 
+
 /*Final teste*/
-
-
 
 .texto {
     flex: 1;
@@ -62,7 +63,7 @@
 
 .texto p {
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 1.5rem;
     margin-right: 10px;
 }
 
@@ -85,6 +86,7 @@ button {
     -webkit-transition: all 0.2s ease-in;
     -moz-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
+    cursor: pointer;
 }
 
 button:hover {
@@ -181,7 +183,6 @@ button:active {
 
 .title-solutions {
     text-align: center;
-    font-family: cursive;
     color: #007DFC;
     margin: 10% 0px 30px 0px;
     font-size: 35px;
@@ -241,6 +242,70 @@ summary:hover {
     background-color: #e0f3ff;
     color: #005bb5;
 }
+
+/*Modo Claro*/
+
+body.light-mode .inicio {
+    background-color: #f1f1f1;
+}
+
+body.light-mode {
+    background-color: #f1f1f1;
+    color: rgb(0, 0, 0);
+}
+
+body.light-mode .texto {
+    background-color: #f1f1f1;
+    color: #000000;
+}
+
+body.light-mode .titulo {
+    color: #007DFC;
+}
+
+body.light-mode .texto p {
+    color: #000000;
+}
+
+body.light-mode button {
+    color: #000000; /* Texto do botão branco */
+}
+
+body.light-mode .title-perguntas {
+    color:rgb(0, 0, 0);
+}
+
+body.light-mode .faq-container {
+    background-color:rgb(183, 183, 183);
+}
+
+body.light-mode .custom-col p{
+    color: #000000;
+}
+
+body.light-mode .card {
+    background-color: #f1f1f1;
+    overflow: none;
+    box-shadow: none;
+}
+
+body.light-mode .card-name {
+    background-color:#f1f1f1;
+    color: #000000;
+}
+
+body.light-mode .card-description {
+    background-color:#f1f1f1;
+}
+
+body.light-mode .card-title{
+    color: #000000;
+}
+
+body.light-mode .resposta{
+    color: #000000;
+}
+
 
 /* Estilo da resposta */
 .resposta {
@@ -397,8 +462,8 @@ details[open] summary {
     }
 
     .custom-rounded-circle {
-        width: 120px; /* Tamanho menor para as imagens */
-        height: 120px;
+        width: 160px; /* Tamanho menor para as imagens */
+        height: 160px;
     }
 
     /* Ajustando o título e texto */
@@ -423,7 +488,7 @@ details[open] summary {
     }
 
     .card-image {
-        height: 5%; /* Menor altura das imagens nos cards */
+        height: 360px; /* Menor altura das imagens nos cards */
     }
 
     .slider-container {
@@ -449,6 +514,7 @@ details[open] summary {
 @media (max-width: 480px) {
     .titulo {
         font-size: 24px; /* Tamanho de fonte ainda menor */
+        margin: 10% 5% 10% 5%;
     }
 
     .custom-row {
@@ -461,9 +527,20 @@ details[open] summary {
         margin-bottom: 15px; /* Espacamento entre as colunas */
     }
 
-    .texto {
-        font-size: 14px; /* Tamanho de fonte ajustado para telas pequenas */
+    .custom-col p {
+        font-size: 22px; /* Tamanho de fonte ainda menor */
+        width: 100%;
+        padding: 0 15px;
+        margin-bottom: 15px; /* Espacamento entre as colunas */
+    }
+
+    .texto p {
+        font-size: 20px; /* Tamanho de fonte ajustado para telas pequenas */
         margin: 10% 5% 10% 5%;
+    }
+
+    .card-image {
+        height: 360px; /* Menor altura das imagens nos cards */
     }
 
     /* Ajustando botões */

@@ -1,38 +1,39 @@
+/* From Uiverse.io by Praashoo7 */
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-bottom: 0.4em;
-  background-color: #171717;
-  border-radius: 25px;
-  width: 100%; /* Mudamos para 100% para ser responsivo */
-  max-width: 600px; /* Tamanho máximo para o formulário */
-  max-height: 380px;
-  margin: 15% auto; /* Alinhamento centralizado */
-  transition: .4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 0.4em;
+    background-color: #171717;
+    border-radius: 25px;
+    transition: .4s ease-in-out;
+    width: 600px;
+    margin: 10% 40% 100px 35%;
 }
 
+
+
 #heading {
-  text-align: center;
-  margin: 1.2em;
-  color: rgb(255, 255, 255);
-  font-size: 1.2em;
+    text-align: center;
+    margin: 1em;
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
 }
 
 .field {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
-  border-radius: 25px;
-  padding: 0.6em;
-  border: none;
-  outline: none;
-  color: white;
-  background-color: #171717;
-  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 25px;
+    padding: 0.6em;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
 }
 
 .fieldspace {
@@ -47,66 +48,73 @@
     color: white;
 }
 
-.input-icon {
-  height: 1.3em;
-  width: 1.3em;
-  fill: #007dfc;
+.fieldspace a {
+    color: #007dfc;
+    font-weight: bold;
 }
+
+.input-icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: #007dfc;
+  }
 
 .input-field {
-  background: none;
-  border: none;
-  outline: none;
-  width: 100%;
-  color: #d3d3d3;
-}
-
-.privacy-policy {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  color: white;
-  font-size: 0.9em;
-}
-
-.privacy-policy a {
-  color: #00aaff;
-  text-decoration: none;
-}
-
-.privacy-policy a:hover {
-  text-decoration: underline;
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
 }
 
 .form .btn {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  margin-top: 4.5em;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
-.button3 {
-  display: block;
-  margin-bottom: 3em;
+.button1 {
   padding: 0.5em;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+  border-radius: 15px;
+  margin-right: 0.5em;
+  border: none;
+  outline: none;
+  transition: .4s ease-in-out;
+  background-color: #252525;
+  color: white;
+  cursor: pointer;
+}
+
+.button1:hover {
+  background-color: black;
+  color: white;
+}
+
+a {
+  text-decoration: none;  
+}
+
+.button2 {
+  padding: 0.5em;
+  padding-left: 2.3em;
+  padding-right: 2.3em;
   border-radius: 15px;
   border: none;
   outline: none;
   transition: .4s ease-in-out;
   background-color: #252525;
   color: white;
-  width: 260px;
-  display: inline-block;
   cursor: pointer;
-  margin-top: 8%;
+  display: inline-block;
 }
 
-.button3:hover {
+.button2:hover {
   background-color: black;
   color: white;
 }
 
-/* Modo Claro */
 body.light-mode {
   background-color: #f1f1f1;
   color: black;
@@ -160,6 +168,10 @@ body.light-mode .button3 {
 
 body.light-mode .button3:hover {
   background-color: #ffffff;
+}
+
+body.light-mode .fieldspace h4 {
+   color: black;
 }
 
 body.light-mode .fieldspace label {
@@ -295,10 +307,9 @@ body.light-mode .fieldspace label {
 @media screen and (min-width: 1200px) {
   .form {
       width: 50%; 
-      margin: 10% auto; 
-      padding: 2em;
-      margin-top: 14%;
-      margin-bottom: 15%; 
+      margin: 10% auto;
+      margin-top: 7%; 
+      padding: 2em; 
   }
 
   #heading {
@@ -323,7 +334,7 @@ body.light-mode .fieldspace label {
       margin-top: 3em; 
   }
 
-  .button1, .button2, .button3 {
+  .button1, .button2 {
       font-size: 1.1em; 
       padding: 0.8em 1.5em; 
   }
@@ -331,10 +342,6 @@ body.light-mode .fieldspace label {
   .button1 {
     padding-left: 1rem;
     padding-right: 1rem; 
-  }
-
-  .button3 {
-      width: 286px; 
   }
 }
 
@@ -359,3 +366,4 @@ body.light-mode .fieldspace label {
       font-size: 1.2em; 
   }
 }
+
