@@ -48,9 +48,7 @@
 .pme3 img.visible {
   opacity: 1;
 }
-.button2 a{
-    text-decoration: none;
-}
+
 .navigation li {
     list-style-type: none;
     margin-top: 32px;
@@ -353,6 +351,10 @@ body.light-mode .menu-toggle span {
     color: #666;
     box-shadow: inset 4px 4px 12px #c5c5c5,
         inset -4px -4px 12px #ffffff;
+}
+.button2 a{
+    text-decoration: none;
+    color: white;
 }
 
 .button2:before {
