@@ -51,7 +51,7 @@ async function fetchProjetos() {
     }
 
     try {
-        const response = await fetch('/test', {
+        const response = await fetch('/listarProjetos', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
