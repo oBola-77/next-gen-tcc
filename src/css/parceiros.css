@@ -116,7 +116,7 @@ button::before {
   -o-transform: skewX(-20deg);
   transform: skewX(-20deg);
 }
-.emoji-rating {
+.rating {
   font-size: 36px; 
   padding: 10px;   
   border: 2px solid #ccc;
@@ -126,7 +126,7 @@ button::before {
   width: auto; /* Deixe o select ajustar ao tamanho do conteúdo */
 }
 
-.emoji-rating option {
+.rating option {
   font-size: 36px; /* Aumenta o tamanho dos emojis nas opções */
 }
 @keyframes sh02 {
