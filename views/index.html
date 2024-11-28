@@ -23,7 +23,7 @@
       <li><a href="index.html">PME</a></li>
       <li><a href="parceiros.html">Avaliações</a></li>
       <li><a href="sobrenos.html">Sobre nós</a></li>
-      <li><a href="login.html">Login</a></li>
+      <li><a href="testecadastro.html">Login</a></li>
       <li class="invisible"><a href="#">placeholder000</a></li>
     </ul>
     <div class="menu-toggle" id="menu-toggle">
@@ -245,7 +245,27 @@
   menuToggle.addEventListener('click', () => {
     navigation.classList.toggle('open');
   });
+  
+  const animatedElements = document.querySelectorAll('.cardmb-4shadow-sm, .card, .pme img, .pme2 img, .pme3 img');
 
+
+  // Configura o IntersectionObserver
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Adiciona a classe para animar
+        entry.target.classList.add('visible');
+        
+        // Opcional: Para que o efeito não seja reexecutado
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.3, // Quando 30% do elemento estiver visível
+  });
+
+  // Observa cada elemento animado
+  animatedElements.forEach(element => observer.observe(element));
 </script>
 
 </html>

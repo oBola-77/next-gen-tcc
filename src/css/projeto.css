@@ -14,22 +14,45 @@
 }
 
 .pme img {
-    padding-top: 3rem;
-    width: 100%;       
-    height: auto; 
+  padding-top: 3rem;
+  width: 100%;
+  height: auto;
+
+  /* Estilos iniciais para a animação */
+  opacity: 0; /* Invisível no início */
+  transform: translateY(70px); /* Leve deslocamento */
+  transition: opacity 1.5s ease, transform 1.5s ease; /* Transição suave */
+}
+
+.pme img.visible {
+  /* Quando visível */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .pme2 img {
-    padding-top: 3rem;
-    width: 100%;       
-    height: auto; 
+  padding-top: 3rem;
+  width: 100%;
+  height: auto;
+
+  /* Estilo inicial para a animação */
+  opacity: 0; /* Invisível no início */
+  transition: opacity 1.5s ease, transform 1.5s ease; /* Suavidade */
 }
 
 .pme3 img {
-    padding-top: 3rem;
-    width: 100%;       
-    height: auto; 
-    transform: scaleY(-1); /* Espelha verticalmente */
+  padding-top: 3rem;
+  width: 100%;
+  height: auto;
+  transform: scaleY(-1); /* Espelha verticalmente */
+  opacity: 0; /* Invisível no início */
+  transition: opacity 1.5s ease, transform 1.5s ease; /* Suavidade */
+}
+
+.pme2 img.visible,
+.pme3 img.visible {
+  /* Quando visíveis */
+  opacity: 1;
 }
 
 .navigation li {
@@ -203,7 +226,15 @@ body.light-mode .button2 {
     position: relative;
     background-color: #000000ea;
     color: black;
-    transition: transform 0.4s ease; /* Transição suave para o efeito de zoom */
+    opacity: 0; /* Invisível no início */
+    transform: translateY(70px); /* Leve deslocamento */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Transição suave */
+}
+
+.card.visible {
+    /* Quando visível */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .card:hover {
@@ -242,10 +273,22 @@ body.light-mode .button2 {
 }
 
 .cardmb-4shadow-sm {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border-radius: 50px;
-    margin-bottom: 20px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border-radius: 50px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  /* Invisível inicialmente */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.cardmb-4shadow-sm.visible {
+  /* Visível com animação */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card-img-top {
@@ -386,14 +429,13 @@ body.light-mode .button2 {
         font-size: 0.9rem;
     }
 }
-
 @media (min-width: 768px) {
     .descricao-container {
         display: flex;
         justify-content: center; 
     }
 
-    .descricao {
+    .card {
         font-size: 1.5rem; 
         margin: 1.5%;
         padding: 2%;
