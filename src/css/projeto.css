@@ -413,3 +413,45 @@ body.light-mode .button2 {
         justify-content: space-between;
     }
 }
+
+@media (max-width: 480px) {
+    .descricao-container {
+        display: flex;
+        justify-content: center; 
+    }
+
+    .card {
+        max-width: 300px;
+        font-size: 1.2rem; 
+        margin: 1%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        padding: 2%;
+    }
+
+    .card-description{
+        font-size: 1.1rem; 
+    }
+
+    .butao2 button {
+        width: 250px;
+        font-size: 16px;
+    }
+
+    .cardmb-4shadow-sm {
+        margin-bottom: 30px;
+    }
+
+    .album .row {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .pme2 {
+        margin-bottom: 8%;
+    }
+
+    .pme3 {
+        margin-top: 8%;
+    }
+}
