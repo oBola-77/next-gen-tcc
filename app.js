@@ -65,25 +65,6 @@ server.get('/:pagina', (request, reply) => {
     console.log(pagina)
 })
 
-// server.get('/listarProjetos', authMiddleware, async (req, res) => {
-//     const userId = req.user.uid; // UID do Firebase do token JWT
-//     console.log("UID do usuário autenticado:", userId);
-
-//     if (!userId) {
-//         return res.status(400).json({ message: "UID do usuário não encontrado no token" });
-//     }
-
-//     try {
-//         const projetos = await database.listarProjetos(userId)
-//         console.log(projetos);
-//         res.status(200).json(projetos);
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ message: "Erro ao buscar projetos" });
-//     }
-// });
-
-
 server.post('/registrar', async (req, res) => {
     const dadosRegistro = req.body;
     try {
@@ -136,6 +117,7 @@ server.post('/logar', async (req, res) => {
 
 server.get('/test', authMiddleware, async (req, res) => {
     const userId = req.user.uid;
+    console.log(userId);
 
     try {
         const dados = await database.listarProjetos(userId);
@@ -147,7 +129,7 @@ server.get('/test', authMiddleware, async (req, res) => {
         }
         res.status(200).json({ message: "Acesso autorizado!", user: req.user });
     } catch (error) {
-
+        res.json({ message: "deu bosta" });
     }
 })
 
