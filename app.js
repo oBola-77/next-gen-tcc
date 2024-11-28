@@ -79,6 +79,7 @@ server.get('/listarProjetos', authMiddleware, async (req, res) => {
     const userId = req.user.uid; // UID do Firebase do token JWT
     try {
         const projetos = await database.listarProjetos(userId)
+        console.log(projetos);
         res.status(200).json(projetos);
     } catch (error) {
         console.error(error);
