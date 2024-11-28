@@ -4,10 +4,12 @@ const body = document.body;
 // Seleção de elementos que precisam de ajustes
 const descricaoContainer = document.querySelector('.descricao-container');
 const descricaoDiv = document.querySelector('.descricao');
-const descricaoP = document.querySelector('.descricao p');
+const butao2button = document.querySelector('.butao2 button');
 const customShapeDivider = document.querySelector('.custom-shape-divider-bottom-1683068753');
 const svgElement = customShapeDivider?.querySelector('svg');
 const pmeImage = document.querySelector('.pme img'); // Imagem dentro da div .pme
+const pme2Image = document.querySelector('.pme2 img'); // Imagem dentro da div .pme2
+const pme3Image = document.querySelector('.pme3 img'); // Imagem dentro da div .pme3
 const logoImg = document.querySelector('.logo img'); // Imagem do logo no header
 
 // Verifica se o light mode está ativado no carregamento
@@ -22,6 +24,12 @@ if (localStorage.getItem('light-mode') === 'enabled') {
   }
   if (pmeImage) {
     pmeImage.src = './src/imagem/pmes-light.png'; // Caminho da imagem do light mode
+  }
+  if (pme2Image) {
+    pme2Image.src = './src/imagem/pmedesignwhite.png'; // Caminho da imagem do light mode para .pme2
+  }
+  if (pme3Image) {
+    pme3Image.src = './src/imagem/pmedesignwhite.png'; // Caminho da imagem do light mode para .pme3
   }
   if (logoImg) {
     logoImg.src = './src/imagem/logowhite.png'; // Caminho da imagem do light mode
@@ -41,6 +49,12 @@ toggleCheckbox.addEventListener('change', function () {
     if (pmeImage) {
       pmeImage.src = './src/imagem/pmes-light.png'; // Define a imagem do light mode
     }
+    if (pme2Image) {
+      pme2Image.src = './src/imagem/pmedesignwhite.png'; // Define a imagem do light mode para .pme2
+    }
+    if (pme3Image) {
+      pme3Image.src = './src/imagem/pmedesignwhite.png'; // Define a imagem do light mode para .pme3
+    }
     if (logoImg) {
       logoImg.src = './src/imagem/logowhite.png'; // Define a imagem do light mode
     }
@@ -56,6 +70,12 @@ toggleCheckbox.addEventListener('change', function () {
     }
     if (pmeImage) {
       pmeImage.src = './src/imagem/pmes.png'; // Caminho da imagem padrão (dark mode)
+    }
+    if (pme2Image) {
+      pme2Image.src = './src/imagem/pmedesign.png'; // Caminho da imagem padrão para .pme2
+    }
+    if (pme3Image) {
+      pme3Image.src = './src/imagem/pmedesign.png'; // Caminho da imagem padrão para .pme3
     }
     if (logoImg) {
       logoImg.src = './src/imagem/logoblack.png'; // Caminho da imagem padrão (dark mode)

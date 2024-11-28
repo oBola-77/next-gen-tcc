@@ -386,6 +386,7 @@ body.light-mode .button2 {
         font-size: 0.9rem;
     }
 }
+
 @media (min-width: 768px) {
     .descricao-container {
         display: flex;
@@ -412,4 +413,3 @@ body.light-mode .button2 {
         justify-content: space-between;
     }
 }
-  
