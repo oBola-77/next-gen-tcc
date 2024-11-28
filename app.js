@@ -117,24 +117,6 @@ server.post('/logar', async (req, res) => {
 
 server.get('/test', authMiddleware, async (req, res) => {
     const userId = req.user.uid;
-    console.log(userId);
-
-    try {
-        const dados = await database.listarProjetos(userId);
-        console.log(dados);
-
-        if (!dados) {
-            console.log("aq fudeu");
-            
-        }
-        res.status(200).json({ message: "Acesso autorizado!", user: req.user });
-    } catch (error) {
-        res.json({ message: "deu bosta" });
-    }
-})
-
-server.get('/projetos', authMiddleware, async (req, res) => {
-    const userId = req.user.uid;
     console.log("userID: ", userId);
 
     try {
