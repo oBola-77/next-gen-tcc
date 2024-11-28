@@ -77,6 +77,12 @@ server.get('/test', authMiddleware, async (req, res) => {
 
 server.get('/listarProjetos', authMiddleware, async (req, res) => {
     const userId = req.user.uid; // UID do Firebase do token JWT
+    console.log("UID do usuário autenticado:", userId);
+
+    if (!userId) {
+        return res.status(400).json({ message: "UID do usuário não encontrado no token" });
+    }
+
     try {
         const projetos = await database.listarProjetos(userId)
         console.log(projetos);
