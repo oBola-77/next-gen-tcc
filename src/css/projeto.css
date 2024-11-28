@@ -182,6 +182,10 @@ body.light-mode .button2 {
     border: 1px solid #000000;
 }
 
+body.light-mode .menu-toggle span {
+    background-color: #000000;
+}
+
 
 @keyframes sh02 {
     from {
