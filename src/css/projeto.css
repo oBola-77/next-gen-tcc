@@ -113,9 +113,9 @@ body.light-mode .descricao p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 400px;
+    width: 450px;
     padding: 20px;
-    margin: 10px;
+    margin: 15px;
     margin-bottom: 5%;
     text-align: center;
     position: relative;
