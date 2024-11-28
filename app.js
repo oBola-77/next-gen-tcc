@@ -67,7 +67,10 @@ server.get('/:pagina', (request, reply) => {
 
 server.get('/test', authMiddleware, async (req, res) => {
     const user = req.user; // Informações do token JWT
-    res.status(200).json({ message: "Acesso autorizado!", user });
+    const userId = req.user.uid;
+    const dados = database.listarProjetos(userId);
+    console.log(dados);
+    res.status(200).json({ message: "Acesso autorizado!", user: req.user });
 })
 
 // server.get('/listarProjetos', authMiddleware, async (req, res) => {
