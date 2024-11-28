@@ -65,14 +65,6 @@ server.get('/:pagina', (request, reply) => {
     console.log(pagina)
 })
 
-server.get('/test', authMiddleware, async (req, res) => {
-    const user = req.user; // Informações do token JWT
-    const userId = req.user.uid;
-    const dados = database.listarProjetos(userId);
-    console.log(dados);
-    res.status(200).json({ message: "Acesso autorizado!", user: req.user });
-})
-
 // server.get('/listarProjetos', authMiddleware, async (req, res) => {
 //     const userId = req.user.uid; // UID do Firebase do token JWT
 //     console.log("UID do usuário autenticado:", userId);
@@ -118,7 +110,7 @@ server.post('/logar', async (req, res) => {
             res.cookie("authToken", token, {
                 httpOnly: true,
                 secure: true,
-                maxAge: 3600000, 
+                maxAge: 3600000,
                 userData: {
                     message: "Login Realizado",
                     uid: user.uid,
@@ -127,7 +119,7 @@ server.post('/logar', async (req, res) => {
             });
 
             console.log("Logado com sucesso.")
-            return res.status(200).json({ 
+            return res.status(200).json({
                 message: "Logado com sucesso",
                 token: token,
                 email: user.email,
@@ -139,6 +131,23 @@ server.post('/logar', async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Erro ao logar" })
+    }
+})
+
+server.get('/test', authMiddleware, async (req, res) => {
+    const userId = req.user.uid;
+
+    try {
+        const dados = await database.listarProjetos(userId);
+        console.log(dados);
+
+        if (!dados) {
+            console.log("aq fudeu");
+            
+        }
+        res.status(200).json({ message: "Acesso autorizado!", user: req.user });
+    } catch (error) {
+
     }
 })
 
