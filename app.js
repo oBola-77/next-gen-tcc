@@ -78,10 +78,13 @@ server.get('/:pagina', (request, reply) => {
 
 server.get('/test', authMiddleware, async (req, res) => {
     try {
-        const { uid } = req.uid;
+        const uid = req.uid;
         const projetos = await database.listarProjetos(uid);
+
+        res.status(200).json({ projetos });
     } catch (error) {
-        
+        console.error("Erro ao buscar projetos:", error);
+        res.status(500).json({ message: "Erro ao buscar os projetos." });
     }
 })
 
