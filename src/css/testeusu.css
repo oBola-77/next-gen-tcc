@@ -344,6 +344,7 @@ svg {
 .custom-container {
     padding: 1rem;
     background-color: black;
+    margin-top: -30%;
 }
 
 /*Teste cards*/
