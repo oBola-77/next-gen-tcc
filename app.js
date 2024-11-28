@@ -129,7 +129,7 @@ server.get('/test', authMiddleware, async (req, res) => {
 })
 
 server.get('/listarProjetos', authMiddleware, async (req, res) => {
-    const userId = req.user.uid; // UID extraído do token JWT
+    const userId = localStorage.getItem('authToken'); // UID extraído do token JWT
     try {
         // Chama a função para buscar os projetos no banco
         const projetos = await database.listarProjetos(userId);
