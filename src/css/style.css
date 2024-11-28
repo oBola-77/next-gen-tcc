@@ -101,8 +101,19 @@ body.light-mode .logo img {
     align-items: center;
     transition: transform 0.5s linear;
 }
+
+body.light-mode .menu-toggle span {
+    background-color: #ffffff;
+}
   
   /* Responsividade */
+
+  @media (min-width: 768px) {
+    .navigation li.mask {
+      display: none;
+    }
+  } 
+  
   @media (max-width: 768px) {
     .navigation {
       position: fixed;
@@ -129,6 +140,20 @@ body.light-mode .logo img {
       z-index: 2;
       margin-right: 15px;
     }
+
+    .menu-toggle input,
+    .menu-toggle label {
+      display: none;
+    }
+
+    .navigation li .mask{
+        padding: 15px 20px;
+    }
+
+
+    body.light-mode .navigation.open{
+        background-color: #f1f1f1;
+    }
   
     .menu-toggle .bar {
       display: block;
@@ -137,15 +162,17 @@ body.light-mode .logo img {
       margin: 5px 0;
       background-color: #ffffff;
     }
+
+    body.light-mode .menu-toggle .bar {
+        background-color: #000000;
+    }
   
     .navigation li a {
       font-size: 28px;
-      padding: 15px 20px;
     }
 
     body.light-mode .navigation li a {
-        color: #ffffff;
-        transition: transform 0.5s linear;
+        color: #000000;
     }
   }
   
