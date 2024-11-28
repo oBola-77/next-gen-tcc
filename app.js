@@ -59,12 +59,6 @@ server.get('/api/version', async (req, res) => {
     }
 });
 
-server.get('/:pagina', (request, reply) => {
-    let pagina = request.params.pagina;
-    reply.render(`${pagina}`);
-    console.log(pagina)
-})
-
 server.post('/registrar', async (req, res) => {
     const dadosRegistro = req.body;
     try {
@@ -78,16 +72,16 @@ server.post('/registrar', async (req, res) => {
 
 server.post('/logar', async (req, res) => {
     const dadosLogin = req.body;
-
+    
     try {
         const user = await database.validar(dadosLogin);
         console.log(user);
         console.log("return do app.js")
-
+        
         if (user) {
             const token = gerarToken(user)
             console.log('token gerado', token);
-
+            
             res.cookie("authToken", token, {
                 httpOnly: true,
                 secure: true,
@@ -98,7 +92,7 @@ server.post('/logar', async (req, res) => {
                     email: user.email
                 }
             });
-
+            
             console.log("Logado com sucesso.")
             return res.status(200).json({
                 message: "Logado com sucesso",
@@ -107,7 +101,7 @@ server.post('/logar', async (req, res) => {
                 uid: user.uid
             });
         }
-
+        
         res.status(401).json({ message: "Dados inválidos" });
     } catch (error) {
         console.log(error);
@@ -118,15 +112,15 @@ server.post('/logar', async (req, res) => {
 server.get('/test', authMiddleware, async (req, res) => {
     const userId = req.user.uid;
     console.log("userID: ", userId);
-
+    
     try {
         const dados = await database.listarProjetos(userId);
         console.log(dados);
-
+        
         if (!dados || dados.length === 0) {
             return res.status(404).json({ message: "Nenhum projeto encontrado para este usuário." });
         }
-
+        
         res.status(200).json({ message: "Acesso autorizado!", user: req.user, projetos: dados });
     } catch (error) {
         console.error("Erro ao buscar projetos:", error);
@@ -139,12 +133,12 @@ server.get('/listarProjetos', authMiddleware, async (req, res) => {
     try {
         // Chama a função para buscar os projetos no banco
         const projetos = await database.listarProjetos(userId);
-
+        
         // Verifica se encontrou algum projeto
         if (!projetos || projetos.length === 0) {
             return res.status(404).json({ message: "Nenhum projeto encontrado para este usuário." });
         }
-
+        
         // Retorna os projetos como JSON
         res.status(200).json({ 
             message: "Projetos encontrados com sucesso!",
@@ -160,6 +154,12 @@ server.post('/logout', (req, res) => {
     res.clearCookie("authToken");
     res.status(200).json({ message: "Logout realizado com sucesso" });
 });
+
+server.get('/:pagina', (request, reply) => {
+    let pagina = request.params.pagina;
+    reply.render(`${pagina}`);
+    console.log(pagina)
+})
 
 server.listen(porta, () => {
     console.log(`server subiu em ${porta}`)
