@@ -354,6 +354,7 @@ body.light-mode .menu-toggle span {
 }
 .button2 a{
     text-decoration: none;
+    color: black;
 }
 
 .button2:before {
