@@ -17,15 +17,12 @@
   padding-top: 3rem;
   width: 100%;
   height: auto;
-
-  /* Estilos iniciais para a animação */
-  opacity: 0; /* Invisível no início */
-  transform: translateY(70px); /* Leve deslocamento */
-  transition: opacity 1.5s ease, transform 1.5s ease; /* Transição suave */
+  opacity: 0; 
+  transform: translateY(70px); 
+  transition: opacity 1.5s ease, transform 1.5s ease; 
 }
 
 .pme img.visible {
-  /* Quando visível */
   opacity: 1;
   transform: translateY(0);
 }
@@ -34,27 +31,26 @@
   padding-top: 3rem;
   width: 100%;
   height: auto;
-
-  /* Estilo inicial para a animação */
-  opacity: 0; /* Invisível no início */
-  transition: opacity 1.5s ease, transform 1.5s ease; /* Suavidade */
+  opacity: 0; 
+  transition: opacity 1.5s ease, transform 1.5s ease; 
 }
 
 .pme3 img {
   padding-top: 3rem;
   width: 100%;
   height: auto;
-  transform: scaleY(-1); /* Espelha verticalmente */
-  opacity: 0; /* Invisível no início */
-  transition: opacity 1.5s ease, transform 1.5s ease; /* Suavidade */
+  transform: scaleY(-1); 
+  opacity: 0; 
+  transition: opacity 1.5s ease, transform 1.5s ease; 
 }
 
 .pme2 img.visible,
 .pme3 img.visible {
-  /* Quando visíveis */
   opacity: 1;
 }
-
+.button2 a{
+    text-decoration: none;
+}
 .navigation li {
     list-style-type: none;
     margin-top: 32px;
@@ -125,7 +121,7 @@ body.light-mode {
 }
 
 body.light-mode .album {
-    background-color: #f1f1f1; /* Cor da div "album" no light mode */
+    background-color: #f1f1f1; 
 }
 
 body.light-mode .cardmb-4shadow-sm {
@@ -217,7 +213,7 @@ body.light-mode .menu-toggle span {
 
 .card {
     display: flex;
-    border: 1px solid transparent; /* Borda inicial transparente */
+    border: 1px solid transparent; 
     border-radius: 5%;
     flex-direction: column;
     align-items: center;
@@ -230,19 +226,18 @@ body.light-mode .menu-toggle span {
     position: relative;
     background-color: #000000ea;
     color: black;
-    opacity: 0; /* Invisível no início */
-    transform: translateY(70px); /* Leve deslocamento */
-    transition: opacity 0.8s ease, transform 0.8s ease; /* Transição suave */
+    opacity: 0; 
+    transform: translateY(70px); 
+    transition: opacity 0.8s ease, transform 0.8s ease; 
 }
 
 .card.visible {
-    /* Quando visível */
     opacity: 1;
     transform: translateY(0);
 }
 
 .card:hover {
-    transform: scale(1.1); /* Aumenta a div para 110% do tamanho original */
+    transform: scale(1.1); 
     border: double 1px #ffffff;
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
@@ -283,14 +278,12 @@ body.light-mode .menu-toggle span {
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  /* Invisível inicialmente */
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
 }
 
 .cardmb-4shadow-sm.visible {
-  /* Visível com animação */
   opacity: 1;
   transform: translateY(0);
 }
@@ -409,7 +402,6 @@ body.light-mode .menu-toggle span {
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .descricao-container {
         flex-direction: column;
