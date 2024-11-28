@@ -128,28 +128,6 @@ server.get('/test', authMiddleware, async (req, res) => {
     }
 })
 
-server.get('/listarProjetos', authMiddleware, async (req, res) => {
-    const userId = localStorage.getItem('authToken'); // UID extraído do token JWT
-    try {
-        // Chama a função para buscar os projetos no banco
-        const projetos = await database.listarProjetos(userId);
-        
-        // Verifica se encontrou algum projeto
-        if (!projetos || projetos.length === 0) {
-            return res.status(404).json({ message: "Nenhum projeto encontrado para este usuário." });
-        }
-        
-        // Retorna os projetos como JSON
-        res.status(200).json({ 
-            message: "Projetos encontrados com sucesso!",
-            projetos 
-        });
-    } catch (error) {
-        console.error("Erro ao buscar projetos:", error);
-        res.status(500).json({ message: "Erro interno ao buscar projetos." });
-    }
-});
-
 server.post('/logout', (req, res) => {
     res.clearCookie("authToken");
     res.status(200).json({ message: "Logout realizado com sucesso" });
