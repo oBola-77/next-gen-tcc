@@ -116,17 +116,17 @@ button::before {
   -o-transform: skewX(-20deg);
   transform: skewX(-20deg);
 }
-.rating {
-  font-size: 36px; 
-  padding: 10px;   
-  border: 2px solid #ccc;
+.emoji-rating {
+  font-size: 36px; /* Tamanho maior para os emojis */
+  padding: 10px;   /* Espaço ao redor do emoji */
+  border: 2px solid #ccc; /* Borda mais suave */
   border-radius: 8px; /* Bordas arredondadas */
   background-color: #f9f9f9; /* Cor de fundo suave */
   cursor: pointer; /* Mudar o cursor para indicar interação */
   width: auto; /* Deixe o select ajustar ao tamanho do conteúdo */
 }
 
-.rating option {
+.emoji-rating option {
   font-size: 36px; /* Aumenta o tamanho dos emojis nas opções */
 }
 @keyframes sh02 {

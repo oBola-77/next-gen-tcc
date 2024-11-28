@@ -52,14 +52,14 @@
         <div class="review-form">
             <h2>Deixe sua avaliação:</h2>
             <form id="reviewForm">
-                <label for="rating">Classificação (1 a 5):</label>
-                <select id="rating" required>
-                  <option value="1">😞</option>
-                  <option value="2">😒</option>
-                  <option value="3">😐</option>
-                  <option value="4">🙂</option>
-                  <option value="5">😊</option>
-              </select>
+              <select id="rating" required class="emoji-rating">
+                <option value="1">😞</option>
+                <option value="2">😒</option>
+                <option value="3">😐</option>
+                <option value="4">🙂</option>
+                <option value="5">😊</option>
+            </select>
+            
                 <label for="comment">Comentário:</label>
                 <textarea id="comment" rows="4" placeholder="Escreva seu comentário..." required></textarea>
                 <button type="submit">Enviar Avaliação</button>
