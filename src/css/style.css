@@ -235,7 +235,9 @@ body.light-mode .menu-toggle span {
   transform: translateX(18px);
 }
 
-
+.toggle-theme-mobile:checked + .label .ball {
+    transform: translateX(18px);
+}
 
 /* foot */
 
