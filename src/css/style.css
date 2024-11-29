@@ -38,10 +38,10 @@ nav {
     display: flex;
     align-items: center;
     opacity: 0;
-    transition: opacity 1s ease, transform 1s ease; 
+    transition: opacity 1s ease-in-out; 
 }
 
-.logo img.visible {
+.logo img.loaded {
   opacity: 1;
 }
   
