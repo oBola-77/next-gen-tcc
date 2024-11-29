@@ -56,10 +56,10 @@ function renderizarProjetos(projetos) {
 
 function renderizarUsuarios(dadosUsuario){
     console.log("Renderizando dados do usuario");
-    getElementById("user-name").placeholder = dadosUsuario.userName;
-    getElementById("email").placeholder = dadosUsuario.email;
-    getElementById("telefone").placeholder = dadosUsuario.telefone;
-    getElementById("nomeEmpresa").placeholder = dadosUsuario.nomeEmpresa;    
+    getElementById("user-name").placeholder = dadosUsuario[0].nomeCompleto;
+    getElementById("email").placeholder = dadosUsuario[0].email;
+    getElementById("telefone").placeholder = dadosUsuario[0].telefone;
+    getElementById("nomeEmpresa").placeholder = dadosUsuario[0].nomeEmpresa;    
 }
 
 async function fetchProjetos() {
@@ -102,10 +102,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (data) {
         console.log("Usuário autenticado:", data.user);
         console.log("Projetos recebidos:", data.projetos);
-        console.log( "Dados do usuario recebidoa:", data.dadosUsuario);
+        console.log( "Dados do usuario recebidos:", data.dadosUsuario);
 
         if (data.projetos && data.projetos.length > 0) {
             renderizarProjetos(data.projetos); // Renderiza os projetos
+            renderizarUsuarios(data.dadosUsuario); //Renderiza a cachorra da mae do usuario aquele filho de uma puta
         } else {
             console.log("Nenhum projeto para renderizar.");
         };
