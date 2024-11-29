@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const user = await fetchTest();
     if (user) {
+        console.log("Puxando projetos");
         const projetos = await fetchProjetos();
         if (projetos) {
             console.log("renderizando projetos");
@@ -16,6 +17,7 @@ function renderizarProjetos(projetos) {
     container.innerHTML = '';
 
     projetos.forEach(projeto => {
+
         const card = document.createElement('div');
         card.classList.add('project-card');
 
