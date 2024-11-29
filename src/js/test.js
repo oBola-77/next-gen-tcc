@@ -74,15 +74,12 @@ function renderizarProjetos(projetos) {
         card.classList.add('project-card');
 
         card.innerHTML = `
-        <div class="project-image">
-        <img src="${projeto.imagem}" alt="Imagem do projeto">
-        </div>
         <div class="project-info">
-        <span class="project-title">${projeto.nome}</span>
-        <p class="project-description">${projeto.descricao}</p>
+        <span class="project-title">${projeto.tipoprojeto}</span>
+        <p class="project-description">${projeto.descricaoprojeto}</p>
                 <p class="project-description">Consultor: ${projeto.consultor}</p>
                 <p class="project-description">Status: ${projeto.status}</p>
-                <p class="project-description">Data de Conclusão: ${projeto.dataConclusao}</p>
+                <p class="project-description">Data de Início: ${projeto.datainicio}</p>
                 </div>
                 `;
 
@@ -110,6 +107,17 @@ async function fetchProjetos() {
     } catch (error) {
         console.error("Erro ao buscar projetos:", error);
     }
+}
+
+function definirImagem(tituloProjeto) {
+    switch (tituloProjeto) {
+        case tituloProjeto:
+            
+            break;
+    
+        default:
+            break;
+    } 
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
