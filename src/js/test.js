@@ -1,35 +1,3 @@
-
-// async function fetchTest() {
-//     const token = localStorage.getItem('authToken');
-
-//     if (!token) {
-//         console.log('Token não encontrado');
-//         window.location.href = 'login.html';
-//         return;
-//     }
-
-//     await fetch('/test', {
-//         method: 'GET',
-//         headers: {
-//             'Authorization': `Bearer ${token}`,
-//             'Content-Type': 'application/json'
-//         }
-//     })
-//     .then(response => {
-//         if (!response.ok) {
-//             throw new Error('Acesso não autorizado');
-//             }
-//             return response.json();
-//         })
-//         .then(data => {
-//             console.log('Resposta:', data);
-//             return data
-//         })
-//         .catch(error => {
-//             console.error('Erro:', error);
-//         });
-// }
-
 async function fetchTest() {
     const token = localStorage.getItem('authToken');
 
