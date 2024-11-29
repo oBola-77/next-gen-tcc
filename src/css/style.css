@@ -37,7 +37,6 @@ nav {
     height: auto;
     display: flex;
     align-items: center;
-    transition: ease 2s;
 }
   
 .navigation {
@@ -100,7 +99,6 @@ body.light-mode .logo img {
     height: auto;
     display: flex;
     align-items: center;
-    transition: transform 0.5s linear;
 }
 
 body.light-mode .menu-toggle span {
