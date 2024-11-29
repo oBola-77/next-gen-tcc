@@ -23,16 +23,16 @@ if (localStorage.getItem('light-mode') === 'enabled') {
     svgElement.style.fill = '#eaeaea';
   }
   if (pmeImage) {
-    pmeImage.src = './src/imagem/pmes-light.png'; // Caminho da imagem do light mode
+    pmeImage.src = '../src/imagem/pmes-light.png'; // Caminho da imagem do light mode
   }
   if (pme2Image) {
-    pme2Image.src = './src/imagem/pmedesignwhite.png'; // Caminho da imagem do light mode para .pme2
+    pme2Image.src = '../src/imagem/pmedesignwhite.png'; // Caminho da imagem do light mode para .pme2
   }
   if (pme3Image) {
-    pme3Image.src = './src/imagem/pmedesignwhite.png'; // Caminho da imagem do light mode para .pme3
+    pme3Image.src = '../src/imagem/pmedesignwhite.png'; // Caminho da imagem do light mode para .pme3
   }
   if (logoImg) {
-    logoImg.src = './src/imagem/logowhite.png'; // Caminho da imagem do light mode
+    logoImg.src = '../src/imagem/logowhite.png'; // Caminho da imagem do light mode
   }
 }
 
@@ -47,16 +47,16 @@ toggleCheckbox.addEventListener('change', function () {
       svgElement.style.fill = '#eaeaea';
     }
     if (pmeImage) {
-      pmeImage.src = './src/imagem/pmes-light.png'; // Define a imagem do light mode
+      pmeImage.src = '../src/imagem/pmes-light.png'; // Define a imagem do light mode
     }
     if (pme2Image) {
-      pme2Image.src = './src/imagem/pmedesignwhite.png'; // Define a imagem do light mode para .pme2
+      pme2Image.src = '../src/imagem/pmedesignwhite.png'; // Define a imagem do light mode para .pme2
     }
     if (pme3Image) {
-      pme3Image.src = './src/imagem/pmedesignwhite.png'; // Define a imagem do light mode para .pme3
+      pme3Image.src = '../src/imagem/pmedesignwhite.png'; // Define a imagem do light mode para .pme3
     }
     if (logoImg) {
-      logoImg.src = './src/imagem/logowhite.png'; // Define a imagem do light mode
+      logoImg.src = '../src/imagem/logowhite.png'; // Define a imagem do light mode
     }
 
     localStorage.setItem('light-mode', 'enabled');
@@ -69,16 +69,16 @@ toggleCheckbox.addEventListener('change', function () {
       svgElement.style.fill = ''; // Volta ao estilo padrão
     }
     if (pmeImage) {
-      pmeImage.src = './src/imagem/pmes.png'; // Caminho da imagem padrão (dark mode)
+      pmeImage.src = '../src/imagem/pmes.png'; // Caminho da imagem padrão (dark mode)
     }
     if (pme2Image) {
-      pme2Image.src = './src/imagem/pmedesign.png'; // Caminho da imagem padrão para .pme2
+      pme2Image.src = '../src/imagem/pmedesign.png'; // Caminho da imagem padrão para .pme2
     }
     if (pme3Image) {
-      pme3Image.src = './src/imagem/pmedesign.png'; // Caminho da imagem padrão para .pme3
+      pme3Image.src = '../src/imagem/pmedesign.png'; // Caminho da imagem padrão para .pme3
     }
     if (logoImg) {
-      logoImg.src = './src/imagem/logoblack.png'; // Caminho da imagem padrão (dark mode)
+      logoImg.src = '../src/imagem/logoblack.png'; // Caminho da imagem padrão (dark mode)
     }
 
     localStorage.setItem('light-mode', 'disabled');
