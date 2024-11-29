@@ -115,7 +115,7 @@ server.get('/test', authMiddleware, async (req, res) => {
     
     try {
         const dados = await database.listarProjetos(userId);
-        console.log(dados);
+        console.log("retorno dos dados pro console", dados);
         
         if (!dados || dados.length === 0) {
             return res.status(404).json({ message: "Nenhum projeto encontrado para este usuário." });
