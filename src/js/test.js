@@ -9,7 +9,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function renderizarProjetos(projetos) {
-    console.log("a paga dos projetos estão aq: ", projetos);
+    console.log("Renderizando projetos");
+    const container = document.getElementById('projetos-container');
+
+    container.innerHTML = '';
+
+    if (projetos && projetos.length > 0) {
+        projetos.forEach(projeto => {
+
+            const card = document.createElement('div');
+            card.className = 'projeto-card';
+
+
+            card.innerHTML = `
+                <h3>${projeto.nome}</h3>
+                <p>${projeto.descricao}</p>
+                <p><strong>Status:</strong> ${projeto.status}</p>
+            `;
+
+            // Adiciona o card ao container
+            container.appendChild(card);
+        });
+    } else {
+        // Caso não haja projetos, exibe uma mensagem
+        container.innerHTML = '<p>Nenhum projeto encontrado.</p>';
+    }
 }
 
 async function fetchTest() {
