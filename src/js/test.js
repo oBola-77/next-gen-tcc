@@ -64,7 +64,7 @@ async function fetchTest() {
 
 function renderizarProjetos(projetos) {
     console.log("Renderizando projetos");
-    const container = document.getElementById('projetos-container');
+    const container = document.getElementById('projects-container');
 
     container.innerHTML = '';
 
