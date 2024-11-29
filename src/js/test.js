@@ -14,26 +14,25 @@ function renderizarProjetos(projetos) {
 
     container.innerHTML = '';
 
-    if (projetos && projetos.length > 0) {
-        projetos.forEach(projeto => {
+    projetos.forEach(projeto => {
+        const card = document.createElement('div');
+        card.classList.add('project-card');
 
-            const card = document.createElement('div');
-            card.className = 'projeto-card';
+        card.innerHTML = `
+            <div class="project-image">
+                <img src="${projeto.imagem}" alt="Imagem do projeto">
+            </div>
+            <div class="project-info">
+                <span class="project-title">${projeto.nome}</span>
+                <p class="project-description">${projeto.descricao}</p>
+                <p class="project-description">Consultor: ${projeto.consultor}</p>
+                <p class="project-description">Status: ${projeto.status}</p>
+                <p class="project-description">Data de Conclusão: ${projeto.dataConclusao}</p>
+            </div>
+        `;
 
-
-            card.innerHTML = `
-                <h3>${projeto.nome}</h3>
-                <p>${projeto.descricao}</p>
-                <p><strong>Status:</strong> ${projeto.status}</p>
-            `;
-
-            // Adiciona o card ao container
-            container.appendChild(card);
-        });
-    } else {
-        // Caso não haja projetos, exibe uma mensagem
-        container.innerHTML = '<p>Nenhum projeto encontrado.</p>';
-    }
+        container.appendChild(card);
+    });
 }
 
 async function fetchTest() {
