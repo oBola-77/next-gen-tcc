@@ -37,6 +37,7 @@ nav {
     height: auto;
     display: flex;
     align-items: center;
+    transition: ease 2s;
 }
   
 .navigation {
