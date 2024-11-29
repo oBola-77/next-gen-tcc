@@ -1,13 +1,13 @@
 
 // async function fetchTest() {
 //     const token = localStorage.getItem('authToken');
-    
+
 //     if (!token) {
 //         console.log('Token não encontrado');
 //         window.location.href = 'login.html';
 //         return;
 //     }
-    
+
 //     await fetch('/test', {
 //         method: 'GET',
 //         headers: {
@@ -32,13 +32,13 @@
 
 async function fetchTest() {
     const token = localStorage.getItem('authToken');
-    
+
     if (!token) {
         console.log('Token não encontrado');
         window.location.href = 'login.html';
         return null; // Retorna null explicitamente
     }
-    
+
     try {
         const response = await fetch('/test', {
             method: 'GET',
@@ -65,14 +65,14 @@ async function fetchTest() {
 function renderizarProjetos(projetos) {
     console.log("Renderizando projetos");
     const container = document.getElementById('projetos-container');
-    
+
     container.innerHTML = '';
-    
+
     projetos.forEach(projeto => {
-        
+
         const card = document.createElement('div');
         card.classList.add('project-card');
-        
+
         card.innerHTML = `
         <div class="project-image">
         <img src="${projeto.imagem}" alt="Imagem do projeto">
@@ -85,25 +85,25 @@ function renderizarProjetos(projetos) {
                 <p class="project-description">Data de Conclusão: ${projeto.dataConclusao}</p>
                 </div>
                 `;
-                
-                container.appendChild(card);
-            });
-        }
-        
-        async function fetchProjetos() {
-            const token = localStorage.getItem('authToken');
-            
-            if (!token) {
-                console.error('Token não encontrado. Faça login.');
-                return;
-            }
-            
-            try {
-                const response = await fetch('/test');  
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log("responde data:", data);
-            return data.projetos;  
+
+        container.appendChild(card);
+    });
+}
+
+async function fetchProjetos() {
+    const token = localStorage.getItem('authToken');
+
+    if (!token) {
+        console.error('Token não encontrado. Faça login.');
+        return;
+    }
+
+    try {
+        const response = await fetch('/test');
+        if (response.ok) {
+            const data = await response.json();
+            console.log("responde data:", data);
+            return data.projetos;
         } else {
             console.error("Erro ao buscar projetos", response.statusText);
         }
@@ -117,11 +117,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log(data);
     console.log(data.user)
     if (data) {
-        console.log("Puxando projetos");
-        const projetos = await fetchProjetos();
-        if (projetos) {
-            console.log("renderizando projetos");
-            renderizarProjetos(projetos);
-        }
+        console.log("Usuário autenticado:", data.user);
+        console.log("Projetos recebidos:", data.projetos);
+
+        if (data.projetos && data.projetos.length > 0) {
+            renderizarProjetos(data.projetos); // Renderiza os projetos
+        } else {
+            console.log("Nenhum projeto para renderizar.");
+        };
     }
 });
