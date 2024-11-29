@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const user = await fetchTest();
+    console.log(user);
     if (user) {
         console.log("Puxando projetos");
         const projetos = await fetchProjetos();
