@@ -231,6 +231,18 @@ body.light-mode .menu-toggle span {
   transition: transform 0.2s linear;
 }
 
+/* Remove a animação inicial */
+.checkbox + .label .ball {
+  transition: none; /* Sem transição inicialmente */
+}
+
+/* Animação apenas quando o checkbox for clicado */
+.checkbox.clicked + .label .ball {
+  transition: transform 0.3s ease; /* Agora a animação é ativada ao clicar */
+  transform: translateX(18px);
+}
+
+/* Quando o checkbox está marcado, sem animação no carregamento */
 .checkbox:checked + .label .ball {
   transform: translateX(18px);
 }

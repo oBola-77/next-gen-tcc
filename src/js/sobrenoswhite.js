@@ -13,11 +13,10 @@ const inicio = document.querySelector('.body.light-mode .inicio');
 // Verifica se o light mode está ativado no carregamento
 if (localStorage.getItem('light-mode') === 'enabled') {
     body.classList.add('light-mode');
-    // Não dispara o evento de alteração (sem animação)
     toggleCheckboxes.forEach((checkbox) => {
-        checkbox.checked = true; // Marca os checkboxes como ativados
+        checkbox.checked = true; // Marca todos os checkboxes como ativados
     });
-
+  
     // Ajusta elementos específicos para o light mode
     if (customShapeDivider) {
         customShapeDivider.style.backgroundColor = '#ffffff';
@@ -28,13 +27,13 @@ if (localStorage.getItem('light-mode') === 'enabled') {
     }
 }
 
-// Alterna entre modo escuro e claro ao clicar (com animação)
+// Alterna entre modo escuro e claro
 toggleCheckboxes.forEach((toggleCheckbox) => {
     toggleCheckbox.addEventListener('change', function () {
         if (this.checked) {
             body.classList.add('light-mode');
 
-            // Ajusta elementos para o light mode com animação
+            // Ajusta elementos para o light mode
             if (customShapeDivider) {
                 customShapeDivider.style.backgroundColor = '#ffffff';
                 svgElement.style.fill = '#eaeaea';
@@ -47,7 +46,7 @@ toggleCheckboxes.forEach((toggleCheckbox) => {
         } else {
             body.classList.remove('light-mode');
 
-            // Reverte os ajustes para o dark mode com animação
+            // Reverte os ajustes para o dark mode
             if (customShapeDivider) {
                 customShapeDivider.style.backgroundColor = '#121212';
                 svgElement.style.fill = ''; // Volta ao estilo padrão
