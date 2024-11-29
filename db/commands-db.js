@@ -50,6 +50,19 @@ export class DatabasePostgres {
         }
     }
 
+    async dadosUsuario(uid){
+
+        try{
+            console.log("Pegando a mae do usuario filho da puta mal comido");
+            const busca = await sql`SELECT * FROM usuarios WHERE id_Usuario = ${uid}`;
+            return busca;
+        } catch(error){
+            console.log(error);
+            
+        }
+    } 
+
+
     async criarProjeto(dadosProjeto) {
         const { tipoProjeto, dataInicio, consultor, idUsuario } = dadosProjeto;
         console.log("Iniciando registro no banco de um projeto novo", idUsuario, dadosRegistro);

@@ -33,13 +33,13 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container" id="dadosUsuario">
         <div class="profile">
             <img id="profilePic" src="..src/imagem/victor.jpg" alt="Foto de Perfil">
             <label for="fileInput" class="file-label"><span class="text">Alterar Foto</span></label>
             <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
             <div class="welc">
-                <h1>Seja bem-vindo, <span id="user-name"> Victor</span>!</h1>
+                <h1>Seja bem-vindo, <span id="user-name"></span>!</h1>
             </div>
         </div>
 
@@ -51,10 +51,10 @@
             <label for="telefone">Telefone:</label>
             <input type="tel" id="telefone" placeholder="(00) 1234-5678">
 
-            <label for="endereco">Endereço:</label>
-            <textarea id="endereco" placeholder="Rua Exemplo, 123, Cidade, Estado"></textarea>
+            <label for="nomeEmpresa">Nome da sua empresa:</label>
+            <textarea id="nomeEmpresa" placeholder="NextGen"></textarea>
 
-            <label for="redes-sociais">Redes Sociais:</label>
+            <label for="redes-sociais">URL da sua principal Rede Social:</label>
             <input type="url" id="redes-sociais" placeholder="https://www.redesocial.com/empresa">
             </br> </br>
             <center>
@@ -83,42 +83,7 @@
     </section>
     <div class="container2">
         <div class="card-wrapper" id="projects-container">
-            <!-- <div class="project-card">
-                <div class="project-image">
-                    <img src="../src/imagem/camp.jfif" alt="" srcset="">
-                </div>
-                <div class="project-info">
-                    <span class="project-title">Campanha Marketing de Conteúdo</span>
-                    <p class="project-description">Criação de Postagens nas Redes Sociais.</p>
-                    <p class="project-description">Consultor: Pedro Abreu</p>
-                    <p class="project-description">Status: Concluído</p>
-                    <p class="project-description">Data de Conclusão: 03/10/2024</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../src/imagem/Crias.jpg" alt="" srcset="">
-                </div>
-                <div class="project-info">
-                    <span class="project-title">Criação de Site</span>
-                    <p class="project-description">Desenvolvimento de Sistema de E-commerce</p>
-                    <p class="project-description">Consultora: Yasmin Martins</p>
-                    <p class="project-description">Status: Em Andamento</p>
-                    <p class="project-description">Data de Vencimento: 30/10/2024</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../src/imagem/Redes.jpg" alt="" srcset="">
-                </div>
-                <div class="project-info">
-                    <span class="project-title">Treinamento e Gestão</span>
-                    <p class="project-description">Implementação: Instagram, Facebook e Whatsapp Business.</p>
-                    <p class="project-description">Consultor: Gabriela Eugman</p>
-                    <p class="project-description">Status: Em andamento</p>
-                    <p class="project-description">Data de Conclusão: 23/11/2024</p>
-                </div>
-            </div> -->
+        
         </div>
     </div>
 

@@ -114,7 +114,8 @@ server.get('/test', authMiddleware, async (req, res) => {
     console.log("userID: ", userId);
     
     try {
-        const dados = await database.listarProjetos(userId);
+        const dados = await database.listarProjetos(userId)
+        const dadosUsuario = await database.dadosUsuario(userId)
         console.log("retorno dos dados pro console", dados);
         
         if (!dados || dados.length === 0) {
@@ -123,7 +124,8 @@ server.get('/test', authMiddleware, async (req, res) => {
         
         res.status(200).json({ 
             message: "Acesso autorizado!", 
-            user: req.user, 
+            user: req.user,
+            dadosUsuario: dadosUsuario,
             projetos: dados 
         });
     } catch (error) {

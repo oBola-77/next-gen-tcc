@@ -29,7 +29,6 @@ async function fetchTest() {
     }
 }
 
-
 function renderizarProjetos(projetos) {
     console.log("Renderizando projetos");
     const container = document.getElementById('projects-container');
@@ -53,6 +52,14 @@ function renderizarProjetos(projetos) {
 
         container.appendChild(card);
     });
+}
+
+function renderizarUsuarios(dadosUsuario){
+    console.log("Renderizando dados do usuario");
+    getElementById("user-name").placeholder = dadosUsuario.userName;
+    getElementById("email").placeholder = dadosUsuario.email;
+    getElementById("telefone").placeholder = dadosUsuario.telefone;
+    getElementById("nomeEmpresa").placeholder = dadosUsuario.nomeEmpresa;    
 }
 
 async function fetchProjetos() {
@@ -95,6 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (data) {
         console.log("Usuário autenticado:", data.user);
         console.log("Projetos recebidos:", data.projetos);
+        console.log( "Dados do usuario recebidoa:", data.dadosUsuario);
 
         if (data.projetos && data.projetos.length > 0) {
             renderizarProjetos(data.projetos); // Renderiza os projetos
@@ -103,3 +111,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
     }
 });
+
+
