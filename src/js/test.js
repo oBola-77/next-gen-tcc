@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (user) {
         const projetos = await fetchProjetos();
         if (projetos) {
+            console.log("renderizando projetos");
             renderizarProjetos(projetos);
         }
     }
