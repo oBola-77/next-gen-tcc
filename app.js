@@ -121,7 +121,11 @@ server.get('/test', authMiddleware, async (req, res) => {
             return res.status(404).json({ message: "Nenhum projeto encontrado para este usuário." });
         }
         
-        res.status(200).json({ message: "Acesso autorizado!", user: req.user, projetos: dados });
+        res.status(200).json({ 
+            message: "Acesso autorizado!", 
+            user: req.user, 
+            projetos: dados 
+        });
     } catch (error) {
         console.error("Erro ao buscar projetos:", error);
         res.status(500).json({ message: "Erro interno ao buscar projetos." });

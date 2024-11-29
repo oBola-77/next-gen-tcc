@@ -11,34 +11,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-function renderizarProjetos(projetos) {
-    console.log("Renderizando projetos");
-    const container = document.getElementById('projetos-container');
-
-    container.innerHTML = '';
-
-    projetos.forEach(projeto => {
-
-        const card = document.createElement('div');
-        card.classList.add('project-card');
-
-        card.innerHTML = `
-            <div class="project-image">
-                <img src="${projeto.imagem}" alt="Imagem do projeto">
-            </div>
-            <div class="project-info">
-                <span class="project-title">${projeto.nome}</span>
-                <p class="project-description">${projeto.descricao}</p>
-                <p class="project-description">Consultor: ${projeto.consultor}</p>
-                <p class="project-description">Status: ${projeto.status}</p>
-                <p class="project-description">Data de Conclusão: ${projeto.dataConclusao}</p>
-            </div>
-        `;
-
-        container.appendChild(card);
-    });
-}
-
 async function fetchTest() {
     const token = localStorage.getItem('authToken');
 
@@ -69,6 +41,34 @@ async function fetchTest() {
         });
 }
 
+function renderizarProjetos(projetos) {
+    console.log("Renderizando projetos");
+    const container = document.getElementById('projetos-container');
+
+    container.innerHTML = '';
+
+    projetos.forEach(projeto => {
+
+        const card = document.createElement('div');
+        card.classList.add('project-card');
+
+        card.innerHTML = `
+            <div class="project-image">
+                <img src="${projeto.imagem}" alt="Imagem do projeto">
+            </div>
+            <div class="project-info">
+                <span class="project-title">${projeto.nome}</span>
+                <p class="project-description">${projeto.descricao}</p>
+                <p class="project-description">Consultor: ${projeto.consultor}</p>
+                <p class="project-description">Status: ${projeto.status}</p>
+                <p class="project-description">Data de Conclusão: ${projeto.dataConclusao}</p>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
 async function fetchProjetos() {
     const token = localStorage.getItem('authToken');
 
@@ -78,24 +78,15 @@ async function fetchProjetos() {
     }
 
     try {
-        const response = await fetch('/listarProjetos', {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (!response.ok) {
-            throw new Error('Erro ao buscar projetos.');
+        const response = await fetch('/test');  
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+            return data.projetos;  
         } else {
-            const projetos = await response.json();
-            console.log(projetos);
-            return projetos;
+            console.error("Erro ao buscar projetos", response.statusText);
         }
-
-
     } catch (error) {
-        console.error('Erro ao buscar projetos:', error);
+        console.error("Erro ao buscar projetos:", error);
     }
 }
