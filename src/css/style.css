@@ -37,12 +37,6 @@ nav {
     height: auto;
     display: flex;
     align-items: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out; 
-}
-
-.logo img.loaded {
-  opacity: 1;
 }
   
 .navigation {

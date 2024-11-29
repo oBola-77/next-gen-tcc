@@ -12,21 +12,6 @@ const pme2Image = document.querySelector('.pme2 img'); // Imagem dentro da div .
 const pme3Image = document.querySelector('.pme3 img'); // Imagem dentro da div .pme3
 const logoImg = document.querySelector('.logo img'); // Imagem do logo no header
 
-function alterarLogo(tema) {
-  if (logoImg) {
-    // Primeiro, removemos a classe 'loaded' para esconder a imagem
-    logoImg.classList.remove('loaded');
-    
-    // Troca o 'src' da imagem do logo com base no tema
-    logoImg.src = tema === 'enabled' ? '../src/imagem/logowhite.png' : '../src/imagem/logoblack.png';
-    
-    // Adiciona a classe 'loaded' após um pequeno atraso para garantir que o navegador registre a troca de imagem
-    setTimeout(() => {
-      logoImg.classList.add('loaded'); // Isso torna a imagem visível com a transição de opacidade
-    }, 50); // Um pequeno atraso para garantir que o src seja alterado antes da aplicação da opacidade
-  }
-}
-
 // Verifica se o light mode está ativado no carregamento
 if (localStorage.getItem('light-mode') === 'enabled') {
   body.classList.add('light-mode');
