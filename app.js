@@ -59,6 +59,8 @@ server.get('/api/version', async (req, res) => {
     }
 });
 
+//LOGIN, REGISTRO, AUTENTICAÇÃO E AUTORIZAÇÃO DE USUÁRIOS
+
 server.post('/registrar', async (req, res) => {
     const dadosRegistro = req.body;
     try {
@@ -138,6 +140,19 @@ server.post('/logout', (req, res) => {
     res.clearCookie("authToken");
     res.status(200).json({ message: "Logout realizado com sucesso" });
 });
+
+// CONSULTORES
+
+server.post('/cadastrarProjeto', async (req, res) => {
+    const dadosCadastro = req.body;
+    try {
+        
+    } catch (error) {
+        
+    }
+})
+
+// RENDERIZAÇÃO DAS PÁGINAS
 
 server.get('/:pagina', (request, reply) => {
     let pagina = request.params.pagina;
