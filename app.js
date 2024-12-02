@@ -79,7 +79,7 @@ server.post('/logar', async (req, res) => {
     try {
         const user = await database.validar(dadosLogin);
 
-        if (!usuario) {
+        if (!user) {
             return res.status(401).json({ message: 'Credenciais inválidas' });
         }
 
