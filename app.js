@@ -78,22 +78,24 @@ server.post('/logar', async (req, res) => {
     
     try {
         const user = await database.validar(dadosLogin);
-        console.log(user);
-        console.log("return do app.js")
+
+        if (!usuario) {
+            return res.status(401).json({ message: 'Credenciais inválidas' });
+        }
 
         if (user) {
             const token = gerarToken(user)
             console.log('token gerado', token);
             
-            res.cookie("authToken", token, {
-                httpOnly: true,
-                secure: true,
-                maxAge: 3600000,
-                userData: {
-                    message: "Login Realizado",
-                    uid: user.uid,
-                }
-            });
+            // res.cookie("authToken", token, {
+            //     httpOnly: true,
+            //     secure: true,
+            //     maxAge: 3600000,
+            //     userData: {
+            //         message: "Login Realizado",
+            //         uid: user.uid,
+            //     }
+            // });
 
             if(user.ia) {
                 return res.status(200).json({
@@ -150,15 +152,12 @@ server.post('/logout', (req, res) => {
 
 // CONSULTORES
 
-server.get('/consultor', authMiddleware, async (req, res) => {
-    const userId = req.user.uid;
-    console.log("userID: ", userId);
-    
+server.get('/consultor', authMiddleware, async (req, res) => {    
     try {
         const dadosAdmin = await database.dadosAdmin(userId)
         console.log("retorno dos dados pro console", dadosAdmin);
         
-        if (!dadosAdmin || dados.length === 0) {
+        if (!dadosAdmin || dadosAdmin.length === 0) {
             return res.status(404).json({ message: "." });
         }
         

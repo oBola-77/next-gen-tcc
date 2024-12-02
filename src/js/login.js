@@ -13,7 +13,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
     }
 
     try {
-        const response = await fetch('/logar', { 
+        const response = await fetch('/logar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,25 +22,24 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
         });
 
         if (response.ok) {
-            console.log("ta aqui");
             const data = await response.json();
 
-            if (data.token) {
-                if (data.ia === true) {
-                    localStorage.setItem("authToken", data.token);
+            if (data.ia === true) {
+                localStorage.setItem("authToken", data.token);
+                if (data.token) {
+                    alert("Bem vindo, " + data.uid + "!");
                     window.location.href = 'consultor.html';
-                    console.log("fetchTest Executado")
                 } else {
                     alert("Bem vindo, " + data.email + "!");
-                    localStorage.setItem("authToken", data.token);
                     window.location.href = 'test.html';
-                    console.log("fetchTest Executado")
                 }
             } else {
-                console.log("cade o token?");
+                alert("Falha no login.");
             }
         } else {
-            console.error('Erro no login: ', data.message);
+            const error = await response.json();
+            console.error('Erro no login: ', error.message);
+            alert("Erro ao tentar logar.");
         }
     } catch (error) {
         console.log('Erro ao logar:', error);
