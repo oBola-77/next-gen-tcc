@@ -51,6 +51,30 @@ export class DatabasePostgres {
         }
     }
 
+    async validarConsultor(dadosLogin) {
+        const { emailLogin, senhaLogin } = dadosLogin;
+
+        try {
+            console.log("Iniciando validação de login de consultor...");
+            console.log('Email:', emailLogin);
+            console.log('Senha:', senhaLogin);
+
+            const userCredential = await signInWithEmailAndPassword(auth, emailLogin, senhaLogin);
+            const user = userCredential.user;
+
+            if (user.uid !== process.env.ADMIN_ID) {
+                throw new Error('Usuário não autorizado');
+            }
+
+            console.log("Usuário autenticado no Firebase:", user);
+            return { uid: user.uid, email: user.email };
+
+        } catch (error) {
+            console.error("Erro durante o login:", error.message);
+            throw error; // Repassa o erro para o método chamador
+        }
+    }
+
     async dadosUsuario(uid){
         try{
             console.log("Pegando a mae do usuario filho da puta mal comido");

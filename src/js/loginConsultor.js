@@ -13,7 +13,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
     }
 
     try {
-        const response = await fetch('/logar', { //pelo amor de deus vai
+        const response = await fetch('/logarConsultor', { //pelo amor de deus vai
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
