@@ -55,18 +55,18 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
             const data = await response.json();
 
             if (data.token) {
-                if (data.ia) {
+                if (data.ia === true) {
                     localStorage.setItem("authToken", data.token);
                     window.location.href = 'consultor.html';
                     fetchTest();
                     console.log("fetchTest Executado")
+                } else {
+                    alert("Bem vindo, " + data.email + "!");
+                    localStorage.setItem("authToken", data.token);
+                    window.location.href = 'test.html';
+                    fetchTest();
+                    console.log("fetchTest Executado")
                 }
-
-                alert("Bem vindo, " + data.email + "!");
-                localStorage.setItem("authToken", data.token);
-                window.location.href = 'test.html';
-                fetchTest();
-                console.log("fetchTest Executado")
             } else {
                 console.log("cade o token?");
             }

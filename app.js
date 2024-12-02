@@ -101,16 +101,15 @@ server.post('/logar', async (req, res) => {
                     uid: user.uid,
                     ia: user.ia
                 });
+            } else {
+                console.log("Logado com sucesso.")
+                return res.status(200).json({
+                    message: "Logado com sucesso",
+                    token: token,
+                    uid: user.uid
+                });
             }
-            
-            console.log("Logado com sucesso.")
-            return res.status(200).json({
-                message: "Logado com sucesso",
-                token: token,
-                uid: user.uid
-            });
         }
-        
         res.status(401).json({ message: "Dados inválidos" });
     } catch (error) {
         console.log(error);
