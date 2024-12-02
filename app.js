@@ -87,15 +87,15 @@ server.post('/logar', async (req, res) => {
             const token = gerarToken(user)
             console.log('token gerado', token);
             
-            // res.cookie("authToken", token, {
-            //     httpOnly: true,
-            //     secure: true,
-            //     maxAge: 3600000,
-            //     userData: {
-            //         message: "Login Realizado",
-            //         uid: user.uid,
-            //     }
-            // });
+            res.cookie("authToken", token, {
+                httpOnly: true,
+                secure: true,
+                maxAge: 3600000,
+                userData: {
+                    message: "Login Realizado",
+                    uid: user.uid,
+                }
+            });
 
             if(user.ia) {
                 return res.status(200).json({
