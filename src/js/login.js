@@ -22,14 +22,13 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
         });
 
         if (response.ok) {
-            if (data.ia === true) {
+
+            if (data.token) {
                 localStorage.setItem("authToken", data.token);
-                if (data.token) {
-                    alert("Bem vindo, " + data.uid + "!");
-                    window.location.href = 'consultor.html';
+                if (data.ia) {
+                    alert("Bem vindo, " + data.email + "!");
+                    window.location.href = 'test.html';
                 }
-                alert("Bem vindo, " + data.email + "!");
-                window.location.href = 'test.html';
             } else {
                 alert("Falha no login.");
             }
