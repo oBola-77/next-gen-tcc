@@ -22,7 +22,6 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
         });
 
         if (response.ok) {
-
             if (data.ia === true) {
                 localStorage.setItem("authToken", data.token);
                 if (data.token) {

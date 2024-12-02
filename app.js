@@ -78,27 +78,40 @@ server.post('/logar', async (req, res) => {
     
     try {
         const user = await database.validar(dadosLogin);
+        console.log(user);
+        console.log("return do app.js")
 
-        if (!user) {
-            return res.status(401).json({ message: 'Credenciais inválidas' });
-        }
-        
-        const token = gerarToken(user);
-        
-        if(user.ia){
-            res.status(200).json({
-                token: token,
-                uid: user.uid,
-                email: user.email,
-                ia: user.ia
+        if (user) {
+            const token = gerarToken(user)
+            console.log('token gerado', token);
+            
+            res.cookie("authToken", token, {
+                httpOnly: true,
+                secure: true,
+                maxAge: 3600000,
+                userData: {
+                    message: "Login Realizado",
+                    uid: user.uid,
+                }
             });
-        }
 
-        res.status(200).json({
-            token: token,
-            uid: user.uid,
-            email: user.email,
-        });
+            if(user.ia) {
+                return res.status(200).json({
+                    message: "Logado com sucesso admin",
+                    token: token,
+                    uid: user.uid,
+                    ia: user.ia
+                });
+            } else {
+                console.log("Logado com sucesso.")
+                return res.status(200).json({
+                    message: "Logado com sucesso",
+                    token: token,
+                    uid: user.uid
+                });
+            }
+        }
+        res.status(401).json({ message: "Dados inválidos" });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Erro ao logar" })
@@ -133,7 +146,7 @@ server.get('/test', authMiddleware, async (req, res) => {
 server.post('/logout', (req, res) => {
     res.clearCookie("authToken");
     res.status(200).json({ message: "Logout realizado com sucesso" });
-});
+}); 
 
 // CONSULTORES
 

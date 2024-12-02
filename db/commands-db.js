@@ -35,8 +35,6 @@ export class DatabasePostgres {
             const userCredential = await signInWithEmailAndPassword(auth, emailLogin, senhaLogin);
             const user = userCredential.user;
 
-            console.log("ev adminid", process.env.ADMIN_ID)
-
             if (user.uid === process.env.ADMIN_ID) {
                 return { uid: user.uid, ia: true }
             }
