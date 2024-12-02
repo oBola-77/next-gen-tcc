@@ -27,7 +27,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
 
             if (data.token) {
                     localStorage.setItem("authToken", data.token);
-                    window.location.href = 'test.html';
+                    window.location.href = 'consultor.html';
                     fetchTest();
                     console.log("fetchTest Executado")
                 } else {
