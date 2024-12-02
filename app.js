@@ -184,7 +184,7 @@ server.get('/consultor', authMiddleware, async (req, res) => {
     console.log("userID: ", userId);
     
     try {
-        const dadosAdmin = await database.dadosAdmin(userId)
+        const dadosAdmin = await database.dadosUsuario(userId)
         console.log("retorno dos dados pro console", dadosAdmin);
         
         if (!dadosAdmin || dados.length === 0) {

@@ -13,7 +13,8 @@ async function fetchTest() {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
-            }
+            },
+            body: SON.stringify(dadosLogin)
         });
 
         if (!response.ok) {
@@ -57,14 +58,12 @@ formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
 
         if(response.ok) {
             const data = await response.json();
-
-            if(data.dadosAdmin) {
-                alert("Projeto criado");
-            } else {
-                alert("erro ao criar projeto");
-            }
+            alert("Projeto criado com sucesso!");
+            console.log("Resposta do servidor:", data);
         } else {
-            console.error('erro ao cadastrar projeto', data.message);
+            const errorData = await response.json();
+            console.error("Erro ao cadastrar o projeto:", errorData.message || "Erro desconhecido");
+            alert(errorData.message || "Erro ao cadastrar o projeto!");
         }
 
     } catch (error) {
