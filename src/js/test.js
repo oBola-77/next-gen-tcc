@@ -4,7 +4,7 @@ async function fetchTest() {
     if (!token) {
         console.log('Token não encontrado');
         window.location.href = 'login.html';
-        return null;
+        return null; // Retorna null explicitamente
     }
 
     try {
@@ -20,12 +20,12 @@ async function fetchTest() {
             throw new Error('Acesso não autorizado');
         }
 
-        const data = await response.json(); 
+        const data = await response.json(); // Extrai os dados JSON
         console.log('Resposta:', data);
-        return data; 
+        return data; // Retorna os dados corretamente
     } catch (error) {
         console.error('Erro:', error);
-        return null;
+        return null; // Retorna null em caso de erro
     }
 }
 
@@ -84,6 +84,17 @@ async function fetchProjetos() {
     }
 }
 
+function definirImagem(tituloProjeto) {
+    switch (tituloProjeto) {
+        case tituloProjeto:
+            
+            break;
+    
+        default:
+            break;
+    } 
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     const data = await fetchTest();
     console.log(data);
@@ -101,5 +112,3 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
     }
 });
-
-

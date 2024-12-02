@@ -16,7 +16,6 @@ import { dirname } from 'path';
 // import jwt from 'jsonwebtoken';
 import { gerarToken } from './middlewares/authMiddleware.js';
 import authMiddleware from './middlewares/authMiddleware.js';
-import { log } from 'console';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -97,20 +96,21 @@ server.post('/logar', async (req, res) => {
 
             if(user.ia) {
                 return res.status(200).json({
-                    message: "Logado com sucesso admin",
+                    message: "Logado com sucesso",
                     token: token,
                     uid: user.uid,
                     ia: user.ia
                 });
-            } else {
-                console.log("Logado com sucesso.")
-                return res.status(200).json({
-                    message: "Logado com sucesso",
-                    token: token,
-                    uid: user.uid
-                });
             }
+            
+            console.log("Logado com sucesso.")
+            return res.status(200).json({
+                message: "Logado com sucesso",
+                token: token,
+                uid: user.uid
+            });
         }
+        
         res.status(401).json({ message: "Dados inválidos" });
     } catch (error) {
         console.log(error);
@@ -146,16 +146,19 @@ server.get('/test', authMiddleware, async (req, res) => {
 server.post('/logout', (req, res) => {
     res.clearCookie("authToken");
     res.status(200).json({ message: "Logout realizado com sucesso" });
-}); 
+});
 
 // CONSULTORES
 
-server.get('/consultor', authMiddleware, async (req, res) => {    
+server.get('/consultor', authMiddleware, async (req, res) => {
+    const userId = req.user.uid;
+    console.log("userID: ", userId);
+    
     try {
         const dadosAdmin = await database.dadosAdmin(userId)
         console.log("retorno dos dados pro console", dadosAdmin);
         
-        if (!dadosAdmin || dadosAdmin.length === 0) {
+        if (!dadosAdmin || dados.length === 0) {
             return res.status(404).json({ message: "." });
         }
         
@@ -174,12 +177,9 @@ server.post('/cadastrarProjeto', authMiddleware, async (req, res) => {
     const dadosCadastro = req.body;
 
     try {
-        const novoProjeto = await database.criarProjeto(dadosCadastro);
-        console.log(novoProjeto);
-        res.status(200).json({ message: "Projeto Criado com Sucesso" })
+        
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Erro ao criar projeto" })
+        
     }
 })
 

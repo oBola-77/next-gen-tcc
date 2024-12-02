@@ -1,3 +1,32 @@
+function fetchTest() {
+    const token = localStorage.getItem('authToken');
+
+    if (!token) {
+        console.log('Token não encontrado');
+        return;
+    }
+
+    fetch('/test', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Acesso não autorizado');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Resposta:', data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+}
+
 let formLogin = document.getElementById('formLogin')
 formLogin.addEventListener('submit', async function logarUsuario(event) {
     event.preventDefault();
@@ -13,7 +42,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
     }
 
     try {
-        const response = await fetch('/logar', {
+        const response = await fetch('/logar', { //pelo amor de deus vai
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,20 +51,28 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
         });
 
         if (response.ok) {
+            console.log("ta aqui");
+            const data = await response.json();
 
             if (data.token) {
-                localStorage.setItem("authToken", data.token);
+
                 if (data.ia) {
-                    alert("Bem vindo, " + data.email + "!");
-                    window.location.href = 'test.html';
+                    localStorage.setItem("authToken", data.token);
+                    window.location.href = 'consultor.html';
+                    fetchTest();
+                    console.log("fetchTest Executado")
                 }
+
+                alert("Bem vindo, " + data.email + "!");
+                localStorage.setItem("authToken", data.token);
+                window.location.href = 'test.html';
+                fetchTest();
+                console.log("fetchTest Executado")
             } else {
-                alert("Falha no login.");
+                console.log("cade o token?");
             }
         } else {
-            const error = await response.json();
-            console.error('Erro no login: ', error.message);
-            alert("Erro ao tentar logar.");
+            console.error('Erro no login: ', data.message);
         }
     } catch (error) {
         console.log('Erro ao logar:', error);
