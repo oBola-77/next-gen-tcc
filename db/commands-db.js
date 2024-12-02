@@ -77,7 +77,7 @@ export class DatabasePostgres {
         }
     }
 
-    a async criarProjeto(dadosProjeto) {
+    async criarProjeto(dadosProjeto) {
         const { tipoProjeto, descricaoprojeto, consultor, idUsuario } = dadosProjeto;
         console.log("Iniciando registro no banco de um projeto novo", idUsuario);
 
