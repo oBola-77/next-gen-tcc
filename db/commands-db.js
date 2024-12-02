@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config({ path: './db/.env'});
 import { sql } from './conn.js';
 import shortUUID from 'short-uuid';
 import { auth } from './firebase.js'
@@ -33,8 +35,12 @@ export class DatabasePostgres {
             const userCredential = await signInWithEmailAndPassword(auth, emailLogin, senhaLogin);
             const user = userCredential.user;
 
-            console.log("Usuário autenticado no Firebase:", user);
+            if(user.uid = process.env.ADMIN_ID) {
+                console.log("Admin registrado");
+                return { uid: user.uid, ia: true }
+            }
 
+            console.log("Usuário autenticado no Firebase:", user);
             return { uid: user.uid, email: user.email };
 
             const busca = await sql`SELECT * FROM usuarios WHERE email ilike ${emailLogin}`;
@@ -60,8 +66,9 @@ export class DatabasePostgres {
             console.log(error);
             
         }
-    } 
+    }
 
+    
 
     async criarProjeto(dadosProjeto) {
         const { tipoProjeto, dataInicio, consultor, idUsuario } = dadosProjeto;

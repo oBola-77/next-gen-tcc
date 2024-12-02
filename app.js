@@ -79,7 +79,7 @@ server.post('/logar', async (req, res) => {
         const user = await database.validar(dadosLogin);
         console.log(user);
         console.log("return do app.js")
-        
+
         if (user) {
             const token = gerarToken(user)
             console.log('token gerado', token);
@@ -91,15 +91,22 @@ server.post('/logar', async (req, res) => {
                 userData: {
                     message: "Login Realizado",
                     uid: user.uid,
-                    email: user.email
                 }
             });
+
+            if(user.ia) {
+                return res.status(200).json({
+                    message: "Logado com sucesso",
+                    token: token,
+                    uid: user.uid,
+                    ia: user.ia
+                });
+            }
             
             console.log("Logado com sucesso.")
             return res.status(200).json({
                 message: "Logado com sucesso",
                 token: token,
-                email: user.email,
                 uid: user.uid
             });
         }
@@ -143,8 +150,32 @@ server.post('/logout', (req, res) => {
 
 // CONSULTORES
 
-server.post('/cadastrarProjeto', async (req, res) => {
+server.get('/consultor', authMiddleware, async (req, res) => {
+    const userId = req.user.uid;
+    console.log("userID: ", userId);
+    
+    try {
+        const dadosAdmin = await database.dadosAdmin(userId)
+        console.log("retorno dos dados pro console", dadosAdmin);
+        
+        if (!dadosAdmin || dados.length === 0) {
+            return res.status(404).json({ message: "." });
+        }
+        
+        res.status(200).json({ 
+            message: "Acesso autorizado!", 
+            user: req.user,
+            dadosAdmin: dadosAdmin,
+        });
+    } catch (error) {
+        console.error("Erro ao buscar projetos:", error);
+        res.status(500).json({ message: "." });
+    }
+})
+
+server.post('/cadastrarProjeto', authMiddleware, async (req, res) => {
     const dadosCadastro = req.body;
+
     try {
         
     } catch (error) {

@@ -1,30 +1,30 @@
 function fetchTest() {
-    const token = localStorage.getItem('authToken'); 
-    
+    const token = localStorage.getItem('authToken');
+
     if (!token) {
         console.log('Token não encontrado');
         return;
     }
-    
+
     fetch('/test', {
         method: 'GET',
         headers: {
-            'Authorization': `Bearer ${token}`, 
+            'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         }
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Acesso não autorizado');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Resposta:', data);
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Acesso não autorizado');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Resposta:', data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
 }
 
 let formLogin = document.getElementById('formLogin')
@@ -33,14 +33,14 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
 
     let dadosLogin = {
         emailLogin: document.getElementById('emailLogin').value,
-        senhaLogin: document.getElementById('senhaLogin').value 
+        senhaLogin: document.getElementById('senhaLogin').value
     }
 
     if (Object.values(dadosLogin).some(valor => !valor)) {
         alert("Preencha todos os campos");
         return;
-    } 
-    
+    }
+
     try {
         const response = await fetch('/logar', { //pelo amor de deus vai
             method: 'POST',
@@ -54,13 +54,18 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
             console.log("ta aqui");
             const data = await response.json();
 
-            if(data.token) {
+            if (data.token) {
+
+                if (data.ia) {
+                    localStorage.setItem("authToken", data.token);
+                    window.location.href = 'consultor.html';
+                    fetchTest();
+                    console.log("fetchTest Executado")
+                }
+
                 alert("Bem vindo, " + data.email + "!");
-
                 localStorage.setItem("authToken", data.token);
-
-                window.location.href = 'test.html';  
-                
+                window.location.href = 'test.html';
                 fetchTest();
                 console.log("fetchTest Executado")
             } else {

@@ -1,31 +1,33 @@
-// function fetchTest() {
-//     const token = localStorage.getItem('authToken'); 
-    
-//     if (!token) {
-//         console.log('Token não encontrado');
-//         return;
-//     }
-    
-//     fetch('/cadastrarProjeto', {
-//         method: 'GET',
-//         headers: {
-//             'Authorization': `Bearer ${token}`, 
-//             'Content-Type': 'application/json'
-//         }
-//     })
-//     .then(response => {
-//         if (!response.ok) {
-//             throw new Error('Acesso não autorizado');
-//         }
-//         return response.json();
-//     })
-//     .then(data => {
-//         console.log('Resposta:', data);
-//     })
-//     .catch(error => {
-//         console.error('Erro:', error);
-//     });
-// }
+async function fetchTest() {
+    const token = localStorage.getItem('authToken');
+
+    if (!token) {
+        console.log('Token não encontrado');
+        window.location.href = 'login.html';
+        return null; // Retorna null explicitamente
+    }
+
+    try {
+        const response = await fetch('/cadastrarProjeto', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Acesso não autorizado');
+        }
+
+        const data = await response.json(); // Extrai os dados JSON
+        console.log('Resposta:', data);
+        return data; // Retorna os dados corretamente
+    } catch (error) {
+        console.error('Erro:', error);
+        return null; // Retorna null em caso de erro
+    }
+}
 
 
 // let formLogin = document.getElementById('formLogin')
