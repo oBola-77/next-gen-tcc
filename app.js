@@ -96,7 +96,7 @@ server.post('/logar', async (req, res) => {
 
             if(user.ia) {
                 return res.status(200).json({
-                    message: "Logado com sucesso",
+                    message: "Logado com sucesso admin",
                     token: token,
                     uid: user.uid,
                     ia: user.ia
