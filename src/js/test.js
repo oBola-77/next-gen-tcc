@@ -84,17 +84,6 @@ async function fetchProjetos() {
     }
 }
 
-function definirImagem(tituloProjeto) {
-    switch (tituloProjeto) {
-        case tituloProjeto:
-            
-            break;
-    
-        default:
-            break;
-    } 
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
     const data = await fetchTest();
     console.log(data);

@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config({ path: './db/.env'});
+dotenv.config({ path: './db/.env' });
 import { sql } from './conn.js';
 import shortUUID from 'short-uuid';
 import { auth } from './firebase.js'
@@ -14,13 +14,13 @@ export class DatabasePostgres {
             const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
             const idUsuario = userCredential.user.reloadUserInfo.localId;
             console.log("Usuário criado no Firebase:", userCredential.user);
-            
+
             await sql`INSERT INTO usuarios(id_usuario, nomeCompleto, nomeEmpresa, email, telefone, genero)
                       VALUES(${idUsuario}, ${nomeCompleto}, ${nomeEmpresa}, ${email}, ${telefone}, ${genero})`;
             console.log("Usuário salvo no banco de dados.");
         } catch (error) {
             console.error("Erro durante o registro:", error);
-            throw error; 
+            throw error;
         }
     }
 
@@ -37,7 +37,7 @@ export class DatabasePostgres {
 
             console.log("ev adminid", process.env.ADMIN_ID)
 
-            if(user.uid === process.env.ADMIN_ID) {
+            if (user.uid === process.env.ADMIN_ID) {
                 return { uid: user.uid, ia: true }
             }
 
@@ -57,19 +57,29 @@ export class DatabasePostgres {
         }
     }
 
-    async dadosUsuario(uid){
+    async dadosUsuario(uid) {
 
-        try{
-            console.log("Pegando a mae do usuario filho da puta mal comido");
+        try {
+            console.log("push dados usuario");
             const busca = await sql`SELECT * FROM usuarios WHERE id_Usuario = ${uid}`;
             return busca;
-        } catch(error){
+        } catch (error) {
             console.log(error);
-            
         }
     }
 
     // CONSULTOR 
+
+    async dadosAdmin(uid) {
+        try {
+            if (uid === process.env.ADMIN_ID) {
+                const busca = await sql`SELECT * FROM usuarios WHERE id_Usuario = ${uid}`;
+                return busca;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     async criarProjeto(dadosProjeto) {
         const { tipoProjeto, descricaoprojeto, consultor, idUsuario } = dadosProjeto;
