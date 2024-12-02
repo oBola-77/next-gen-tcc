@@ -55,7 +55,7 @@ formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
     }
     
     try {
-        const response = await fetch('/cadastrarProjeto', {
+        const response = await fetch('/consultor', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
