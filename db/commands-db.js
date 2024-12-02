@@ -37,14 +37,6 @@ export class DatabasePostgres {
 
             console.log("Usuário autenticado no Firebase:", user);
             return { uid: user.uid, email: user.email };
-
-            const busca = await sql`SELECT * FROM usuarios WHERE email ilike ${emailLogin}`;
-            if (busca.length === 0) {
-                throw new Error("Usuário não encontrado no banco de dados.");
-            }
-
-            console.log("Dados do usuário buscados no banco:", busca);
-            return busca[0];
         } catch (error) {
             console.error("Erro durante o login:", error.message);
             throw error; // Repassa o erro para o método chamador
@@ -77,7 +69,7 @@ export class DatabasePostgres {
 
     async dadosUsuario(uid){
         try{
-            console.log("Pegando a mae do usuario filho da puta mal comido");
+            console.log("Validando Usuario");
             const busca = await sql`SELECT * FROM usuarios WHERE id_Usuario = ${uid}`;
             return busca;
         } catch(error){
@@ -85,17 +77,18 @@ export class DatabasePostgres {
         }
     }
 
-    async criarProjeto(dadosProjeto) {
-        const { tipoProjeto, dataInicio, consultor, idUsuario } = dadosProjeto;
-        console.log("Iniciando registro no banco de um projeto novo", idUsuario, dadosRegistro);
+    a async criarProjeto(dadosProjeto) {
+        const { tipoProjeto, descricaoprojeto, consultor, idUsuario } = dadosProjeto;
+        console.log("Iniciando registro no banco de um projeto novo", idUsuario);
 
         try {
             await sql`
-            INSERT INTO projetos(tipoprojeto, dataprojeto, consultor, idUsuario) 
-            VALUES (${tipoProjeto}, ${dataInicio}, ${consultor}, ${idUsuario})`;
+            INSERT INTO projetos(id_usuario, tipoprojeto, descricaoprojeto, consultor, status, datainicio ) 
+            VALUES ( ${idUsuario}, ${tipoProjeto}, ${descricaoprojeto}, ${consultor}, "Em Andamento", CURRENT_DATE)`;
             console.log("Projeto criado");
         } catch (error) {
             console.log("Erro durante a criação do projeto", error);
+            throw error;
         }
     }
 

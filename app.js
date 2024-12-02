@@ -202,6 +202,18 @@ server.get('/consultor', authMiddleware, async (req, res) => {
     }
 })
 
+server.post('/cadastrarProjeto', authMiddleware, async (req, res) => {
+    const dadosCadastro = req.body;
+
+    try {
+        const novoProjeto = await database.criarProjeto(dadosCadastro);
+        console.log(novoProjeto);
+        res.status(200).json({ message: "Projeto Criado com Sucesso" })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Erro ao criar projeto" })
+    }
+})
 
 // RENDERIZAÇÃO DAS PÁGINAS
 
