@@ -7,27 +7,41 @@ async function fetchTest() {
         return null; // Retorna null explicitamente
     }
 
+}
+
+let formCadastro = document.getElementById('formCadastro');
+formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
+    event.preventDefault();
+
+    let dadosProjeto = {
+        idCliente: document.getElementById('id_Cliente').value,
+        tipoProjeto: document.getElementById('tipoProjeto').value,
+        descricaoProjeto: document.getElementById('descricaoProjeto').value,
+        consultorProjeto: document.getElementById('consultorProjeto').value
+    }
+
+    if (Object.values(dadosLogin).some(valor => !valor)) {
+        alert("Preencha todos os campos");
+        return;
+    }
+    
     try {
         const response = await fetch('/cadastrarProjeto', {
-            method: 'GET',
+            method: 'POST',
             headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dadosLogin)
         });
 
-        if (!response.ok) {
-            throw new Error('Acesso não autorizado');
+        if(response.ok) {
+            const data = await response.json();
         }
 
-        const data = await response.json(); // Extrai os dados JSON
-        console.log('Resposta:', data);
-        return data; // Retorna os dados corretamente
     } catch (error) {
-        console.error('Erro:', error);
-        return null; // Retorna null em caso de erro
+        
     }
-}
+})
 
 
 // let formLogin = document.getElementById('formLogin')

@@ -16,6 +16,7 @@ import { dirname } from 'path';
 // import jwt from 'jsonwebtoken';
 import { gerarToken } from './middlewares/authMiddleware.js';
 import authMiddleware from './middlewares/authMiddleware.js';
+import { log } from 'console';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -176,9 +177,12 @@ server.post('/cadastrarProjeto', authMiddleware, async (req, res) => {
     const dadosCadastro = req.body;
 
     try {
-        
+        const novoProjeto = await database.criarProjeto(dadosCadastro);
+        console.log(novoProjeto);
+        res.status(200).json({ message: "Projeto Criado com Sucesso" })
     } catch (error) {
-        
+        console.log(error);
+        res.status(500).json({ message: "Erro ao criar projeto" })
     }
 })
 

@@ -42,7 +42,7 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
     }
 
     try {
-        const response = await fetch('/logar', { //pelo amor de deus vai
+        const response = await fetch('/logar', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -58,13 +58,11 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
                 if (data.ia === true) {
                     localStorage.setItem("authToken", data.token);
                     window.location.href = 'consultor.html';
-                    fetchTest();
                     console.log("fetchTest Executado")
                 } else {
                     alert("Bem vindo, " + data.email + "!");
                     localStorage.setItem("authToken", data.token);
                     window.location.href = 'test.html';
-                    fetchTest();
                     console.log("fetchTest Executado")
                 }
             } else {
