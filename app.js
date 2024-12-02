@@ -82,37 +82,24 @@ server.post('/logar', async (req, res) => {
         if (!user) {
             return res.status(401).json({ message: 'Credenciais inválidas' });
         }
-
-        if (user) {
-            const token = gerarToken(user)
-            console.log('token gerado', token);
-            
-            res.cookie("authToken", token, {
-                httpOnly: true,
-                secure: true,
-                maxAge: 3600000,
-                userData: {
-                    message: "Login Realizado",
-                    uid: user.uid,
-                }
+        
+        const token = gerarToken(user);
+        
+        if(user.ia){
+            res.status(200).json({
+                token: token,
+                uid: user.uid,
+                email: user.email,
+                ia: user.ia
             });
-
-            if(user.ia) {
-                return res.status(200).json({
-                    message: "Logado com sucesso admin",
-                    token: token,
-                    uid: user.uid,
-                    ia: user.ia
-                });
-            } else {
-                console.log("Logado com sucesso.")
-                return res.status(200).json({
-                    message: "Logado com sucesso",
-                    token: token,
-                    uid: user.uid
-                });
-            }
         }
+
+        res.status(200).json({
+            token: token,
+            uid: user.uid,
+            email: user.email,
+        });
+
         res.status(401).json({ message: "Dados inválidos" });
     } catch (error) {
         console.log(error);
