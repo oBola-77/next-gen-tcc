@@ -28,10 +28,9 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
                 if (data.token) {
                     alert("Bem vindo, " + data.uid + "!");
                     window.location.href = 'consultor.html';
-                } else {
-                    alert("Bem vindo, " + data.email + "!");
-                    window.location.href = 'test.html';
                 }
+                alert("Bem vindo, " + data.email + "!");
+                window.location.href = 'test.html';
             } else {
                 alert("Falha no login.");
             }
