@@ -202,15 +202,6 @@ server.get('/consultor', authMiddleware, async (req, res) => {
     }
 })
 
-server.post('/cadastrarProjeto', authMiddleware, async (req, res) => {
-    const dadosCadastro = req.body;
-
-    try {
-        
-    } catch (error) {
-        
-    }
-})
 
 // RENDERIZAÇÃO DAS PÁGINAS
 
