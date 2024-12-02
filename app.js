@@ -199,10 +199,10 @@ server.get('/consultor', authMiddleware, async (req, res) => {
     } catch (error) {
         console.error("Erro ao buscar projetos:", error);
         res.status(500).json({ message: "." });
-    }
+    }90
 })
 
-server.post('/cadastrarProjeto', authMiddleware, async (req, res) => {
+server.post('/cadastrarProjeto', async (req, res) => {
     const dadosCadastro = req.body;
 
     try {
