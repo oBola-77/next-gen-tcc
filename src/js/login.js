@@ -55,7 +55,6 @@ formLogin.addEventListener('submit', async function logarUsuario(event) {
             const data = await response.json();
 
             if (data.token) {
-
                 if (data.ia) {
                     localStorage.setItem("authToken", data.token);
                     window.location.href = 'consultor.html';
