@@ -91,8 +91,51 @@ export class DatabasePostgres {
             console.error("Erro durante a criação do projeto:", error);
             throw error;
         }
+    }
 
+    async criarProjeto(dadosProjeto) {
+        const { idCliente, tipoProjeto, descricaoProjeto, consultorProjeto, status } = dadosProjeto;
+        console.log("Iniciando registro no banco de um projeto novo com os dados:", dadosProjeto);
 
+        try {
+            await sql`
+            INSERT INTO projetos (id_usuario, tipoprojeto, descricaoprojeto, consultor, status, )
+            VALUES (${idCliente}, ${tipoProjeto}, ${descricaoProjeto}, ${consultorProjeto}, '', )
+        `;
+            console.log("Projeto criado com sucesso!");
+        } catch (error) {
+            console.error("Erro durante a criação do projeto:", error);
+            throw error;
+        }
+    }
+
+    async atualizarProjeto(dadosAtualizar) {
+        const { idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, status } = dadosAtualizar;
+        console.log("Iniciando registro no banco de um projeto novo com os dados:", dadosAtualizar);
+
+        const dadosAtuais = await obterDadosAtuais(idProjeto);
+
+        const valoresAtualizados = {
+            tipoprojeto: tipoProjeto || dadosAtuais.tipoprojeto,
+            descricaoprojeto: descricaoProjeto || dadosAtuais.descricaoprojeto,
+            consultor: consultorProjeto || dadosAtuais.consultor,
+            status: status || dadosAtuais.status,
+        };
+
+        try {
+            await sql`
+            UPDATE projetos
+            SET tipoprojeto = ${valoresAtualizados.tipoProjeto},
+            descricaoprojeto = ${valoresAtualizados.descricaoProjeto},
+            consultor = ${valoresAtualizados.consultorProjeto},
+            status = ${valoresAtualizados.status},
+            WHERE id_projeto = ${valoresAtualizados.idProjeto}
+        `;
+            console.log("Projeto criado com sucesso!");
+        } catch (error) {
+            console.error("Erro durante a criação do projeto:", error);
+            throw error;
+        }
     }
 
     async listarProjetos(uid) {

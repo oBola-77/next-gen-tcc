@@ -218,6 +218,24 @@ server.post('/cadastrarProjeto', async (req, res) => {
     }
 })
 
+server.put('/atualizarProjeto', async (req, res) => {
+    const { idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, status } = req.body;
+
+    if (!idProjeto || !tipoProjeto || !descricaoProjeto || !consultorProjeto || !status ) {
+        return res.status(400).json({ message: "Todos os campos são obrigatórios" });
+    }
+
+    try {
+        await database.atualizarProjeto({ idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, atualizar });
+        res.status(200).json({ message: "Projeto criado com sucesso!" });
+    } catch (error) {
+        console.error("Erro ao criar projeto:", error);
+        res.status(500).json({ message: "Erro ao criar projeto no banco de dados." });
+    }
+})
+
+
+
 // RENDERIZAÇÃO DAS PÁGINAS
 
 server.get('/:pagina', (request, reply) => {

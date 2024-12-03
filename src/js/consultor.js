@@ -72,3 +72,47 @@ formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
         alert("deu bosta");
     }
 })
+
+
+let formAtualizar = document.getElementById('formAtualizar');
+formAtualizar.addEventListener('submit', async function atualizarProjeto(event) {
+    event.preventDefault();
+
+    let dadosAtualizar = {
+        idProjeto: document.getElementById('id_projeto').value,
+        tipoProjeto: document.getElementById('tipoProjeto').value,
+        descricaoProjeto: document.getElementById('descricaoProjeto').value,
+        consultorProjeto: document.getElementById('consultorProjeto').value,
+        statusProjeto: document.getElementById('statusProjeto').value
+    }
+
+    console.log("Dados capturados no formulário:", dadosAtualizar);
+
+    if (Object.values(dadosAtualizar).some(valor => !valor)) {
+        alert("Preencha todos os campos");
+        return;
+    }
+    
+    try {
+        const response = await fetch('/atualizarProjeto', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dadosAtualizar)
+        });
+
+        if(response.ok) {
+            const data = await response.json();
+            alert("Projeto atualizado com sucesso!");
+        } else {
+            const errorData = await response.json();
+            console.error("Erro ao atualizar o projeto:", errorData.message || "Erro desconhecido");
+            alert(errorData.message || "Erro ao atualizar o projeto!");
+        }
+
+    } catch (error) {
+        console.log('ocorreu um erro', error);
+        alert("deu bosta");
+    }
+})
