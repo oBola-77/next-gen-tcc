@@ -31,7 +31,8 @@
     <div class="menu-toggle">
       <div class="toggle-span" id="toggle"> <span class="bar"></span>
         <span class="bar"></span>
-        <span class="bar"></span></div>
+        <span class="bar"></span>
+      </div>
       <input type="checkbox" class="checkbox" id="toggle-theme" />
       <label class="label" for="toggle-theme">
         <div class="ball"></div>
@@ -47,7 +48,8 @@
       <img src="../src/imagem/create.png" alt="Ícone de Cadastrar" class="icon">
       <span class="btn-text">Cadastrar Serviço</span>
     </button>
-    <button class="reveal-btn" id="revealBtnAtualizacao" onclick="toggleForm('formAtualizacao', 'revealBtnAtualizacao')">
+    <button class="reveal-btn" id="revealBtnAtualizacao"
+      onclick="toggleForm('formAtualizacao', 'revealBtnAtualizacao')">
       <img src="../src/imagem/update.png" alt="Ícone de Cadastrar" class="icon">
       <span class="btn-text">Atualizar Serviço</span>
     </button>
@@ -59,7 +61,7 @@
       <img src="../src/imagem/delete.png" alt="Ícone de Cadastrar" class="icon">
       <span class="btn-text">Excluir Serviço</span>
     </button>
-  
+
     <div class="card hidden" id="formCadastro">
       <div class="card2">
         <form class="form" id="formCadastro" action="/cadastrarProjeto" method="POST">
@@ -74,11 +76,13 @@
             <input type="text" class="input-field" placeholder="Descrição:" autocomplete="off" id="descricaoProjeto" />
           </div>
           <div class="field">
-            <input type="text" class="input-field" placeholder="Consultor(a):" autocomplete="off" id="consultorProjeto" />
+            <input type="text" class="input-field" placeholder="Consultor(a):" autocomplete="off"
+              id="consultorProjeto" />
           </div>
           <div class="btn">
             <button class="button1" type="submit">Salvar</button>
-            <button type="button" class="button2" onclick="toggleForm('formCadastro', 'revealBtnCadastro')">Cancelar</button>
+            <button type="button" class="button2"
+              onclick="toggleForm('formCadastro', 'revealBtnCadastro')">Cancelar</button>
           </div>
         </form>
       </div>
@@ -93,20 +97,23 @@
             <input type="text" class="input-field" placeholder="ID do Projeto:" autocomplete="off" id="uIdProjeto" />
           </div>
           <div class="field">
-            <input type="text" class="input-field" placeholder="Tipo do Projeto:" autocomplete="off" id="uTipoProjeto" />
+            <input type="text" class="input-field" placeholder="Tipo do Projeto:" autocomplete="off"
+              id="uTipoProjeto" />
           </div>
           <div class="field">
             <input type="text" class="input-field" placeholder="Descrição:" autocomplete="off" id="uDescricaoProjeto" />
           </div>
           <div class="field">
-            <input type="text" class="input-field" placeholder="Consultor(a):" autocomplete="off" id="uConsultorProjeto" />
+            <input type="text" class="input-field" placeholder="Consultor(a):" autocomplete="off"
+              id="uConsultorProjeto" />
           </div>
           <div class="field">
             <input type="text" class="input-field" placeholder="Status:" autocomplete="off" id="uStatusProjeto" />
           </div>
           <div class="btn">
             <button class="button1" type="submit">Salvar</button>
-            <button type="button" class="button2" onclick="toggleForm('formAtualizacao', 'revealBtnAtualizacao')">Cancelar</button>
+            <button type="button" class="button2"
+              onclick="toggleForm('formAtualizacao', 'revealBtnAtualizacao')">Cancelar</button>
           </div>
         </form>
       </div>
@@ -127,11 +134,9 @@
         </form>
       </div>
 
-      <div class="container2">
-        <div class="card-wrapper" id="projects-container">
-        
-        </div>
-    </div>
+      <div class="card-wrapper" id="projects-container">
+
+      </div>
 
     </div>
 
@@ -145,7 +150,8 @@
           </div>
           <div class="btn">
             <button class="button1" type="submit">Salvar</button>
-            <button type="button" class="button2" onclick="toggleForm('formExcluir', 'revealBtnExcluir')">Cancelar</button>
+            <button type="button" class="button2"
+              onclick="toggleForm('formExcluir', 'revealBtnExcluir')">Cancelar</button>
           </div>
         </form>
       </div>

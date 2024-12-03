@@ -30,30 +30,6 @@ async function fetchTest() {
     }
 }
 
-function renderizarProjetos(projetos) {
-    console.log("Renderizando projetos");
-    const container = document.getElementById('projects-container');
-
-    container.innerHTML = '';
-
-    projetos.forEach(projeto => {
-
-        const card = document.createElement('div');
-        card.classList.add('project-card');
-
-        card.innerHTML = `
-        <div class="project-info">
-        <span class="project-title">${projeto.tipoprojeto}</span>
-        <p class="project-description">${projeto.descricaoprojeto}</p>
-                <p class="project-description">Consultor: ${projeto.consultor}</p>
-                <p class="project-description">Status: ${projeto.status}</p>
-                <p class="project-description">Data de Início: ${projeto.datainicio}</p>
-                </div>
-                `;
-
-        container.appendChild(card);
-    });
-}
 
 let formCadastro = document.getElementById('formCadastro');
 formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
@@ -142,6 +118,31 @@ formAtualizar.addEventListener('submit', async function atualizarProjeto(event) 
     }
 })
 
+function renderizarProjetos(projetos) {
+    console.log("Renderizando projetos");
+    const container = document.getElementById('projects-container');
+    
+    container.innerHTML = '';
+    
+    projetos.forEach(projeto => {
+        
+        const card = document.createElement('div');
+        card.classList.add('project-card');
+        
+        card.innerHTML = `
+        <div class="project-info">
+        <span class="project-title">${projeto.tipoprojeto}</span>
+        <p class="project-description">${projeto.descricaoprojeto}</p>
+        <p class="project-description">Consultor: ${projeto.consultor}</p>
+        <p class="project-description">Status: ${projeto.status}</p>
+        <p class="project-description">Data de Início: ${projeto.datainicio}</p>
+        </div>
+        `;
+        
+        container.appendChild(card);
+    });
+}
+
 let formBuscar = document.getElementById('formBuscar');
 formBuscar.addEventListener('submit', async function listarProjeto(event) {
     event.preventDefault();
@@ -166,16 +167,15 @@ formBuscar.addEventListener('submit', async function listarProjeto(event) {
         if (response.ok) {
             const projetos = await response.json();
             alert("Projetos listados com sucesso!", projetos);
+            console.log("Projetos listados com sucesso!", projetos);
             renderizarProjetos(projetos);
         } else {
             const errorData = await response.json();
             console.error("Erro ao listar o projeto:", errorData.message || "Erro desconhecido");
             alert(errorData.message || "Erro ao listar o projeto!");
         }
-
     } catch (error) {
         console.log('ocorreu um erro', error);
-        alert("deu bosta");
+        alert(error);
     }
 })
-
