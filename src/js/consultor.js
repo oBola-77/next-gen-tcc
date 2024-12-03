@@ -79,15 +79,16 @@ formAtualizar.addEventListener('submit', async function atualizarProjeto(event) 
     event.preventDefault();
 
     let dadosAtualizar = {
-        idProjeto: document.getElementById('id_projeto').value,
-        tipoProjeto: document.getElementById('tipoProjeto').value,
-        descricaoProjeto: document.getElementById('descricaoProjeto').value,
-        consultorProjeto: document.getElementById('consultorProjeto').value,
-        statusProjeto: document.getElementById('statusProjeto').value
+        idProjeto: document.getElementById('uIdProjeto').value,
+        tipoProjeto: document.getElementById('uTipoProjeto').value,
+        descricaoProjeto: document.getElementById('uDescricaoProjeto').value,
+        consultorProjeto: document.getElementById('uConsultorProjeto').value,
+        statusProjeto: document.getElementById('uStatusProjeto').value
     }
 
     console.log("Dados capturados no formulário:", dadosAtualizar);
 
+    console.log(dadosAtualizar)
     if (Object.values(dadosAtualizar).some(valor => !valor)) {
         alert("Preencha todos os campos");
         return;
