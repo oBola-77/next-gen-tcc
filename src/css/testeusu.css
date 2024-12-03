@@ -45,11 +45,10 @@
 .container {
     display: flex;
     align-items: flex-start;
-    width: 100%;
+    width: 80%;
     margin: auto;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    
     padding-top: 13%;
 }
 
@@ -244,6 +243,7 @@ button:active {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    margin-top: 80px;
 }
 
 #save-contact:hover {
@@ -359,6 +359,7 @@ svg {
 }
 
 .project-card {
+    display: flex;
     max-width: 300px;
     border-radius: 0.5rem;
     background-color: #fff;
@@ -366,6 +367,18 @@ svg {
     border: 1px solid transparent;
     flex: 1;
     margin-bottom: 20px;
+    padding: 15px;
+}
+
+.project-info {
+    flex: 1;
+    padding: 1.1rem;
+    margin-right: 10px; /* Espaço entre o texto e a imagem */
+}
+
+.project-image img {
+    max-width: 300px; /* Ajuste o tamanho da imagem conforme necessário */
+    border-radius: 0.5rem;
 }
 
 .project-card a {
@@ -376,29 +389,24 @@ svg {
     color: #000;
 }
 
-.project-info {
-    padding: 1.1rem;
-}
-
-.project-image img {
-    object-fit: cover;
-    width: 100%;
-    height: 230px;
-    background-color: rgb(239, 205, 255);
-}
-
 .project-title {
-    color: #000000;
-    font-size: 1.125rem;
+    background-color: black;
+    color: #007dfc;
+    font-size: 1.5rem;
     line-height: 1.75rem;
     font-weight: 600;
+    padding: 20px;
+    padding-top: 50px;
+    border-color: #f1f1f1;
+    border-radius: 15px;
 }
 
 .project-description {
-    margin-top: 0.5rem;
-    color: #6B7280;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    padding-left: 20px;
+    margin-top: 2.5rem;
+    color: #000000;
+    font-size: 1.3rem;
+    line-height: 1rem;
 }
 
 .project-buttons {
@@ -422,7 +430,7 @@ svg {
     background-color: black;
     margin-top: 18%;
     padding: 10%;
-    margin-bottom: -10%;
+    margin-bottom: -14%;
 }
 
 .custom-container {
@@ -434,11 +442,11 @@ svg {
 .custom-heading {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #fff;
+    color: #007dfc;
 }
 
 .custom-lead {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     color: #aaa;
     margin-bottom: 1.5rem;
 }
@@ -454,17 +462,20 @@ svg {
 }
 
 .course-card {
-    width: 50%;
+    width: 30%;
+    height: auto;
     border: 1px solid #ddd;
     background-color: white;
     padding: 20px;
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 .course-card img {
-    width: 80%;
+    width: 50%;
     border-radius: 8px;
 }
 
@@ -475,7 +486,8 @@ svg {
 }
 
 .course-details {
-    font-size: 1em;
+    margin: 10px;
+    font-size: 1.3em;
     margin-top: 10px;
     color: #555;
 }
@@ -520,20 +532,12 @@ svg {
 
     .project-card {
         flex: 1 1 30%; 
-        min-width: 300px; 
     }
 
     .card2 {
         flex: 1 1 32%; 
     }
-    .card-wrapper{
-        margin-top: -10%;
-        background-color:rgba(0, 0, 0, 0.1);
-    }
     
-    .course-card {
-        flex: 1 1 30%; 
-    }
 }
 
 @media (min-width: 1200px) {
@@ -547,10 +551,9 @@ svg {
 
     .project-card {
         min-width: 500px; 
-        max-width: 350px; 
+        max-width: 800px; 
         margin-bottom: 30px; 
-        display: inline-block;
-        margin: 20px;
+        margin: 40px;
     }
 }
 
