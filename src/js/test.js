@@ -56,10 +56,10 @@ function renderizarProjetos(projetos) {
 
 function renderizarUsuarios(dadosUsuario){
     console.log("Renderizando dados do usuario");
-    document.getElementById("user-name").innerText = dadosUsuario[0].nomeCompleto;
+    document.getElementById("user-name").innerText = dadosUsuario[0].nomecompleto;
     document.getElementById("email").placeholder = dadosUsuario[0].email;
     document.getElementById("telefone").placeholder = dadosUsuario[0].telefone;
-    document.getElementById("nomeEmpresa").placeholder = dadosUsuario[0].nomeEmpresa;    
+    document.getElementById("nomeEmpresa").placeholder = dadosUsuario[0].nomeempresa;    
 }
 
 async function fetchProjetos() {
