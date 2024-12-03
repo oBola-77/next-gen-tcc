@@ -115,19 +115,10 @@
     <!-- Formulário de Busca -->
     <div class="card hidden" id="formBusca">
       <div class="card2">
-        <form class="form" id="formBusca" action="/buscarProjeto" method="POST">
+        <form class="form" id="formBuscar">
           <p id="heading">Buscar Projeto</p>
           <div class="field">
             <input type="text" class="input-field" placeholder="ID do Cliente:" autocomplete="off" id="sIdCliente" />
-          </div>
-          <div class="field">
-            <input type="text" class="input-field" placeholder="Tipo do Projeto:" autocomplete="off" id="sTipoProjeto" />
-          </div>
-          <div class="field">
-            <input type="text" class="input-field" placeholder="Consultor(a):" autocomplete="off" id="sConsultorProjeto" />
-          </div>
-          <div class="field">
-            <input type="text" class="input-field" placeholder="Status:" autocomplete="off" id="sStatusProjeto" />
           </div>
           <div class="btn">
             <button class="button1" type="submit">Salvar</button>
@@ -140,7 +131,7 @@
     <!-- Formulário de Exclusão -->
     <div class="card hidden" id="formExcluir">
       <div class="card2">
-        <form class="form" id="formExcluir" action="/excluirProjeto" method="POST">
+        <form class="form" id="formExcluirP" action="/excluirProjeto" method="POST">
           <p id="heading">Excluir Projeto</p>
           <div class="field">
             <input type="text" class="input-field" placeholder="ID do Projeto:" autocomplete="off" id="dIdProjeto" />
@@ -151,6 +142,7 @@
           </div>
         </form>
       </div>
+      
     </div>
 
 

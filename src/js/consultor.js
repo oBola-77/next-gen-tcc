@@ -117,3 +117,43 @@ formAtualizar.addEventListener('submit', async function atualizarProjeto(event) 
         alert("deu bosta");
     }
 })
+
+let formBuscar = document.getElementById('formBuscar');
+formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
+    event.preventDefault();
+
+    let dadosProjeto = {
+        idCliente: document.getElementById('sIdCliente').value
+    }
+
+    console.log("Dados capturados no formulário:", dadosProjeto);
+
+    if (Object.values(dadosProjeto).some(valor => !valor)) {
+        alert("Preencha todos os campos");
+        return;
+    }
+    
+    try {
+        const response = await fetch('/listarProjetos', {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dadosProjeto)
+        });
+
+        if(response.ok) {
+            const data = await response.json();
+            alert("Projetos listados com sucesso!", data);
+            return data;
+        } else {
+            const errorData = await response.json();
+            console.error("Erro ao listar o projeto:", errorData.message || "Erro desconhecido");
+            alert(errorData.message || "Erro ao listar o projeto!");
+        }
+
+    } catch (error) {
+        console.log('ocorreu um erro', error);
+        alert("deu bosta");
+    }
+})
