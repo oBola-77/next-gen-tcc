@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config({ path: './db/.env'});
+dotenv.config({ path: './db/.env' });
 import { sql } from './conn.js';
 import shortUUID from 'short-uuid';
 import { auth } from './firebase.js'
@@ -14,13 +14,13 @@ export class DatabasePostgres {
             const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
             const idUsuario = userCredential.user.reloadUserInfo.localId;
             console.log("Usuário criado no Firebase:", userCredential.user);
-            
+
             await sql`INSERT INTO usuarios(id_usuario, nomeCompleto, nomeEmpresa, email, telefone, genero)
                       VALUES(${idUsuario}, ${nomeCompleto}, ${nomeEmpresa}, ${email}, ${telefone}, ${genero})`;
             console.log("Usuário salvo no banco de dados.");
         } catch (error) {
             console.error("Erro durante o registro:", error);
-            throw error; 
+            throw error;
         }
     }
 
@@ -67,27 +67,32 @@ export class DatabasePostgres {
         }
     }
 
-    async dadosUsuario(uid){
-        try{
+    async dadosUsuario(uid) {
+        try {
             console.log("Validando Usuario");
             const busca = await sql`SELECT * FROM usuarios WHERE id_Usuario = ${uid}`;
             return busca;
-        } catch(error){
+        } catch (error) {
             console.log(error);
         }
     }
 
     async criarProjeto(dadosProjeto) {
-        const { idCliente, tipoProjeto, descricaoprojeto, consultorProjeto } = dadosProjeto;
-        console.log("Iniciando registro no banco de um projeto novo");
+        const { idCliente, tipoProjeto, descricaoProjeto, consultorProjeto } = dadosProjeto;
+        console.log("Iniciando registro no banco de um projeto novo com os dados:", dadosProjeto);
 
         try {
-            await sql`INSERT INTO projetos(id_usuario, tipoprojeto, descricaoprojeto, consultor, status, datainicio) VALUES (${idCliente}, ${tipoProjeto}, ${descricaoprojeto}, ${consultorProjeto}, 'Em Andamento', CURRENT_DATE)`;
-            console.log("Projeto criado");
+            await sql`
+            INSERT INTO projetos (id_usuario, tipoprojeto, descricaoprojeto, consultor, status, datainicio)
+            VALUES (${idCliente}, ${tipoProjeto}, ${descricaoProjeto}, ${consultorProjeto}, 'Em Andamento', CURRENT_DATE)
+        `;
+            console.log("Projeto criado com sucesso!");
         } catch (error) {
-            console.log("Erro durante a criação do projeto", error);
+            console.error("Erro durante a criação do projeto:", error);
             throw error;
         }
+
+
     }
 
     async listarProjetos(uid) {

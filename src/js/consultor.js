@@ -4,7 +4,7 @@ async function fetchTest() {
     if (!token) {
         console.log('Token não encontrado');
         window.location.href = 'login.html';
-        return null; // Retorna null explicitamente
+        return null;
     }
 
     try {
@@ -42,6 +42,8 @@ formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
         consultorProjeto: document.getElementById('consultorProjeto').value
     }
 
+    console.log("Dados capturados no formulário:", dadosProjeto);
+
     if (Object.values(dadosProjeto).some(valor => !valor)) {
         alert("Preencha todos os campos");
         return;
@@ -59,7 +61,6 @@ formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
         if(response.ok) {
             const data = await response.json();
             alert("Projeto criado com sucesso!");
-            console.log("Resposta do servidor:", data);
         } else {
             const errorData = await response.json();
             console.error("Erro ao cadastrar o projeto:", errorData.message || "Erro desconhecido");

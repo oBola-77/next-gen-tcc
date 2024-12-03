@@ -74,7 +74,7 @@ server.post('/registrar', async (req, res) => {
 
 server.post('/logar', async (req, res) => {
     const dadosLogin = req.body;
-    
+
     try {
         const user = await database.validar(dadosLogin);
         console.log(user);
@@ -83,7 +83,7 @@ server.post('/logar', async (req, res) => {
         if (user) {
             const token = gerarToken(user)
             console.log('token gerado', token);
-            
+
             res.cookie("authToken", token, {
                 httpOnly: true,
                 secure: true,
@@ -93,7 +93,7 @@ server.post('/logar', async (req, res) => {
                     uid: user.uid,
                 }
             });
-            
+
             console.log("Logado com sucesso.")
             return res.status(200).json({
                 message: "Logado com sucesso",
@@ -101,7 +101,7 @@ server.post('/logar', async (req, res) => {
                 uid: user.uid
             });
         }
-        
+
         res.status(401).json({ message: "Dados inválidos" });
     } catch (error) {
         console.log(error);
@@ -112,21 +112,21 @@ server.post('/logar', async (req, res) => {
 server.get('/test', authMiddleware, async (req, res) => {
     const userId = req.user.uid;
     console.log("userID: ", userId);
-    
+
     try {
         const dados = await database.listarProjetos(userId)
         const dadosUsuario = await database.dadosUsuario(userId)
         console.log("retorno dos dados pro console", dados);
-        
+
         if (!dados || dados.length === 0) {
             return res.status(404).json({ message: "Nenhum projeto encontrado para este usuário." });
         }
-        
-        res.status(200).json({ 
-            message: "Acesso autorizado!", 
+
+        res.status(200).json({
+            message: "Acesso autorizado!",
             user: req.user,
             dadosUsuario: dadosUsuario,
-            projetos: dados 
+            projetos: dados
         });
     } catch (error) {
         console.error("Erro ao buscar projetos:", error);
@@ -143,7 +143,7 @@ server.post('/logout', (req, res) => {
 
 server.post('/logarConsultor', async (req, res) => {
     const dadosLogin = req.body;
-    
+
     try {
         const user = await database.validarConsultor(dadosLogin);
         console.log(user);
@@ -152,7 +152,7 @@ server.post('/logarConsultor', async (req, res) => {
         if (user) {
             const token = gerarToken(user)
             console.log('token gerado', token);
-            
+
             res.cookie("authToken", token, {
                 httpOnly: true,
                 secure: true,
@@ -162,7 +162,7 @@ server.post('/logarConsultor', async (req, res) => {
                     uid: user.uid,
                 }
             });
-            
+
             console.log("Logado com sucesso.")
             return res.status(200).json({
                 message: "Logado com sucesso",
@@ -170,7 +170,7 @@ server.post('/logarConsultor', async (req, res) => {
                 uid: user.uid
             });
         }
-        
+
         res.status(401).json({ message: "Dados inválidos" });
     } catch (error) {
         console.log(error);
@@ -182,36 +182,39 @@ server.post('/logarConsultor', async (req, res) => {
 server.get('/consultor', authMiddleware, async (req, res) => {
     const userId = req.user.uid;
     console.log("userID: ", userId);
-    
+
     try {
         const dadosAdmin = await database.dadosUsuario(userId)
         console.log("retorno dos dados pro console", dadosAdmin);
-        
+
         if (!dadosAdmin || dados.length === 0) {
             return res.status(404).json({ message: "." });
         }
-        
-        res.status(200).json({ 
-            message: "Acesso autorizado!", 
+
+        res.status(200).json({
+            message: "Acesso autorizado!",
             user: req.user,
             dadosAdmin: dadosAdmin,
         });
     } catch (error) {
         console.error("Erro ao buscar projetos:", error);
         res.status(500).json({ message: "." });
-    }90
+    }
 })
 
 server.post('/cadastrarProjeto', async (req, res) => {
-    const dadosCadastro = req.body;
+    const { idCliente, tipoProjeto, descricaoProjeto, consultorProjeto } = req.body;
+
+    if (!idCliente || !tipoProjeto || !descricaoProjeto || !consultorProjeto) {
+        return res.status(400).json({ message: "Todos os campos são obrigatórios" });
+    }
 
     try {
-        const novoProjeto = await database.criarProjeto(dadosCadastro);
-        console.log(novoProjeto);
-        res.status(200).json({ message: "Projeto Criado com Sucesso" })
+        await database.criarProjeto({ idCliente, tipoProjeto, descricaoProjeto, consultorProjeto });
+        res.status(200).json({ message: "Projeto criado com sucesso!" });
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Erro ao criar projeto" })
+        console.error("Erro ao criar projeto:", error);
+        res.status(500).json({ message: "Erro ao criar projeto no banco de dados." });
     }
 })
 
