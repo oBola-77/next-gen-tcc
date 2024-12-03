@@ -119,7 +119,7 @@ export class DatabasePostgres {
             SET tipoprojeto = ${tipoProjeto},
             descricaoprojeto = ${descricaoProjeto},
             consultor = ${consultorProjeto},
-            status = ${statusProjeto},
+            status = ${statusProjeto}
             WHERE id_projeto = ${idProjeto}
         `;
             console.log("Projeto criado com sucesso!");
