@@ -93,22 +93,6 @@ export class DatabasePostgres {
         }
     }
 
-    async criarProjeto(dadosProjeto) {
-        const { idCliente, tipoProjeto, descricaoProjeto, consultorProjeto } = dadosProjeto;
-        console.log("Iniciando registro no banco de um projeto novo com os dados:", dadosProjeto);
-
-        try {
-            await sql`
-            INSERT INTO projetos (id_usuario, tipoprojeto, descricaoprojeto, consultor)
-            VALUES (${idCliente}, ${tipoProjeto}, ${descricaoProjeto}, ${consultorProjeto})
-        `;
-            console.log("Projeto criado com sucesso!");
-        } catch (error) {
-            console.error("Erro durante a criação do projeto:", error);
-            throw error;
-        }
-    }
-
     async atualizarProjeto(dadosAtualizar) {
         const { idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, statusProjeto } = dadosAtualizar;
         console.log("Iniciando registro no banco de um projeto novo com os dados:", dadosAtualizar);
