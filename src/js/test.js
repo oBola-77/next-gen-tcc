@@ -32,34 +32,23 @@ async function fetchTest() {
 function renderizarProjetos(projetos) {
     console.log("Renderizando projetos");
     const container = document.getElementById('projects-container');
+
     container.innerHTML = '';
 
     projetos.forEach(projeto => {
+
         const card = document.createElement('div');
         card.classList.add('project-card');
 
-        // Lógica para escolher a imagem dependendo do nome do projeto
-        let imagemProjeto;
-        if (projeto.tipoprojeto === 'Criação de Sites') {
-            imagemProjeto = '../src/imagem/Site Profissional.png'; // Substitua pelo caminho real da imagem
-        } else if (projeto.tipoprojeto === 'Campanha redes sociais') {
-            imagemProjeto = '../src/imagem/Perfil e Campanhas nas Redes Sociais.png'; // Imagem padrão caso o nome não coincida
-        } else {
-            imagemProjeto = '../src/imagem/Perfil e Campanhas nas Redes Sociais.png'; // Imagem padrão caso o nome não coincida
-        }
-
         card.innerHTML = `
-            <div class="project-info">
-                <span class="project-title">${projeto.tipoprojeto}</span>
-                <p class="project-description">${projeto.descricaoprojeto}</p>
+        <div class="project-info">
+        <span class="project-title">${projeto.tipoprojeto}</span>
+        <p class="project-description">${projeto.descricaoprojeto}</p>
                 <p class="project-description">Consultor: ${projeto.consultor}</p>
                 <p class="project-description">Status: ${projeto.status}</p>
                 <p class="project-description">Data de Início: ${projeto.datainicio}</p>
-            </div>
-            <div class="project-image">
-                <img src="${imagemProjeto}" alt="Imagem do Projeto">
-            </div>
-        `;
+                </div>
+                `;
 
         container.appendChild(card);
     });
