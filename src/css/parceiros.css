@@ -51,7 +51,7 @@
   margin-bottom: 5px;
   display: block;
 }
-.name{
+input{
   background-color: #333;
 }
 .review-form input,
