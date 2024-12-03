@@ -50,6 +50,32 @@
   font-weight: bold;
 }
 
+/* Cards projetos */
+
+.container2 {
+  margin-top: 50px;
+  justify-content: center;
+  gap: 30px;
+}
+
+.project-info {
+  padding: 1.1rem;
+}
+
+.project-title {
+  color: #000000;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.project-description {
+  margin-top: 0.5rem;
+  color: #6B7280;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 /* Card principal que contém o formulário */
 .card {
   margin: 0;
