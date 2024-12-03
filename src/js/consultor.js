@@ -132,7 +132,7 @@ formBuscar.addEventListener('submit', async function listarProjeto(event) {
     console.log("Dados capturados no formulário:", idCliente);
 
     try {
-        const response = await fetch('/listarProjetos?sIdCliente=${encodeURIComponent(idCliente)}', {
+        const response = await fetch(`/listarProjetos?sIdCliente=${encodeURIComponent(idCliente)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
