@@ -23,7 +23,6 @@
   color: #ffffff;
   margin-bottom: 1.5rem;
 }
-
 .container {
   padding: 15%;
   width: 90%;
@@ -36,7 +35,7 @@
 
 .container h1,
 .container h2 {
-  margin: 3% 0px 1% 0;
+  margin: 3% 0 1%;
   font-size: 2rem;
   color: #f3f3f3;
   text-align: center;
@@ -53,6 +52,56 @@
   margin-bottom: 5px;
   display: block;
 }
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  resize: none;
+}
+
+.review-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.review-form button:hover {
+  background-color: #0056b3;
+}
+
+.reviews ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.reviews ul li {
+  background: #222;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.reviews ul li p {
+  margin: 0;
+  color: #fff;
+}
+
+.reviews ul li strong {
+  color: #ffc107;
+}
+
 
 #rating, #comment {
   width: 100%;
