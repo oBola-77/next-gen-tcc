@@ -119,7 +119,7 @@ formAtualizar.addEventListener('submit', async function atualizarProjeto(event) 
 })
 
 let formBuscar = document.getElementById('formBuscar');
-formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
+formBuscar.addEventListener('submit', async function listarProjeto(event) {
     event.preventDefault();
 
     let idCliente = document.getElementById('sIdCliente').value.trim();
