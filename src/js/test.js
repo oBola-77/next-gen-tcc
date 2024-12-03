@@ -43,7 +43,7 @@ function renderizarProjetos(projetos) {
         if (projeto.tipoprojeto === 'Criação de Sites') {
             imagemProjeto = '../src/imagem/Site Profissional.png'; // Substitua pelo caminho real da imagem
         } else if (projeto.tipoprojeto === 'Campanha redes sociais') {
-            imagemProjeto = 'caminho/para/imagem_instagram.jpg'; // Substitua pelo caminho real da imagem
+            imagemProjeto = '../src/imagem/Perfil e Campanhas nas Redes Sociais.png'; // Imagem padrão caso o nome não coincida
         } else {
             imagemProjeto = '../src/imagem/Perfil e Campanhas nas Redes Sociais.png'; // Imagem padrão caso o nome não coincida
         }
