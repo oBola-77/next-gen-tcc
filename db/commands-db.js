@@ -116,6 +116,7 @@ export class DatabasePostgres {
     async listarProjetos(uid) {
         console.log("Buscando projetos para o UID:", uid);
         const dados = await sql`SELECT * FROM projetos WHERE id_usuario = ${uid}`;
+        console.log(dados);
         return dados;
     }
 } //FOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOI

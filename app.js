@@ -243,7 +243,7 @@ server.get('/listarProjetos', async (req, res) => {
 
     try {
         const projetos = await database.listarProjetos(sIdCliente);
-        res.status(200).json(projetos);
+        res.status(200).json({ projetos: projetos});
     } catch (error) {
         console.error("Erro ao criar projeto:", error);
         res.status(500).json({ message: "Erro ao listar projeto." });
