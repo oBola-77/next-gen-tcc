@@ -41,6 +41,21 @@ if (localStorage.getItem('light-mode') === 'enabled') {
 // Alterna entre modo escuro e claro
 toggleCheckboxes.forEach((toggleCheckbox) => {
     toggleCheckbox.addEventListener('change', function () {
+        // Adiciona classe para animação de entrada ou saída
+        if (this.checked) {
+            this.classList.add('clicked');
+            this.classList.remove('unchecked');
+        } else {
+            this.classList.add('unchecked');
+            this.classList.remove('clicked');
+        }
+
+        // Remove a classe após a animação terminar
+        setTimeout(() => {
+            this.classList.remove('clicked', 'unchecked');
+        }, 300); // O tempo do setTimeout deve corresponder à animação no CSS
+
+        // Alterna entre light mode e dark mode
         if (this.checked) {
             body.classList.add('light-mode');
 

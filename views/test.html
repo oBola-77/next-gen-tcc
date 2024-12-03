@@ -16,20 +16,30 @@
 <body>
     <header>
         <nav>
-            <div class="logo">
-                <a href="index.html"><img src="../src/imagem/Pme.png" alt="logo"></a>
-            </div>
-            <ul class="navigation">
-                <li><a href="index.html">PME</a></li>
-                <li><a href="parceiros.html">Avaliações</a></li>
-                <li><a href="sobrenos.html">Sobre nós</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-            <div class="menu-toggle" id="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+          <div class="logo">
+            <a href="index.html"><img src="../src/imagem/logoblack.png" alt="logo"></a>
+          </div>
+          <ul class="navigation">
+            <li><a href="index.html">PME</a></li>
+            <li><a href="parceiros.html">Avaliações</a></li>
+            <li><a href="sobrenos.html">Sobre nós</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li class="mask"><input type="checkbox" class="checkbox" id="toggle-theme-mobile" />
+              <label class="label" for="toggle-theme-mobile">
+                <div class="ball"></div>
+              </label>
+            </li>
+            <li class="invisible"><a href="#">placeholder000</a></li>
+          </ul>
+          <div class="menu-toggle">
+            <div class="toggle-span" id="toggle"> <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span></div>
+            <input type="checkbox" class="checkbox" id="toggle-theme" />
+            <label class="label" for="toggle-theme">
+              <div class="ball"></div>
+            </label>
+          </div>
         </nav>
     </header>
 
@@ -123,8 +133,8 @@
     </div>
 
 </body>
-<script src="./src/js/dadospessoal.js"></script>
-<script type="module" src="./src/js/test.js"></script>
+<script src="../src/js/dadospessoal.js"></script>
+<script type="module" src="../src/js/test.js"></script>
 <script>
     const menuToggle = document.getElementById('menu-toggle');
     const navigation = document.querySelector('.navigation');

@@ -16,20 +16,37 @@ if (localStorage.getItem('light-mode') === 'enabled') {
     toggleCheckboxes.forEach((checkbox) => {
         checkbox.checked = true; // Marca todos os checkboxes como ativados
     });
-  
+
     // Ajusta elementos específicos para o light mode
     if (customShapeDivider) {
         customShapeDivider.style.backgroundColor = '#ffffff';
         svgElement.style.fill = '#eaeaea';
     }
     if (logoImg) {
-        logoImg.src = './src/imagem/logowhite.png'; // Caminho da imagem do light mode
+        logoImg.src = '../src/imagem/logowhite.png'; // Caminho da imagem do light mode
     }
 }
 
 // Alterna entre modo escuro e claro
 toggleCheckboxes.forEach((toggleCheckbox) => {
     toggleCheckbox.addEventListener('change', function () {
+        // Define o comportamento de animação baseado no estado atual
+        if (this.checked) {
+            // Adiciona a classe de entrada
+            this.classList.add('clicked');
+            this.classList.remove('unchecked');
+        } else {
+            // Adiciona a classe de saída
+            this.classList.add('unchecked');
+            this.classList.remove('clicked');
+        }
+
+        // Remove a classe após a animação terminar
+        setTimeout(() => {
+            this.classList.remove('clicked', 'unchecked');
+        }, 300); // O tempo deve corresponder à duração da animação no CSS
+
+        // Alterna entre modos light e dark
         if (this.checked) {
             body.classList.add('light-mode');
 
@@ -39,7 +56,7 @@ toggleCheckboxes.forEach((toggleCheckbox) => {
                 svgElement.style.fill = '#eaeaea';
             }
             if (logoImg) {
-                logoImg.src = './src/imagem/logowhite.png'; // Define a imagem do light mode
+                logoImg.src = '../src/imagem/logowhite.png'; // Define a imagem do light mode
             }
 
             localStorage.setItem('light-mode', 'enabled');
@@ -52,7 +69,7 @@ toggleCheckboxes.forEach((toggleCheckbox) => {
                 svgElement.style.fill = ''; // Volta ao estilo padrão
             }
             if (logoImg) {
-                logoImg.src = './src/imagem/logoblack.png'; // Caminho da imagem padrão (dark mode)
+                logoImg.src = '../src/imagem/logoblack.png'; // Caminho da imagem padrão (dark mode)
             }
 
             localStorage.setItem('light-mode', 'disabled');

@@ -21,13 +21,27 @@ if (localStorage.getItem('light-mode') === 'enabled') {
         svgElement.style.fill = '#eaeaea';
     }
     if (logoImg) {
-        logoImg.src = './src/imagem/logowhite.png'; // Caminho da imagem do light mode
+        logoImg.src = '../src/imagem/logowhite.png'; // Caminho da imagem do light mode
     }
 }
 
 // Alterna entre modo escuro e claro
 toggleCheckboxes.forEach((toggleCheckbox) => {
     toggleCheckbox.addEventListener('change', function () {
+        // Adiciona classes para animação de entrada ou saída
+        if (this.checked) {
+            this.classList.add('clicked');
+            this.classList.remove('unchecked');
+        } else {
+            this.classList.add('unchecked');
+            this.classList.remove('clicked');
+        }
+
+        // Remove as classes após a animação terminar
+        setTimeout(() => {
+            this.classList.remove('clicked', 'unchecked');
+        }, 300); // Tempo da animação em ms (correspondente ao CSS)
+
         if (this.checked) {
             body.classList.add('light-mode');
 
@@ -37,7 +51,7 @@ toggleCheckboxes.forEach((toggleCheckbox) => {
                 svgElement.style.fill = '#eaeaea';
             }
             if (logoImg) {
-                logoImg.src = './src/imagem/logowhite.png'; // Define a imagem do light mode
+                logoImg.src = '../src/imagem/logowhite.png'; // Define a imagem do light mode
             }
 
             localStorage.setItem('light-mode', 'enabled');
@@ -50,7 +64,7 @@ toggleCheckboxes.forEach((toggleCheckbox) => {
                 svgElement.style.fill = ''; // Volta ao estilo padrão
             }
             if (logoImg) {
-                logoImg.src = './src/imagem/logoblack.png'; // Caminho da imagem padrão (dark mode)
+                logoImg.src = '../src/imagem/logoblack.png'; // Caminho da imagem padrão (dark mode)
             }
 
             localStorage.setItem('light-mode', 'disabled');

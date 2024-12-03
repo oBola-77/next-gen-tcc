@@ -14,97 +14,147 @@
 <header>
   <nav>
     <div class="logo">
-      <a href="index.html"><img src="../src/imagem/Pme.png" alt="logo"></a>
+      <a href="index.html"><img src="../src/imagem/logoblack.png" alt="logo"></a>
     </div>
     <ul class="navigation">
       <li><a href="index.html">PME</a></li>
       <li><a href="parceiros.html">Avaliações</a></li>
       <li><a href="sobrenos.html">Sobre nós</a></li>
       <li><a href="login.html">Login</a></li>
+      <li class="mask"><input type="checkbox" class="checkbox" id="toggle-theme-mobile" />
+        <label class="label" for="toggle-theme-mobile">
+          <div class="ball"></div>
+        </label>
+      </li>
+      <li class="invisible"><a href="#">placeholder000</a></li>
     </ul>
-    <div class="menu-toggle" id="menu-toggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+    <div class="menu-toggle">
+      <div class="toggle-span" id="toggle"> <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span></div>
+      <input type="checkbox" class="checkbox" id="toggle-theme" />
+      <label class="label" for="toggle-theme">
+        <div class="ball"></div>
+      </label>
     </div>
   </nav>
 </header>
 
 <body>
-
-  <div class="container">   <!--cadastro de projeto-->
-    <div class="card">
+  <div class="container">
+    <!-- Botões de Cadastro e Atualização -->
+    <button class="reveal-btn" id="revealBtnCadastro" onclick="toggleForm('formCadastro', 'revealBtnCadastro')">
+      <img src="../src/imagem/create.png" alt="Ícone de Cadastrar" class="icon">
+      <span class="btn-text">Cadastrar Serviço</span>
+    </button>
+    <button class="reveal-btn" id="revealBtnAtualizacao" onclick="toggleForm('formAtualizacao', 'revealBtnAtualizacao')">
+      <img src="../src/imagem/update.png" alt="Ícone de Cadastrar" class="icon">
+      <span class="btn-text">Atualizar Serviço</span>
+    </button>
+    <button class="reveal-btn" id="revealBtnBusca" onclick="toggleForm('formBusca', 'revealBtnBusca')">
+      <img src="../src/imagem/search.png" alt="Ícone de Cadastrar" class="icon">
+      <span class="btn-text">Buscar Serviço</span>
+    </button>
+    <button class="reveal-btn" id="revealBtnExcluir" onclick="toggleForm('formExcluir', 'revealBtnExcluir')">
+      <img src="../src/imagem/delete.png" alt="Ícone de Cadastrar" class="icon">
+      <span class="btn-text">Excluir Serviço</span>
+    </button>
+  
+    <div class="card hidden" id="formCadastro">
       <div class="card2">
         <form class="form" id="formCadastro" action="/cadastrarProjeto" method="POST">
           <p id="heading">Cadastro de Projeto</p>
-
           <div class="field">
-            <input type="text" class="input-field" placeholder="ID do Cliente: " autocomplete="off" id="id_Cliente"  />
+            <input type="text" class="input-field" placeholder="ID do Cliente:" autocomplete="off" id="id_Cliente" />
           </div>
-
           <div class="field">
-            <input type="text" class="input-field" placeholder="Tipo do Projeto: " autocomplete="off" id="tipoProjeto" />
+            <input type="text" class="input-field" placeholder="Tipo do Projeto:" autocomplete="off" id="tipoProjeto" />
           </div>
-
           <div class="field">
             <input type="text" class="input-field" placeholder="Descrição:" autocomplete="off" id="descricaoProjeto" />
           </div>
-
           <div class="field">
-            <input type="text" class="input-field" placeholder="Consultor(a):" autocomplete="off"
-              id="consultorProjeto"/>
+            <input type="text" class="input-field" placeholder="Consultor(a):" autocomplete="off" id="consultorProjeto" />
           </div>
-
           <div class="btn">
-            <button class="button1" type="submit">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Salvar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </button>
-            <button class="button2">Cancelar</button>
+            <button class="button1" type="submit">Salvar</button>
+            <button type="button" class="button2" onclick="toggleForm('formCadastro', 'revealBtnCadastro')">Cancelar</button>
           </div>
         </form>
       </div>
     </div>
-  </div>
 
-  <div class="container">    <!--atualização de projeto-->
-    <div class="card">
+    <!-- Formulário de Atualização -->
+    <div class="card hidden" id="formAtualizacao">
       <div class="card2">
-        <form class="form" id="formAtualizar">
+        <form class="form" id="formAtualizacao" action="/atualizarProjeto" method="POST">
           <p id="heading">Atualização de Projeto</p>
-
           <div class="field">
-            <input type="text" class="input-field" placeholder="ID do Projeto: " autocomplete="off" id="uIdProjeto"  />
+            <input type="text" class="input-field" placeholder="ID do Cliente:" autocomplete="off" id="uid_Cliente" />
           </div>
-
           <div class="field">
-            <input type="text" class="input-field" placeholder="Tipo do Projeto: " autocomplete="off" id="uTipoProjeto" />
+            <input type="text" class="input-field" placeholder="Tipo do Projeto:" autocomplete="off" id="utipoProjeto" />
           </div>
-
           <div class="field">
-            <input type="text" class="input-field" placeholder="Descrição:" autocomplete="off" id="uDescricaoProjeto" />
+            <input type="text" class="input-field" placeholder="Descrição:" autocomplete="off" id="udescricaoProjeto" />
           </div>
-
           <div class="field">
-            <input type="text" class="input-field" placeholder="Consultor(a):" autocomplete="off"
-              id="uConsultorProjeto"/>
+            <input type="text" class="input-field" placeholder="Consultor(a):" autocomplete="off" id="uconsultorProjeto" />
           </div>
-
           <div class="field">
-            <input type="text" class="input-field" placeholder="Status" autocomplete="off"
-              id="uStatusProjeto"/>
+            <input type="text" class="input-field" placeholder="Status:" autocomplete="off" id="ustatusProjeto" />
           </div>
-
           <div class="btn">
-            <button class="button1" type="submit">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Salvar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </button>
-            <button class="button2">Cancelar</button>
+            <button class="button1" type="submit">Salvar</button>
+            <button type="button" class="button2" onclick="toggleForm('formAtualizacao', 'revealBtnAtualizacao')">Cancelar</button>
           </div>
         </form>
       </div>
     </div>
-  </div>
 
+    <!-- Formulário de Busca -->
+    <div class="card hidden" id="formBusca">
+      <div class="card2">
+        <form class="form" id="formBusca" action="/buscarProjeto" method="POST">
+          <p id="heading">Buscar Projeto</p>
+          <div class="field">
+            <input type="text" class="input-field" placeholder="ID do Cliente:" autocomplete="off" id="sid_Cliente" />
+          </div>
+          <div class="field">
+            <input type="text" class="input-field" placeholder="Tipo do Projeto:" autocomplete="off" id="stipoProjeto" />
+          </div>
+          <div class="field">
+            <input type="text" class="input-field" placeholder="Consultor(a):" autocomplete="off" id="sconsultorProjeto" />
+          </div>
+          <div class="field">
+            <input type="text" class="input-field" placeholder="Status:" autocomplete="off" id="sstatusProjeto" />
+          </div>
+          <div class="btn">
+            <button class="button1" type="submit">Salvar</button>
+            <button type="button" class="button2" onclick="toggleForm('formBusca', 'revealBtnBusca')">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Formulário de Exclusão -->
+    <div class="card hidden" id="formExcluir">
+      <div class="card2">
+        <form class="form" id="formExcluir" action="/excluirProjeto" method="POST">
+          <p id="heading">Excluir Projeto</p>
+          <div class="field">
+            <input type="text" class="input-field" placeholder="ID do Projeto:" autocomplete="off" id="did_Projeto" />
+          </div>
+          <div class="btn">
+            <button class="button1" type="submit">Salvar</button>
+            <button type="button" class="button2" onclick="toggleForm('formExcluir', 'revealBtnExcluir')">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
 </body>
 <script src="../src/js/dadospessoal.js"></script>
 <script type="module" src="../src/js/consultor.js"></script>
@@ -117,6 +167,7 @@
   });
 
 </script>
+<script src="../src/js/mask.js"></script>
 
 
 </html>
