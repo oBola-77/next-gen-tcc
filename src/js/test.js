@@ -4,7 +4,7 @@ async function fetchTest() {
     if (!token) {
         console.log('Token não encontrado');
         window.location.href = 'login.html';
-        return null; // Retorna null explicitamente
+        return null; 
     }
 
     try {
@@ -20,12 +20,12 @@ async function fetchTest() {
             throw new Error('Acesso não autorizado');
         }
 
-        const data = await response.json(); // Extrai os dados JSON
+        const data = await response.json(); 
         console.log('Resposta:', data);
-        return data; // Retorna os dados corretamente
+        return data; 
     } catch (error) {
         console.error('Erro:', error);
-        return null; // Retorna null em caso de erro
+        return null; 
     }
 }
 

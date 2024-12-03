@@ -8,7 +8,7 @@ async function fetchTest() {
     }
 
     try {
-        const response = await fetch('/cadastrarProjeto', {
+        const response = await fetch('/consultor', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
