@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("commentForm");
     const commentsSection = document.getElementById("comments");
 
-    // Carregar comentários do localStorage
     loadComments();
 
     form.addEventListener("submit", (e) => {
@@ -11,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const name = document.getElementById("name").value.trim();
         const comment = document.getElementById("comment").value.trim();
 
-        // Verifica se os campos estão preenchidos
         if (name && comment) {
             const commentObj = { id: Date.now(), name, comment, responses: [] };
             saveComment(commentObj);
@@ -43,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 `;
 
-                // Exibir respostas
                 comment.responses.forEach((response, index) => {
                     div.querySelector(`#responses-${comment.id}`).innerHTML += `
                         <div class="response-item">
