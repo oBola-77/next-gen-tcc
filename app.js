@@ -134,25 +134,21 @@ server.get('/test', authMiddleware, async (req, res) => {
     }
 })
 
-server.post('/logout', (req, res) => {
-    res.clearCookie("authToken");
-    res.status(200).json({ message: "Logout realizado com sucesso" });
-});
 
 // CONSULTORES
 
 server.post('/logarConsultor', async (req, res) => {
     const dadosLogin = req.body;
-
+    
     try {
         const user = await database.validarConsultor(dadosLogin);
         console.log(user);
         console.log("return do app.js")
-
+        
         if (user) {
             const token = gerarToken(user)
             console.log('token gerado', token);
-
+            
             res.cookie("authToken", token, {
                 httpOnly: true,
                 secure: true,
@@ -162,7 +158,7 @@ server.post('/logarConsultor', async (req, res) => {
                     uid: user.uid,
                 }
             });
-
+            
             console.log("Logado com sucesso.")
             return res.status(200).json({
                 message: "Logado com sucesso",
@@ -170,7 +166,7 @@ server.post('/logarConsultor', async (req, res) => {
                 uid: user.uid
             });
         }
-
+        
         res.status(401).json({ message: "Dados inválidos" });
     } catch (error) {
         console.log(error);
@@ -182,15 +178,15 @@ server.post('/logarConsultor', async (req, res) => {
 server.get('/consultor', authMiddleware, async (req, res) => {
     const userId = req.user.uid;
     console.log("userID: ", userId);
-
+    
     try {
         const dadosAdmin = await database.dadosUsuario(userId)
         console.log("retorno dos dados pro console", dadosAdmin);
-
+        
         if (!dadosAdmin || dados.length === 0) {
             return res.status(404).json({ message: "." });
         }
-
+        
         res.status(200).json({
             message: "Acesso autorizado!",
             user: req.user,
@@ -204,11 +200,11 @@ server.get('/consultor', authMiddleware, async (req, res) => {
 
 server.post('/cadastrarProjeto', async (req, res) => {
     const { idCliente, tipoProjeto, descricaoProjeto, consultorProjeto } = req.body;
-
+    
     if (!idCliente || !tipoProjeto || !descricaoProjeto || !consultorProjeto) {
         return res.status(400).json({ message: "Todos os campos são obrigatórios" });
     }
-
+    
     try {
         await database.criarProjeto({ idCliente, tipoProjeto, descricaoProjeto, consultorProjeto });
         res.status(200).json({ message: "Projeto criado com sucesso!" });
@@ -220,11 +216,11 @@ server.post('/cadastrarProjeto', async (req, res) => {
 
 server.put('/atualizarProjeto', async (req, res) => {
     const { idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, statusProjeto } = req.body;
-
+    
     if (!idProjeto || !tipoProjeto || !descricaoProjeto || !consultorProjeto || !statusProjeto ) {
         return res.status(400).json({ message: "Todos os campos são obrigatórios" });
     }
-
+    
     try {
         await database.atualizarProjeto({ idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, statusProjeto });
         res.status(200).json({ message: "Projeto criado com sucesso!" });
@@ -236,11 +232,11 @@ server.put('/atualizarProjeto', async (req, res) => {
 
 server.get('/listarProjetos', async (req, res) => {
     const { sIdCliente } = req.query;
-
+    
     if (!sIdCliente) {
         return res.status(400).json({ message: "O campo Id Cliente é obrigatório" });
     }
-
+    
     try {
         const projetos = await database.listarProjetos(sIdCliente);
         res.status(200).json({ projetos: projetos});
@@ -252,11 +248,11 @@ server.get('/listarProjetos', async (req, res) => {
 
 server.delete('/deletarProjeto', async (req, res) => {
     const { dIdProjeto } = req.query;
-
+    
     if (!dIdProjeto) {
         return res.status(400).json({ message: "O campo idProjeto é obrigatório" });
     }
-
+    
     try {
         await database.deletarProjeto(dIdProjeto);
         res.status(200).json({ message: "Projeto deletado com sucesso!" });
@@ -269,6 +265,10 @@ server.delete('/deletarProjeto', async (req, res) => {
 
 
 // RENDERIZAÇÃO DAS PÁGINAS
+server.post('/logout', (req, res) => {
+    res.clearCookie("authToken");
+    res.redirect('/login');
+});
 
 server.get('/:pagina', (request, reply) => {
     let pagina = request.params.pagina;
