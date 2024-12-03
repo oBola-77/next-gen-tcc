@@ -200,8 +200,8 @@ formDeletar.addEventListener('submit', async function deletarProjeto(event) {
 
         if (response.ok) {
             const data = await response.json();
-            alert("Projetos listados com sucesso!",data);
-            console.log("Projetos listados com sucesso!", data);
+            alert("Projeto deletado com sucesso!",data);
+            console.log("Projeto deletado com sucesso!", data);
         } else {
             const errorData = await response.json();
             console.error("Erro ao listar o projeto:", errorData.message || "Erro desconhecido");
