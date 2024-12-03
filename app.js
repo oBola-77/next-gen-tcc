@@ -219,14 +219,14 @@ server.post('/cadastrarProjeto', async (req, res) => {
 })
 
 server.put('/atualizarProjeto', async (req, res) => {
-    const { idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, status } = req.body;
+    const { idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, statusProjeto } = req.body;
 
-    if (!idProjeto || !tipoProjeto || !descricaoProjeto || !consultorProjeto || !status ) {
+    if (!idProjeto || !tipoProjeto || !descricaoProjeto || !consultorProjeto || !statusProjeto ) {
         return res.status(400).json({ message: "Todos os campos são obrigatórios" });
     }
 
     try {
-        await database.atualizarProjeto({ idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, atualizar });
+        await database.atualizarProjeto({ idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, statusProjeto });
         res.status(200).json({ message: "Projeto criado com sucesso!" });
     } catch (error) {
         console.error("Erro ao criar projeto:", error);
