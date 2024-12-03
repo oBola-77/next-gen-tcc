@@ -165,10 +165,10 @@ formBuscar.addEventListener('submit', async function listarProjeto(event) {
         });
 
         if (response.ok) {
-            const projetos = await response.json();
-            alert("Projetos listados com sucesso!", projetos);
-            console.log("Projetos listados com sucesso!", projetos);
-            renderizarProjetos(projetos);
+            const data = await response.json();
+            alert("Projetos listados com sucesso!",data);
+            console.log("Projetos listados com sucesso!", data);
+            renderizarProjetos(data.projetos);
         } else {
             const errorData = await response.json();
             console.error("Erro ao listar o projeto:", errorData.message || "Erro desconhecido");
