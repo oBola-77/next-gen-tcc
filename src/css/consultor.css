@@ -51,7 +51,7 @@
 }
 
 /* Cards projetos */
-.formBusca {
+#formBusca {
   display: grid;
 }
 
