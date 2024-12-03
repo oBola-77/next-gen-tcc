@@ -96,7 +96,7 @@ formAtualizar.addEventListener('submit', async function atualizarProjeto(event) 
     
     try {
         const response = await fetch('/atualizarProjeto', {
-            method: 'POST',
+            method: 'PUT',
             headers: {
             'Content-Type': 'application/json',
             },

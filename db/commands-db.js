@@ -110,26 +110,17 @@ export class DatabasePostgres {
     }
 
     async atualizarProjeto(dadosAtualizar) {
-        const { idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, status } = dadosAtualizar;
+        const { idProjeto, tipoProjeto, descricaoProjeto, consultorProjeto, statusProjeto } = dadosAtualizar;
         console.log("Iniciando registro no banco de um projeto novo com os dados:", dadosAtualizar);
-
-        const dadosAtuais = await obterDadosAtuais(idProjeto);
-
-        const valoresAtualizados = {
-            tipoprojeto: tipoProjeto || dadosAtuais.tipoprojeto,
-            descricaoprojeto: descricaoProjeto || dadosAtuais.descricaoprojeto,
-            consultor: consultorProjeto || dadosAtuais.consultor,
-            status: status || dadosAtuais.status,
-        };
 
         try {
             await sql`
             UPDATE projetos
-            SET tipoprojeto = ${valoresAtualizados.tipoProjeto},
-            descricaoprojeto = ${valoresAtualizados.descricaoProjeto},
-            consultor = ${valoresAtualizados.consultorProjeto},
-            status = ${valoresAtualizados.status},
-            WHERE id_projeto = ${valoresAtualizados.idProjeto}
+            SET tipoprojeto = ${tipoProjeto},
+            descricaoprojeto = ${descricaoProjeto},
+            consultor = ${consultorProjeto},
+            status = ${statusProjeto},
+            WHERE id_projeto = ${idProjeto}
         `;
             console.log("Projeto criado com sucesso!");
         } catch (error) {
