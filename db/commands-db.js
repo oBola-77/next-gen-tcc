@@ -119,4 +119,11 @@ export class DatabasePostgres {
         console.log(dados);
         return dados;
     }
+
+    async deletarProjeto(idProjeto) {
+        console.log("Deletando projeto:", idProjeto);
+        const dados = await sql`DELETE FROM projetos WHERE id_projeto = ${idProjeto}`
+        return dados;
+    }
+
 } //FOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOI

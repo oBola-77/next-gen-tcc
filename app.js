@@ -251,14 +251,14 @@ server.get('/listarProjetos', async (req, res) => {
 })
 
 server.delete('/deletarProjeto', async (req, res) => {
-    const { idProjeto } = req.body;
+    const { dIdProjeto } = req.query;
 
-    if (!idProjeto) {
+    if (!dIdProjeto) {
         return res.status(400).json({ message: "O campo idProjeto é obrigatório" });
     }
 
     try {
-        await database.deletarProjeto({ idProjeto });
+        await database.deletarProjeto(dIdProjeto);
         res.status(200).json({ message: "Projeto deletado com sucesso!" });
     } catch (error) {
         console.error("Erro ao criar projeto:", error);

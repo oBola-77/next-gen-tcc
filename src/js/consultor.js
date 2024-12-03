@@ -180,5 +180,37 @@ formBuscar.addEventListener('submit', async function listarProjeto(event) {
     }
 })
 
+let formDeletar = document.getElementById('formDeletar');
+formDeletar.addEventListener('submit', async function deletarProjeto(event) {
+    event.preventDefault();
+
+    let dIdProjeto = document.getElementById('dIdProjeto').value.trim();
+
+    if (!dIdProjeto) {
+        alert("Preencha todos os campos");
+        return;
+    }
+
+    console.log("Dados capturados no formulário:", dIdProjeto);
+
+    try {
+        const response = await fetch(`/deletarProjeto?dIdProjeto=${encodeURIComponent(dIdProjeto)}`, {
+            method: 'DELETE'
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            alert("Projetos listados com sucesso!",data);
+            console.log("Projetos listados com sucesso!", data);
+        } else {
+            const errorData = await response.json();
+            console.error("Erro ao listar o projeto:", errorData.message || "Erro desconhecido");
+            alert(errorData.message || "Erro ao listar o projeto!");
+        }
+    } catch (error) {
+        console.log('ocorreu um erro', error);
+        alert(error);
+    }
+})
 
 // lostword11.111111111@gmail.com 
