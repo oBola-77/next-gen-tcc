@@ -99,8 +99,8 @@ export class DatabasePostgres {
 
         try {
             await sql`
-            INSERT INTO projetos (id_usuario, tipoprojeto, descricaoprojeto, consultor, status, )
-            VALUES (${idCliente}, ${tipoProjeto}, ${descricaoProjeto}, ${consultorProjeto}, '', )
+            INSERT INTO projetos (id_usuario, tipoprojeto, descricaoprojeto, consultor)
+            VALUES (${idCliente}, ${tipoProjeto}, ${descricaoProjeto}, ${consultorProjeto})
         `;
             console.log("Projeto criado com sucesso!");
         } catch (error) {
