@@ -48,17 +48,17 @@ formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
         alert("Preencha todos os campos");
         return;
     }
-    
+
     try {
         const response = await fetch('/cadastrarProjeto', {
             method: 'POST',
             headers: {
-            'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(dadosProjeto)
         });
 
-        if(response.ok) {
+        if (response.ok) {
             const data = await response.json();
             alert("Projeto criado com sucesso!");
         } else {
@@ -93,17 +93,17 @@ formAtualizar.addEventListener('submit', async function atualizarProjeto(event) 
         alert("Preencha todos os campos");
         return;
     }
-    
+
     try {
         const response = await fetch('/atualizarProjeto', {
             method: 'PUT',
             headers: {
-            'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(dadosAtualizar)
         });
 
-        if(response.ok) {
+        if (response.ok) {
             const data = await response.json();
             alert("Projeto atualizado com sucesso!");
         } else {
@@ -122,30 +122,27 @@ let formBuscar = document.getElementById('formBuscar');
 formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
     event.preventDefault();
 
-    let dadosProjeto = {
-        idCliente: document.getElementById('sIdCliente').value
-    }
+    let idCliente = document.getElementById('sIdCliente').value.trim();
 
-    console.log("Dados capturados no formulário:", dadosProjeto);
-
-    if (Object.values(dadosProjeto).some(valor => !valor)) {
+    if (!idCliente) {
         alert("Preencha todos os campos");
         return;
     }
-    
+
+    console.log("Dados capturados no formulário:", idCliente);
+
     try {
-        const response = await fetch('/listarProjetos', {
+        const response = await fetch('/listarProjetos?sIdCliente=${encodeURIComponent(idCliente)}', {
             method: 'GET',
             headers: {
-            'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(dadosProjeto)
+                'Content-Type': 'application/json',
+            }
         });
 
-        if(response.ok) {
-            const data = await response.json();
-            alert("Projetos listados com sucesso!", data);
-            return data;
+        if (response.ok) {
+            const projetos = await response.json();
+            alert("Projetos listados com sucesso!", projetos);
+            return projetos;
         } else {
             const errorData = await response.json();
             console.error("Erro ao listar o projeto:", errorData.message || "Erro desconhecido");

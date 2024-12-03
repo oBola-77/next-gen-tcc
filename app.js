@@ -235,15 +235,15 @@ server.put('/atualizarProjeto', async (req, res) => {
 })
 
 server.get('/listarProjetos', async (req, res) => {
-    const { sIdCliente } = req.body;
+    const { sIdCliente } = req.query;
 
     if (!sIdCliente) {
         return res.status(400).json({ message: "O campo Id Cliente é obrigatório" });
     }
 
     try {
-        await database.listarProjetos(sIdCliente);
-        res.status(200).json({ message: "Projetos listados com sucesso!" });
+        const projetos = await database.listarProjetos(sIdCliente);
+        res.status(200).json(projetos);
     } catch (error) {
         console.error("Erro ao criar projeto:", error);
         res.status(500).json({ message: "Erro ao listar projeto." });
