@@ -247,6 +247,12 @@ body.light-mode .menu-toggle span {
   transform: translateX(18px);
 }
 
+/* Animação de desativação (ao ser clicado novamente) */
+.checkbox.unchecked + .label .ball {
+    transition: transform 0.3s ease;
+    transform: translateX(0); /* Retorna à posição inicial */
+  }
+
 .toggle-theme-mobile:checked + .label .ball {
     transform: translateX(18px);
 }

@@ -1,5 +1,5 @@
 // Seleciona múltiplos checkboxes para alternar o tema
-const toggleCheckboxes = document.querySelectorAll('#toggle-theme, #toggle-theme-mobile'); 
+const toggleCheckboxes = document.querySelectorAll('#toggle-theme, #toggle-theme-mobile');
 const body = document.body;
 
 // Seleção de elementos que precisam de ajustes
@@ -36,6 +36,23 @@ if (localStorage.getItem('light-mode') === 'enabled') {
 // Alterna entre modo escuro e claro
 toggleCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', function () {
+        // Define o comportamento de animação baseado no estado atual
+        if (this.checked) {
+            // Adiciona a classe de entrada
+            this.classList.add('clicked');
+            this.classList.remove('unchecked');
+        } else {
+            // Adiciona a classe de saída
+            this.classList.add('unchecked');
+            this.classList.remove('clicked');
+        }
+
+        // Remove a classe após a animação terminar
+        setTimeout(() => {
+            this.classList.remove('clicked', 'unchecked');
+        }, 300); // O tempo deve corresponder à duração da animação no CSS
+
+        // Alterna entre modos light e dark
         if (this.checked) {
             body.classList.add('light-mode');
 
