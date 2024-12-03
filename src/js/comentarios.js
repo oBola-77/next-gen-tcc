@@ -2,15 +2,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("reviewForm");
     const reviewsList = document.getElementById("reviewsList");
   
+    // Comentários fictícios iniciais no HTML
     const defaultReviews = [
       { emoji: "😊", name: "João Silva", comment: "Ótima experiência! O serviço foi rápido e eficiente, estou muito satisfeito." },
       { emoji: "😊", name: "Ana Souza", comment: "Atendimento excelente! Todos foram muito atenciosos e resolveram meu problema rapidamente." },
       { emoji: "😊", name: "Carlos Mendes", comment: "Super recomendo! O serviço foi impecável, com muita qualidade e agilidade." },
     ];
   
+    // Carrega comentários do localStorage ou usa os fictícios como fallback
     function loadReviews() {
       const reviews = JSON.parse(localStorage.getItem("reviews")) || defaultReviews;
-      reviewsList.innerHTML = "";
+      reviewsList.innerHTML = "";  // Limpa a lista de comentários
   
       reviews.forEach((review) => {
         const li = document.createElement("li");
@@ -19,12 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   
+    // Salva um novo comentário
     function saveReview(review) {
       const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
       reviews.push(review);
       localStorage.setItem("reviews", JSON.stringify(reviews));
     }
   
+    // Adiciona evento ao formulário
     form.addEventListener("submit", (e) => {
       e.preventDefault();
   
@@ -55,6 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   
-    loadReviews();
+    loadReviews();  // Carrega os comentários ao carregar a página
   });
   
