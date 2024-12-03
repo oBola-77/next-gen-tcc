@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const reviewsList = document.getElementById("reviewsList");
   
     const defaultReviews = [
+      { emoji: "😊", name: "João Silva", comment: "Ótima experiência! O serviço foi rápido e eficiente, estou muito satisfeito." },
       { emoji: "😊", name: "Ana Souza", comment: "Atendimento excelente! Todos foram muito atenciosos e resolveram meu problema rapidamente." },
       { emoji: "😊", name: "Carlos Mendes", comment: "Super recomendo! O serviço foi impecável, com muita qualidade e agilidade." },
     ];
