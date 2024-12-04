@@ -629,6 +629,7 @@ svg {
         justify-content: center; 
         gap: 30px;
         margin-top: 50px; 
+        padding-top: 5%
     }
 
     .project-card {

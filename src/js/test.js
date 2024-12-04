@@ -1,7 +1,6 @@
 async function fetchTest() {
     const token = localStorage.getItem('authToken');
-    console.log(token);
-    
+
     if (!token) {
         console.log('Token não encontrado');
         window.location.href = 'login.html';
@@ -16,10 +15,10 @@ async function fetchTest() {
                 'Content-Type': 'application/json'
             }
         });
-        console.log(response)
 
         if (!response.ok) {
             throw new Error('Acesso não autorizado');
+
         }
 
         const data = await response.json();
@@ -72,7 +71,7 @@ function renderizarProjetos(projetos) {
         card.innerHTML = `
             <div class="project-info">
                 <span class="project-title">${projeto.tipoprojeto}</span>
-                <p class="project-description">${projeto.id_projeto}</p>
+                <p class="project-description">ID do projeto: ${projeto.id_projeto}</p>
                 <p class="project-description">${projeto.descricaoprojeto}</p>
                 <p class="project-description">Consultor: ${projeto.consultor}</p>
                 <p class="project-description">Status: ${projeto.status}</p>
