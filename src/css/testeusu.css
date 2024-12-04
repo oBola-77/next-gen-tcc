@@ -79,8 +79,8 @@ body.light-mode .contato textarea {
     background-color: #000;
 }
 
-.body-light-mode .preto {
-    color: #000;
+.preto {
+    color: #007dfc;
 }
 
 .menu-drop button {
