@@ -38,6 +38,5 @@
             }
         } catch (error) {
             console.log('Erro ao logar:', error);
-            alert("Ocorreu um erro ao logar o usuário.");
         }
     })
