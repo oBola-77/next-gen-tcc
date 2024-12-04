@@ -43,24 +43,24 @@ export class DatabasePostgres {
         }
     }
 
-    async atualizarInfo(email, telefone, nomeEmpresa) {
-        const { email, telefone, nomeEmpresa } = dadosAtualizar;
-        console.log("Iniciando a atualização dos dados do usuário:", dadosAtualizar);
+    // async atualizarInfo(email, telefone, nomeEmpresa) {
+    //     const { email, telefone, nomeEmpresa } = dadosAtualizar;
+    //     console.log("Iniciando a atualização dos dados do usuário:", dadosAtualizar);
     
-        try {
-            await sql`
-            UPDATE usuarios
-            SET telefone = ${telefone},
-            nome_empresa = ${nomeEmpresa}
-            WHERE email = ${email}
-            `;
+    //     try {
+    //         await sql`
+    //         UPDATE usuarios
+    //         SET telefone = ${telefone},
+    //         nome_empresa = ${nomeEmpresa}
+    //         WHERE email = ${email}
+    //         `;
     
-            console.log("Dados do usuário atualizados com sucesso!");
-        } catch (error) {
-            console.error("Erro durante a atualização dos dados do usuário:", error);
-            throw error;
-        }
-    }
+    //         console.log("Dados do usuário atualizados com sucesso!");
+    //     } catch (error) {
+    //         console.error("Erro durante a atualização dos dados do usuário:", error);
+    //         throw error;
+    //     }
+    // }
 
     async recuperarSenha(email) {
         return sendPasswordResetEmail(auth, email);

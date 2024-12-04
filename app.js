@@ -134,26 +134,26 @@ server.get('/test', authMiddleware, async (req, res) => {
     }
 })
 
-server.put('/atualizarInfo', async (req, res) => {
-    const { email, telefone, nomeEmpresa } = req.body;
+// server.put('/atualizarInfo', async (req, res) => {
+//     const { email, telefone, nomeEmpresa } = req.body;
 
-    if (!email || !telefone || !nomeEmpresa) {
-        return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
-    }
+//     if (!email || !telefone || !nomeEmpresa) {
+//         return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
+//     }
 
-    try {
-        const result = await database.atualizarInfo(email, telefone, nomeEmpresa);
+//     try {
+//         const result = await database.atualizarInfo(email, telefone, nomeEmpresa);
 
-        if (result) {
-            return res.status(200).json({ message: 'Dados atualizados com sucesso!' });
-        } else {
-            return res.status(500).json({ error: 'Erro ao atualizar os dados' });
-        }
-    } catch (error) {
-        console.error(error);
-        return res.status(500).json({ error: 'Erro ao processar a requisição' });
-    }
-});
+//         if (result) {
+//             return res.status(200).json({ message: 'Dados atualizados com sucesso!' });
+//         } else {
+//             return res.status(500).json({ error: 'Erro ao atualizar os dados' });
+//         }
+//     } catch (error) {
+//         console.error(error);
+//         return res.status(500).json({ error: 'Erro ao processar a requisição' });
+//     }
+// });
 
 // CONSULTORES
 
