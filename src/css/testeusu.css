@@ -79,8 +79,8 @@ body.light-mode .contato textarea {
     background-color: #000;
 }
 
-.body.light-mode h1 {
-    color: #000000;
+.body-light-mode #user-name {
+    color: #000;
 }
 
 .menu-drop button {
