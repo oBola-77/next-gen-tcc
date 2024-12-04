@@ -1,6 +1,6 @@
 async function fetchTest() {
     const token = localStorage.getItem('authToken');
-    console.log('log da response', token);
+    console.log(token);
     
     if (!token) {
         console.log('Token não encontrado');
