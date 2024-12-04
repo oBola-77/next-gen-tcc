@@ -71,6 +71,7 @@ function renderizarProjetos(projetos) {
         card.innerHTML = `
             <div class="project-info">
                 <span class="project-title">${projeto.tipoprojeto}</span>
+                <p class="project-description">${projeto.id_projeto}</p>
                 <p class="project-description">${projeto.descricaoprojeto}</p>
                 <p class="project-description">Consultor: ${projeto.consultor}</p>
                 <p class="project-description">Status: ${projeto.status}</p>
