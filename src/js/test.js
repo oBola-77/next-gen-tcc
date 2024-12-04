@@ -4,7 +4,7 @@ async function fetchTest() {
     if (!token) {
         console.log('Token não encontrado');
         window.location.href = 'login.html';
-        return null; 
+        return null;
     }
 
     try {
@@ -21,12 +21,12 @@ async function fetchTest() {
 
         }
 
-        const data = await response.json(); 
+        const data = await response.json();
         console.log('Resposta:', data);
-        return data; 
+        return data;
     } catch (error) {
         console.error('Erro:', error);
-        return null; 
+        return null;
     }
 }
 
@@ -48,7 +48,7 @@ function renderizarProjetos(projetos) {
     projetos.forEach(projeto => {
         const card = document.createElement('div');
         card.classList.add('project-card');
-        
+
 
         // Lógica para escolher a imagem dependendo do nome do projeto
         let imagemProjeto;
@@ -86,12 +86,12 @@ function renderizarProjetos(projetos) {
     });
 }
 
-function renderizarUsuarios(dadosUsuario){
+function renderizarUsuarios(dadosUsuario) {
     console.log("Renderizando dados do usuario");
     document.getElementById("user-name").innerText = dadosUsuario[0].nomecompleto;
     document.getElementById("email").placeholder = dadosUsuario[0].email;
     document.getElementById("telefone").placeholder = dadosUsuario[0].telefone;
-    document.getElementById("nomeEmpresa").placeholder = dadosUsuario[0].nomeempresa;    
+    document.getElementById("nomeEmpresa").placeholder = dadosUsuario[0].nomeempresa;
 }
 
 async function fetchProjetos() {
@@ -120,10 +120,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const data = await fetchTest();
     console.log(data);
     console.log(data.user)
+
     if (data) {
         console.log("Usuário autenticado:", data.user);
         console.log("Projetos recebidos:", data.projetos);
-        console.log( "Dados do usuario recebidos:", data.dadosUsuario);
+        console.log("Dados do usuario recebidos:", data.dadosUsuario);
 
         if (data.projetos && data.projetos.length > 0) {
             renderizarProjetos(data.projetos); // Renderiza os projetos
@@ -189,9 +190,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 //     }
 // });
 
+// img 
+
+document.getElementById('change-img-btn').addEventListener('click', () => {
+    document.getElementById('upload-img').click();
+});
+
+
 //logout
 
-document.getElementById('logout').addEventListener('click', async function(event) {
+document.getElementById('logout').addEventListener('click', async function (event) {
     event.preventDefault();
 
     try {
@@ -202,7 +210,7 @@ document.getElementById('logout').addEventListener('click', async function(event
         if (response.ok) {
             // Limpa o authToken do localStorage
             localStorage.removeItem('authToken');
-            
+
             // Redireciona para a página de login
             window.location.href = '/login';
         } else {
