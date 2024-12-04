@@ -3,7 +3,6 @@
     flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
-    margin-top: 10px;
 }
 
 .card {
@@ -63,6 +62,7 @@
     padding: 2rem 1rem;
     background-color: black;
     padding: 7%;
+    margin-bottom: -4%;
 }
 
 .custom-container {
@@ -79,7 +79,6 @@
 .custom-lead {
     font-size: 1.25rem;
     color: white;
-    margin-bottom: 1.5rem;
 }
 
 @media (max-width: 1024px) {
@@ -97,10 +96,11 @@
     }
     .custom-heading {
         font-size: 2rem;
-        margin-top: 25%;
+        margin-top: 40%;
     }
     .custom-lead {
         font-size: 1.1rem;
+        margin-bottom: 2rem;
     }
     .card-container{
         margin-left: 10px;
@@ -121,6 +121,6 @@
         font-size: 1.75rem;
     }
     .custom-lead {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
