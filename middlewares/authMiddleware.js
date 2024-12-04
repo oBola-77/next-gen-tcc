@@ -11,6 +11,7 @@ const authMiddleware = (req, res, next) => {
 
   if (!autHeader) {
     console.log("Token n fornecido");
+    res.redirect('/');
     return res.status(401).json("Acesso não autorizado, token não fornecido");
   }
 
