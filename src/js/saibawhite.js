@@ -1,3 +1,4 @@
+// Seleciona múltiplos checkboxes para alternar o tema
 const toggleCheckboxes = document.querySelectorAll('#toggle-theme, #toggle-theme-mobile');
 const body = document.body;
 
@@ -5,14 +6,21 @@ const body = document.body;
 const customShapeDivider = document.querySelector('.custom-shape-divider-bottom-1683068753');
 const svgElement = customShapeDivider?.querySelector('svg');
 const logoImg = document.querySelector('.logo img');
-const fields = document.querySelectorAll('.field'); // Todas as divs de input
-const inputIcons = document.querySelectorAll('.input-icon'); // Ícones SVG nos campos
+const h1 = document.querySelector('.body.light-mode .container h1');
+const h2 = document.querySelector('.body.light-mode .container h2');
+const reviewsli = document.querySelector('.body.light-mode .reviews li');
+const customt = document.querySelector('.body.light-mode .project-title');
+const customi = document.querySelector('.body.light-mode .project-info');
+const customd = document.querySelector('.body.light-mode .project-description');
+const customc = document.querySelector('.body.light-mode .project-card');
 
 // Verifica se o light mode está ativado no carregamento
 if (localStorage.getItem('light-mode') === 'enabled') {
     body.classList.add('light-mode');
+
+    // Marca todos os checkboxes como ativados
     toggleCheckboxes.forEach((checkbox) => {
-        checkbox.checked = true; // Marca todos os checkboxes como ativados
+        checkbox.checked = true;
     });
 
     // Ajusta elementos específicos para o light mode
@@ -26,8 +34,8 @@ if (localStorage.getItem('light-mode') === 'enabled') {
 }
 
 // Alterna entre modo escuro e claro
-toggleCheckboxes.forEach((toggleCheckbox) => {
-    toggleCheckbox.addEventListener('click', function () {
+toggleCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', function () {
         // Define o comportamento de animação baseado no estado atual
         if (this.checked) {
             // Adiciona a classe de entrada
@@ -44,7 +52,7 @@ toggleCheckboxes.forEach((toggleCheckbox) => {
             this.classList.remove('clicked', 'unchecked');
         }, 300); // O tempo deve corresponder à duração da animação no CSS
 
-        // Verifica o estado do checkbox e alterna entre light e dark mode
+        // Alterna entre modos light e dark
         if (this.checked) {
             body.classList.add('light-mode');
 

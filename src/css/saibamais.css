@@ -3,6 +3,10 @@ body.light-mode {
     color: black;
 }
 
+body.light-mode .custom-jumbotron {
+    background-color: #f1f1f1;
+}
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
