@@ -60,7 +60,7 @@ function renderizarProjetos(projetos) {
             imagemProjeto = '../src/imagem/Gestão das Aplicações.png'; // Imagem padrão caso o nome não coincida
         } else if (projeto.tipoprojeto === 'Google Meu Negócio') {
             imagemProjeto = '../src/imagem/Plataforma Google Meu Negócio.png'; // Imagem padrão caso o nome não coincida
-        } else if (projeto.tipoprojeto === 'Posicionamento Digial') {
+        } else if (projeto.tipoprojeto === 'Posicionamento Digital') {
             imagemProjeto = '../src/imagem/Posicionamento e Identidade de Marca.png'; // Imagem padrão caso o nome não coincida
         } else if (projeto.tipoprojeto === 'Implementação Email Marketing') {
             imagemProjeto = '../src/imagem/Email-Marketing.png'; // Imagem padrão caso o nome não coincida
