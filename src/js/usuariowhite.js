@@ -9,10 +9,10 @@ const logoImg = document.querySelector('.logo img');
 const h1 = document.querySelector('.body.light-mode .container h1');
 const h2 = document.querySelector('.body.light-mode .container h2');
 const reviewsli = document.querySelector('.body.light-mode .reviews li');
-const reviewFormLabel = document.querySelector('body.light-mode .review-form label');
-const button = document.querySelector('.body.light-mode .button');
-const coment = document.querySelector('.body.light-mode #comment');
-const rating = document.querySelector('.body.light-mode #rating');
+const customt = document.querySelector('.body.light-mode .project-title');
+const customi = document.querySelector('.body.light-mode .project-info');
+const customd = document.querySelector('.body.light-mode .project-description');
+const customc = document.querySelector('.body.light-mode .project-card');
 
 // Verifica se o light mode está ativado no carregamento
 if (localStorage.getItem('light-mode') === 'enabled') {

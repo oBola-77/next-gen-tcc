@@ -443,6 +443,7 @@ svg {
     max-width: 300px;
     border-radius: 0.5rem;
     background-color: #fff;
+    color: #000;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     border: 1px solid transparent;
     flex: 1;
@@ -466,10 +467,6 @@ svg {
 }
 
 .project-title {
-    color: #000;
-}
-
-.project-title {
     background-color: black;
     color: #007dfc;
     font-size: 1.5rem;
@@ -484,6 +481,7 @@ svg {
 .project-description {
     padding-left: 20px;
     margin-top: 2.5rem;
+    background-color: white;
     color: #000000;
     font-size: 1.3rem;
     line-height: 1rem;
