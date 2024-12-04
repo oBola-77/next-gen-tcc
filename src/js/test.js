@@ -54,7 +54,7 @@ function renderizarProjetos(projetos) {
         let imagemProjeto;
         if (projeto.tipoprojeto === 'Criação de Sites') {
             imagemProjeto = '../src/imagem/Site Profissional.png'; // Substitua pelo caminho real da imagem
-        } else if (projeto.tipoprojeto === 'Campanha redes sociais') {
+        } else if (projeto.tipoprojeto === 'Campanha nas Redes Sociais') {
             imagemProjeto = '../src/imagem/Perfil e Campanhas nas Redes Sociais.png'; // Substitua pelo caminho real da imagem
         } else if (projeto.tipoprojeto === 'Gestão de Aplicações') {
             imagemProjeto = '../src/imagem/Gestão das Aplicações.png'; // Imagem padrão caso o nome não coincida
