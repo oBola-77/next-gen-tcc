@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .card {
@@ -62,7 +63,6 @@
     padding: 2rem 1rem;
     background-color: black;
     padding: 7%;
-    margin-bottom: -4%;
 }
 
 .custom-container {
@@ -79,7 +79,7 @@
 .custom-lead {
     font-size: 1.25rem;
     color: white;
-    margin-bottom: 0;
+    margin-bottom: 1.5rem;
 }
 
 @media (max-width: 1024px) {
