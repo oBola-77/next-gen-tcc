@@ -8,7 +8,7 @@ async function fetchTest() {
     }
 
     try {
-        const response = await fetch('/test', {
+        const response = await fetch('https://pmeupgrader-tcc.vercel.app/test', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
