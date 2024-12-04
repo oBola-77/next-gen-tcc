@@ -14,22 +14,21 @@ async function fetchTest() {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             },
-            body: SON.stringify(dadosLogin)
+            body: JSON.stringify(dadosLogin)
         });
 
         if (!response.ok) {
             throw new Error('Acesso não autorizado');
         }
 
-        const data = await response.json(); // Extrai os dados JSON
+        const data = await response.json(); 
         console.log('Resposta:', data);
-        return data; // Retorna os dados corretamente
+        return data; 
     } catch (error) {
         console.error('Erro:', error);
-        return null; // Retorna null em caso de erro
+        return null; 
     }
 }
-
 
 let formCadastro = document.getElementById('formCadastro');
 formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
@@ -225,7 +224,6 @@ document.getElementById('logout').addEventListener('click', async function(event
 
         if (response.ok) {
             localStorage.removeItem('authToken');
-            
             window.location.href = '/login';
         } else {
             const errorData = await response.json();

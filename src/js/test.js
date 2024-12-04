@@ -18,7 +18,7 @@ async function fetchTest() {
 
         if (!response.ok) {
             throw new Error('Acesso não autorizado');
-            
+
         }
 
         const data = await response.json(); 
@@ -30,6 +30,16 @@ async function fetchTest() {
     }
 }
 
+function formatarData(dataISO) {
+    const data = new Date(dataISO);
+    return data.toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    });
+}
+
+
 function renderizarProjetos(projetos) {
     console.log("Renderizando projetos");
     const container = document.getElementById('projects-container');
@@ -38,6 +48,7 @@ function renderizarProjetos(projetos) {
     projetos.forEach(projeto => {
         const card = document.createElement('div');
         card.classList.add('project-card');
+        
 
         // Lógica para escolher a imagem dependendo do nome do projeto
         let imagemProjeto;
@@ -57,7 +68,7 @@ function renderizarProjetos(projetos) {
                 <p class="project-description">${projeto.descricaoprojeto}</p>
                 <p class="project-description">Consultor: ${projeto.consultor}</p>
                 <p class="project-description">Status: ${projeto.status}</p>
-                <p class="project-description">Data de Início: ${projeto.datainicio}</p>
+                <p class="project-description">Data de Início: ${formatarData(projeto.datainicio)}</p>
             </div>
             <div class="project-image">
                 <img src="${imagemProjeto}" alt="Imagem do Projeto">
