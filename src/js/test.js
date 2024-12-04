@@ -134,9 +134,3 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
     }
 });
-
-// img 
-
-document.getElementById('change-img-btn').addEventListener('click', () => {
-    document.getElementById('upload-img').click();
-});
