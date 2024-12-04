@@ -69,11 +69,15 @@ body.light-mode .contato textarea {
     color: #fff;
 }
 
+.body-light-mode .project-info{
+    background-color: #000;
+    color: #fff;
+}
+
 .body-light-mode .project-title {
     color: #fff;
     background-color: #000;
 }
-
 
 .menu-drop button {
     text-decoration: none;
