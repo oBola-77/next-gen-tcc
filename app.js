@@ -109,7 +109,7 @@ server.post('/logar', async (req, res) => {
     }
 })
 
-server.get('/test', async (req, res) => {
+server.get('/test', authMiddleware, async (req, res) => {
     const userId = req.user.uid;
     console.log("userID: ", userId);
 
@@ -174,7 +174,7 @@ server.post('/logarConsultor', async (req, res) => {
 })
 
 
-server.get('/consultor', async (req, res) => {
+server.get('/consultor', authMiddleware, async (req, res) => {
     const userId = req.user.uid;
     console.log("userID: ", userId);
     
