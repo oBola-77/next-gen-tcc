@@ -48,6 +48,33 @@ body.light-mode .card-wrapper {
     color: rgb(0, 0, 0);
 }
 
+body.light-mode .contato input {
+    background-color: #a1a1a1;
+    color: rgb(0, 0, 0);
+    border: none;
+}
+
+body.light-mode .contato textarea {
+    background-color: #a1a1a1;
+    color: rgb(0, 0, 0);
+    border: none;
+}
+
+.body-light-mode .project-card {
+    background-color: #fff;
+}
+
+.body-light-mode .project-description {
+    background-color: #000;
+    color: #fff;
+}
+
+.body-light-mode .project-title {
+    color: #fff;
+    background-color: #000;
+}
+
+
 .menu-drop button {
     text-decoration: none;
     font-size: 24px;
