@@ -1,3 +1,53 @@
+body.light-mode {
+    background-color: #f1f1f1;
+    color: rgb(0, 0, 0);
+}
+
+body.light-mode .profile {
+    background-color: #f1f1f1;
+    color: rgb(0, 0, 0);
+    border-color: #000;
+}
+
+body.light-mode .profile h1{
+    color: rgb(0, 0, 0);
+}
+
+body.light-mode .contato {
+    background-color: #f1f1f1;
+    color: rgb(0, 0, 0);
+    border-color: #000;
+}
+
+body.light-mode .contato label {
+    color: rgb(0, 0, 0);
+}
+
+body.light-mode .custom-jumbotron {
+    background-color: #f1f1f1;
+    color: rgb(0, 0, 0);
+}
+
+body.light-mode .custom-heading {
+    background-color: #f1f1f1;
+    color: #007dfc;
+}
+
+body.light-mode .custom-lead {
+    background-color: #f1f1f1;
+    color: rgb(0, 0, 0);
+}
+
+body.light-mode .custom-container {
+    background-color: #f1f1f1;
+    color: rgb(0, 0, 0);
+}
+
+body.light-mode .card-wrapper {
+    background-color: #f1f1f1;
+    color: rgb(0, 0, 0);
+}
+
 .menu-drop button {
     text-decoration: none;
     font-size: 24px;
@@ -47,7 +97,6 @@
     align-items: flex-start;
     width: 80%;
     margin: auto;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     padding-top: 13%;
 }
