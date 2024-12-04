@@ -103,7 +103,7 @@ async function fetchProjetos() {
     }
 
     try {
-        const response = await fetch('/test');
+        const response = await fetch('https://pmeupgrader-tcc.vercel.app/test');
         if (response.ok) {
             const data = await response.json();
             console.log("responde data:", data);
@@ -135,67 +135,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-// atualizar dados usuario
-
-// function temAlteracao() {
-//     const emailOriginal = document.getElementById('email').getAttribute('placeholder');
-//     const telefoneOriginal = document.getElementById('telefone').getAttribute('placeholder');
-//     const nomeEmpresaOriginal = document.getElementById('nomeEmpresa').getAttribute('placeholder');
-
-//     const emailAtual = document.getElementById('email').value;
-//     const telefoneAtual = document.getElementById('telefone').value;
-//     const nomeEmpresaAtual = document.getElementById('nomeEmpresa').value;
-
-//     return emailOriginal !== emailAtual || telefoneOriginal !== telefoneAtual || nomeEmpresaOriginal !== nomeEmpresaAtual;
-// }
-
-// document.getElementById('save-contact').addEventListener('click', async function (event) {
-//     event.preventDefault();
-
-//     if (!temAlteracao()) {
-//         alert('Nenhuma alteração foi feita.');
-//     }
-
-//     const confirmaSalvar = confirm('Você tem certeza que deseja salvar as alterações?');
-
-//     if (confirmaSalvar) {
-//         const dadosAtualizados = {
-//             email: document.getElementById('email').value,
-//             telefone: document.getElementById('telefone').value,
-//             nomeEmpresa: document.getElementById('nomeEmpresa').value
-//         };
-
-//         try {
-//             const response = await fetch('/atualizarInfo', {
-//                 method: 'PUT',
-//                 headers: {
-//                     'Content-Type': 'application/json',
-//                 },
-//                 body: JSON.stringify(dadosAtualizados),
-//             });
-
-//             const result = await response.json();
-
-//             if (response.ok) {
-//                 alert(result.message);
-//             } else {
-//                 alert(result.error);
-//             }
-//         } catch (error) {
-//             console.error('Erro ao salvar dados:', error);
-//             alert('Erro ao tentar salvar os dados. Tente novamente.');
-//         }
-//     } else {
-//         alert('Alterações não foram salvas.');
-//     }
-// });
-
 // img 
 
 document.getElementById('change-img-btn').addEventListener('click', () => {
     document.getElementById('upload-img').click();
 });
-
 
 //logout
 
@@ -203,15 +147,12 @@ document.getElementById('logout').addEventListener('click', async function (even
     event.preventDefault();
 
     try {
-        const response = await fetch('/logout', {
+        const response = await fetch('https://pmeupgrader-tcc.vercel.app/logout', {
             method: 'POST',
         });
 
         if (response.ok) {
-            // Limpa o authToken do localStorage
             localStorage.removeItem('authToken');
-
-            // Redireciona para a página de login
             window.location.href = '/login';
         } else {
             const errorData = await response.json();
