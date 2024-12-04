@@ -84,17 +84,6 @@ async function fetchProjetos() {
     }
 }
 
-function definirImagem(tituloProjeto) {
-    switch (tituloProjeto) {
-        case tituloProjeto:
-            
-            break;
-    
-        default:
-            break;
-    } 
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
     const data = await fetchTest();
     console.log(data);
@@ -110,6 +99,61 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             console.log("Nenhum projeto para renderizar.");
         };
+    }
+});
+
+// atualizar dados usuario
+
+function temAlteracao() {
+    const emailOriginal = document.getElementById('email').getAttribute('placeholder');
+    const telefoneOriginal = document.getElementById('telefone').getAttribute('placeholder');
+    const nomeEmpresaOriginal = document.getElementById('nomeEmpresa').getAttribute('placeholder');
+
+    const emailAtual = document.getElementById('email').value;
+    const telefoneAtual = document.getElementById('telefone').value;
+    const nomeEmpresaAtual = document.getElementById('nomeEmpresa').value;
+
+    return emailOriginal !== emailAtual || telefoneOriginal !== telefoneAtual || nomeEmpresaOriginal !== nomeEmpresaAtual;
+}
+
+document.getElementById('save-contact').addEventListener('click', async function (event) {
+    event.preventDefault();
+
+    if (!temAlteracao()) {
+        alert('Nenhuma alteração foi feita.');
+    }
+
+    const confirmaSalvar = confirm('Você tem certeza que deseja salvar as alterações?');
+
+    if (confirmaSalvar) {
+        const dadosAtualizados = {
+            email: document.getElementById('email').value,
+            telefone: document.getElementById('telefone').value,
+            nomeEmpresa: document.getElementById('nomeEmpresa').value
+        };
+
+        try {
+            const response = await fetch('/atualizarInfo', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dadosAtualizados),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert(result.message);
+            } else {
+                alert(result.error);
+            }
+        } catch (error) {
+            console.error('Erro ao salvar dados:', error);
+            alert('Erro ao tentar salvar os dados. Tente novamente.');
+        }
+    } else {
+        alert('Alterações não foram salvas.');
     }
 });
 
