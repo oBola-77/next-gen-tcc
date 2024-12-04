@@ -60,21 +60,21 @@ body.light-mode .contato textarea {
     border: none;
 }
 
-.body-light-mode .project-card {
+.body.light-mode .project-card {
     background-color: #fff;
 }
 
-.body-light-mode .project-description {
+.body.light-mode .project-description {
     background-color: #000;
     color: #fff;
 }
 
-.body-light-mode .project-info{
+.body.light-mode .project-info{
     background-color: #000;
     color: #fff;
 }
 
-.body-light-mode .project-title {
+.body.light-mode .project-title {
     color: #fff;
     background-color: #000;
 }
