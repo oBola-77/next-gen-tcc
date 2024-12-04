@@ -8,7 +8,7 @@ async function fetchTest() {
     }
 
     try {
-        const response = await fetch('https://pmeupgrader-tcc.vercel.app/test', {
+        const response = await fetch('/test', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -103,7 +103,7 @@ async function fetchProjetos() {
     }
 
     try {
-        const response = await fetch('https://pmeupgrader-tcc.vercel.app/test');
+        const response = await fetch('/test');
         if (response.ok) {
             const data = await response.json();
             console.log("responde data:", data);
