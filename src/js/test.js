@@ -18,6 +18,7 @@ async function fetchTest() {
 
         if (!response.ok) {
             throw new Error('Acesso não autorizado');
+            
         }
 
         const data = await response.json(); 

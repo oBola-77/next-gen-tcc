@@ -130,6 +130,7 @@ server.get('/test', authMiddleware, async (req, res) => {
         });
     } catch (error) {
         console.error("Erro ao buscar projetos:", error);
+        res.redirect('/')
         res.status(500).json({ message: "Erro interno ao buscar projetos." });
     }
 })
