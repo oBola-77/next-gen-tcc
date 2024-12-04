@@ -57,7 +57,13 @@ function renderizarProjetos(projetos) {
         } else if (projeto.tipoprojeto === 'Campanha redes sociais') {
             imagemProjeto = '../src/imagem/Perfil e Campanhas nas Redes Sociais.png'; // Substitua pelo caminho real da imagem
         } else if (projeto.tipoprojeto === 'Gestão de Aplicações') {
-            imagemProjeto = '../src/imagem/Gestão das Aplicações'; // Imagem padrão caso o nome não coincida
+            imagemProjeto = '../src/imagem/Gestão das Aplicações.png'; // Imagem padrão caso o nome não coincida
+        } else if (projeto.tipoprojeto === 'Google Meu Negócio') {
+            imagemProjeto = '../src/imagem/Plataforma Google Meu Negócio.png'; // Imagem padrão caso o nome não coincida
+        } else if (projeto.tipoprojeto === 'Posicionamento Digial') {
+            imagemProjeto = '../src/imagem/Posicionamento e Identidade de Marca.png'; // Imagem padrão caso o nome não coincida
+        } else if (projeto.tipoprojeto === 'Implementação Email Marketing') {
+            imagemProjeto = '../src/imagem/Email-Marketing.png'; // Imagem padrão caso o nome não coincida
         } else {
             imagemProjeto = '../src/imagem/'; // Imagem padrão caso o nome não coincida
         }
