@@ -137,14 +137,14 @@
 </body>
 <script src="../src/js/usuariowhite.js"></script>
 <script src="../src/js/dadospessoal.js"></script>
-<script src="../src/js/test.js"></script>
+<script type="module" src="../src/js/test.js"></script>
 <script>
 
     document.getElementById('logout').addEventListener('click', async function (event) {
         event.preventDefault();
 
         try {
-            const response = await fetch('logout', {
+            const response = await fetch('/logout', {
                 method: 'POST',
             });
 
