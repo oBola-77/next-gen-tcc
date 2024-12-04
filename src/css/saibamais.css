@@ -49,7 +49,7 @@
 .desc {
     margin-top: 0.5rem;
     color: #f1f1f1;
-    font-size: 0.875rem;
+    font-size: 1rem;
     line-height: 1.25rem;
 }
 
@@ -71,9 +71,10 @@
 }
 
 .custom-heading {
-    margin-top: 20%;
+    margin-top: 10%;
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: #007dfc;
 }
 
 .custom-lead {
