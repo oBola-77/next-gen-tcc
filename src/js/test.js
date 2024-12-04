@@ -1,6 +1,7 @@
 async function fetchTest() {
     const token = localStorage.getItem('authToken');
-
+    console.log('log da response', token);
+    
     if (!token) {
         console.log('Token não encontrado');
         window.location.href = 'login.html';
@@ -15,10 +16,10 @@ async function fetchTest() {
                 'Content-Type': 'application/json'
             }
         });
+        console.log(response)
 
         if (!response.ok) {
             throw new Error('Acesso não autorizado');
-
         }
 
         const data = await response.json();
