@@ -21,10 +21,10 @@
           </div>
           <ul class="navigation">
             <li><a href="index.html">PME</a></li>
+            <li><a href="saiba.html">Soluções</a></li>
             <li><a href="parceiros.html">Avaliações</a></li>
             <li><a href="sobrenos.html">Sobre nós</a></li>
             <li><a href="#" id="logout">Logout</a></li>
-        
             <li class="mask"><input type="checkbox" class="checkbox" id="toggle-theme-mobile" />
               <label class="label" for="toggle-theme-mobile">
                 <div class="ball"></div>
@@ -50,7 +50,7 @@
             <label for="fileInput" class="file-label"><span class="text">Alterar Foto</span></label>
             <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
             <div class="welc">
-                <h1>Seja bem-vindo, <span id="user-name">!</span>!</h1>
+                <h1>Seja bem-vindo, <span class="preto" id="user-name">!</span>!</h1>
             </div>
         </div>
 
@@ -139,7 +139,7 @@
 <script src="../src/js/dadospessoal.js"></script>
 <script type="module" src="../src/js/test.js"></script>
 <script>
-    const menuToggle = document.getElementById('menu-toggle');
+    const menuToggle = document.getElementById('toggle');
     const navigation = document.querySelector('.navigation');
 
     menuToggle.addEventListener('click', () => {

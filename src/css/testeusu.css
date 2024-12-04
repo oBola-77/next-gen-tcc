@@ -79,9 +79,9 @@ body.light-mode .contato textarea {
     background-color: #000;
 }
 
-.body-light-mode #user-name {
-    color: #000;
-}
+.preto {
+    color: #007dfc;
+}v
 
 .menu-drop button {
     text-decoration: none;
@@ -792,14 +792,20 @@ svg {
 @media (max-width: 480px) {
 
     .profile {
-        width: 90%;
+        width: 115%;
         height: auto;
         margin-bottom: 20px;
         padding: 10px;
-        margin-top: 25%;
-        margin-left: 20px;
+        margin-top: 40%;
+        margin-left: -7%;
     }
 
+    .contato {
+        width: 115%;
+        height: 90%;
+        margin-top: 20px;
+        margin-left: -7%;
+    }
     .profile img {
         width: 120px;
         height: 120px;
