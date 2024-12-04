@@ -140,26 +140,3 @@ document.addEventListener('DOMContentLoaded', async () => {
 document.getElementById('change-img-btn').addEventListener('click', () => {
     document.getElementById('upload-img').click();
 });
-
-//logout
-
-document.getElementById('logout').addEventListener('click', async function (event) {
-    event.preventDefault();
-
-    try {
-        const response = await fetch('https://pmeupgrader-tcc.vercel.app/logout', {
-            method: 'POST',
-        });
-
-        if (response.ok) {
-            localStorage.removeItem('authToken');
-            window.location.href = '/login';
-        } else {
-            const errorData = await response.json();
-            alert(errorData.message || "Erro ao realizar o logout.");
-        }
-    } catch (error) {
-        console.error("Erro ao fazer logout:", error);
-        alert("Ocorreu um erro ao fazer logout.");
-    }
-});
