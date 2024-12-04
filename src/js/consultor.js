@@ -73,6 +73,16 @@ formCadastro.addEventListener('submit', async function cadastrarProjeto(event) {
 })
 
 
+
+function formatarData(dataISO) {
+    const data = new Date(dataISO);
+    return data.toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    });
+}
+
 let formAtualizar = document.getElementById('formAtualizar');
 formAtualizar.addEventListener('submit', async function atualizarProjeto(event) {
     event.preventDefault();
@@ -134,7 +144,7 @@ function renderizarProjetos(projetos) {
         <p class="project-description">${projeto.descricaoprojeto}</p>
         <p class="project-description">Consultor: ${projeto.consultor}</p>
         <p class="project-description">Status: ${projeto.status}</p>
-        <p class="project-description">Data de Início: ${projeto.datainicio}</p>
+        <p class="project-description">Data de Início: ${formatarData(projeto.datainicio)}</p>
         </div>
         `;
         
