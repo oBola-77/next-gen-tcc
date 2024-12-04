@@ -16,7 +16,6 @@ import { dirname } from 'path';
 // import jwt from 'jsonwebtoken';
 import { gerarToken } from './middlewares/authMiddleware.js';
 import authMiddleware from './middlewares/authMiddleware.js';
-import { getAuth } from "firebase-admin/auth";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -134,39 +133,6 @@ server.get('/test', authMiddleware, async (req, res) => {
         res.status(500).json({ message: "Erro interno ao buscar projetos." });
     }
 })
-
-// REC SENHA
-
-server.post('/recuperarSenha', async (req, res) => {
-    const { email } = req.body;
-
-    if (!email) {
-        return res.status(400).json({ message: "E-mail é obrigatório." });
-    }
-
-    const actionCodeSettings = {
-        url: 'https://next-gen-tcc.vercel.app/login.html',
-        handleCodeInApp: true,
-    };
-
-    try {
-        const link = await getAuth().generatePasswordResetLink(email, actionCodeSettings);
-        console.log('Link de recuperação gerado:', link);
-
-        await sendCustomPasswordResetEmail(email, link);
-
-        res.status(200).json({ message: "E-mail de recuperação enviado com sucesso." });
-    } catch (error) {
-        console.error('Erro ao gerar link de recuperação:', error);
-        res.status(500).json({ message: "Erro ao enviar o e-mail de recuperação de senha." });
-    }
-});
-
-// Função de envio do email
-async function sendCustomPasswordResetEmail(email, link) {
-    console.log(`E-mail para ${email}: Link de redefinição - ${link}`);
-}
-
 
 // CONSULTORES
 

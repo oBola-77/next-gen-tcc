@@ -3,7 +3,7 @@ dotenv.config({ path: './db/.env' });
 import { sql } from './conn.js';
 import shortUUID from 'short-uuid';
 import { auth } from './firebase.js'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail  } from 'firebase/auth'
 
 export class DatabasePostgres {
     async registrar(dadosRegistro) {
@@ -41,6 +41,10 @@ export class DatabasePostgres {
             console.error("Erro durante o login:", error.message);
             throw error; // Repassa o erro para o método chamador
         }
+    }
+
+    async recuperarSenha(email) {
+        return sendPasswordResetEmail(auth, email);
     }
 
     async validarConsultor(dadosLogin) {

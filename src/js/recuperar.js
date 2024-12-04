@@ -1,26 +1,21 @@
-const form = document.getElementById('formRec');
+import { DatabasePostgres } from './db/commands-db.js';
+const database = new DatabasePostgres;
 
-form.addEventListener('submit', async (event) => {
+document.getElementById('formRec').addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const email = document.getElementById('emailRec').value;
 
+    if (!email) {
+        alert("Por favor, insira seu email.");
+        return;
+    }
+
     try {
-        const response = await fetch('/recuperarSenha', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            alert(data.message); 
-        } else {
-            alert(data.message || "Erro ao enviar o e-mail."); 
-        }
+        await database.recuperarSenha(email);
+        alert("Um email de redefinição de senha foi enviado para o seu endereço.");
     } catch (error) {
-        console.error('Erro:', error);
-        alert("Ocorreu um erro inesperado.");
+        console.error("Erro ao enviar email de redefinição:", error);
+        alert("Erro ao tentar enviar o email de redefinição. Verifique o endereço e tente novamente.");
     }
 });
